@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/blog-posts/slugs",
+      "handler": "blog-post.slugs",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/blog-posts/count",
       "handler": "blog-post.count",
       "config": {

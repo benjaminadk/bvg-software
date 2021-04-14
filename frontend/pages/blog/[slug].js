@@ -1,7 +1,39 @@
+import PropTypes from 'prop-types'
 import BlogPost from '@/components/BlogPost'
+import { getBlogPostSlugs, getBlogPostBySlug } from '@/lib/strapi'
 
-function BlogPostPage() {
-  return <BlogPost />
+function BlogPostPage({ blogPost }) {
+  return <BlogPost blogPost={blogPost} />
+}
+
+export async function getStaticPaths() {
+  const slugs = await getBlogPostSlugs()
+
+  return {
+    paths: slugs.map((slug) => ({ params: { slug: slug.slug } })),
+    fallback: true,
+  }
+}
+
+export async function getStaticProps(ctx) {
+  const blogPost = await getBlogPostBySlug(ctx.params.slug)
+
+  if (!blogPost) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      blogPost,
+    },
+    revalidate: 1,
+  }
+}
+
+BlogPostPage.propTypes = {
+  blogPost: PropTypes.object,
 }
 
 export default BlogPostPage
