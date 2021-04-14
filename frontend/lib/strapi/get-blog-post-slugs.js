@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-import { SERVER_URL } from '@/lib/constants'
+import { SERVER_URL } from '../constants'
 
 async function getBlogPostSlugs() {
   try {

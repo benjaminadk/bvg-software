@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
-import ThemeProvider from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import NProgress from 'nprogress'
 
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 
-import theme from '../components/styles/theme'
+import { theme } from '@/components/styles'
 
 function App({ Component, pageProps }) {
   const router = useRouter()

@@ -6,8 +6,9 @@ import media from './media'
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
-  
+
   html {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 10px;
     -webkit-font-smoothing: antialiased;
   }

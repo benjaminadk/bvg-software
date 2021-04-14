@@ -10,7 +10,6 @@ async function getBlogPostBySlug(slug) {
       method: 'GET',
       url: `${SERVER_URL}/blog-posts?${query}`,
     })
-    console.log(res)
     return res.data[0]
   } catch (error) {
     console.log(error)

@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
+// import { useMemo } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import * as UTILS from '../lib/utils'
-import * as CONSTANTS from '../lib/constants'
+import { createStructuredData } from '@/lib/utils'
+import { CLIENT_URL, FACEBOOK_APP_ID } from '@/lib/constants'
 
 function Meta() {
   const router = useRouter()
@@ -22,17 +22,14 @@ function Meta() {
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
       <meta key='type' property='og:type' content='website' />
-      <meta
-        property='og:url'
-        content={`${CONSTANTS.CLIENT_URL}${router.asPath}`}
-      />
-      <meta property='fb:app_id' content={CONSTANTS.FACEBOOK_APP_ID} />
+      <meta property='og:url' content={`${CLIENT_URL}${router.asPath}`} />
+      <meta property='fb:app_id' content={FACEBOOK_APP_ID} />
 
       {/* Website Structured Data */}
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
-          __html: UTILS.createStructuredData('website', null),
+          __html: createStructuredData('website', null),
         }}
       />
 
@@ -41,29 +38,16 @@ function Meta() {
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
-            __html: UTILS.createStructuredData('organization', null),
+            __html: createStructuredData('organization', null),
           }}
         />
       )}
 
-      {/* Preload Local Fonts */}
+      {/* Google Font */}
+      <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link
-        rel='preload'
-        href='/fonts/FuturaPT-Bold.woff'
-        as='font'
-        crossOrigin=''
-      />
-      <link
-        rel='preload'
-        href='/fonts/FuturaPT-Demi.woff'
-        as='font'
-        crossOrigin=''
-      />
-      <link
-        rel='preload'
-        href='/fonts/FuturaPT-Book.woff'
-        as='font'
-        crossOrigin=''
+        href='https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap'
+        rel='stylesheet'
       />
 
       {/* Klaviyo */}
@@ -71,7 +55,7 @@ function Meta() {
         async
         type='text/javascript'
         src='//static.klaviyo.com/onsite/js/klaviyo.js?company_id=TDhdAz'
-      ></script>
+      />
     </Head>
   )
 }
