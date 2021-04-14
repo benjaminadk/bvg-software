@@ -1,0 +1,41 @@
+import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
+
+import theme from './theme'
+import media from './media'
+
+const GlobalStyles = createGlobalStyle`
+  ${normalize}
+  
+  html {
+    font-size: 10px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    box-sizing: border-box;
+    color: ${theme.color.black};
+    margin: 0;
+    padding: 0;
+  }
+
+  *, *::before,*::after {
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  #nprogress {
+   pointer-events: none;
+  }
+
+  #nprogress .bar {
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+`
+
+export { GlobalStyles, theme, media }
