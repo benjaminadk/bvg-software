@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.color.black};
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
   *, *::before,*::after {

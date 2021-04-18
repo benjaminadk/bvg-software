@@ -5,14 +5,30 @@ import styled from 'styled-components'
 import Markdown from '../Markdown'
 
 function BlogPost({ blogPost }) {
-  return (
-    <Container>
-      <Markdown source={blogPost.content} className='' />
-    </Container>
-  )
+  if (blogPost) {
+    return (
+      <Container>
+        <Markdown source={blogPost.content} className='blog-post' />
+      </Container>
+    )
+  } else {
+    return null
+  }
 }
 
-const Container = styled.div``
+const Container = styled.article`
+  width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    text-align: justify;
+  }
+`
 
 BlogPost.propTypes = {
   blogPost: PropTypes.object,

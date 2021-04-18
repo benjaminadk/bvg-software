@@ -1,5 +1,11 @@
 async function redirects() {
-  return [{ source: '/source', destination: '/destination', permanent: true }]
+  return [
+    {
+      source: '/posts/wordpress-form-to-email-and-google-sheet',
+      destination: '/blog/email-wordpress-form-and-save-to-google-sheet/',
+      permanent: true,
+    },
+  ]
 }
 
 module.exports = () => {
@@ -11,6 +17,7 @@ module.exports = () => {
       path: '/_next/image',
       loader: 'default',
     },
-    trailingLash: true,
+    redirects,
+    trailingSlash: true,
   }
 }
