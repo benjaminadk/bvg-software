@@ -37,7 +37,7 @@ function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
+      <Layout pageProps={pageProps}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

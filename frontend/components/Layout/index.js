@@ -7,10 +7,10 @@ import Meta from './Meta'
 import Header from './Header'
 import Main from './Main'
 
-function Layout({ children }) {
+function Layout({ children, pageProps }) {
   return (
     <Container>
-      <Meta />
+      <Meta pageProps={pageProps} />
       <GlobalStyles />
       <Header />
       <Main>{children}</Main>
@@ -22,6 +22,7 @@ const Container = styled.main``
 
 Layout.propTypes = {
   children: PropTypes.object,
+  pageProps: PropTypes.object,
 }
 
 export default Layout

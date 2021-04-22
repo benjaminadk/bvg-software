@@ -19,6 +19,16 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  a {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: ${(p) => p.theme.color.secondary};
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 Blog.propTypes = {

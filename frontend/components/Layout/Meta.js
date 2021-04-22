@@ -1,15 +1,21 @@
-// import { useMemo } from 'react'
+import { useMemo } from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { createStructuredData } from '@/lib/utils'
 import { CLIENT_URL, FACEBOOK_APP_ID } from '@/lib/constants'
 
-function Meta() {
+function Meta({ pageProps }) {
   const router = useRouter()
 
-  let title = ''
-  let description = ''
+  const page = useMemo(() => {
+    return pageProps?.homePage || pageProps?.blogPost || null
+  }, [pageProps])
+
+  const [title, description] = useMemo(() => {
+    return page ? [page.meta_title, page.meta_description] : ['', '']
+  }, [page])
 
   return (
     <Head>
@@ -58,6 +64,10 @@ function Meta() {
       />
     </Head>
   )
+}
+
+Meta.propTypes = {
+  pageProps: PropTypes.object,
 }
 
 export default Meta

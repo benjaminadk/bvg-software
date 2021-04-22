@@ -9,6 +9,7 @@ function BlogPost({ blogPost }) {
   if (blogPost) {
     return (
       <Container>
+        <h1>{blogPost.title}</h1>
         <Markdown source={blogPost.content} className='blog-post' />
       </Container>
     )
@@ -20,6 +21,13 @@ function BlogPost({ blogPost }) {
 const Container = styled.article`
   width: 700px;
   margin: 0 auto;
+
+  h1 {
+    font-size: 3.2rem;
+    font-weight: ${(p) => p.theme.font.bold};
+    text-align: center;
+    margin-bottom: 3rem;
+  }
 
   h2 {
     font-size: 2.6rem;
