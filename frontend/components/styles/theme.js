@@ -2,13 +2,15 @@ import shadows from './shadows'
 
 export default {
   font: {
-    family: 'Ralway',
-    normal: 500,
-    bold: 700,
+    regular: `'Ralway', sans-serif`,
+    code: `'Cascadia Code', monospace`,
+    normal: 400,
+    bold: 500,
+    bolder: 600,
   },
   color: {
     primary: '#858585',
-    secondary: '#f69131',
+    secondary: '#4467d6',
     error: '#cf2e2e',
     success: '#629a37',
     link: '#4467d6',

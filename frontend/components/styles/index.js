@@ -7,8 +7,15 @@ import media from './media'
 const GlobalStyles = createGlobalStyle`
   ${normalize}
 
+  @font-face {
+    font-family: 'Cascadia Code';
+    src: url('/fonts/CascadiaCode-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
+  }
+
   html {
-    font-family: ${theme.font.family}, sans-serif;
+    font-family: ${theme.font.regular};
     font-size: 10px;
     -webkit-font-smoothing: antialiased;
   }

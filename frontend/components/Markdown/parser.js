@@ -20,6 +20,8 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
+import { Pre } from './elements'
+
 refractor.register(autohotkey)
 refractor.register(bash)
 refractor.register(graphql)
@@ -93,7 +95,9 @@ const parser = unified()
   .use(rehypePrism)
   .use(rehype2react, {
     createElement: React.createElement,
-    components: {},
+    components: {
+      pre: Pre,
+    },
   })
 
 export default parser
