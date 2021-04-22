@@ -15,6 +15,8 @@ function Blog({ blogPosts }) {
 }
 
 const Container = styled.div`
+  max-width: ${(p) => p.theme.maxWidth};
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 `

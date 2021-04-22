@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
 
   html {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: ${theme.font.family}, sans-serif;
     font-size: 10px;
     -webkit-font-smoothing: antialiased;
   }
@@ -24,6 +24,11 @@ const GlobalStyles = createGlobalStyle`
   *, *::before,*::after {
     box-sizing: border-box;
     user-select: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${theme.color.black};
   }
 
   #nprogress {

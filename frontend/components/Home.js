@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 function Home() {
-  return (
-    <Container>
-      <h1>Homepage</h1>
-    </Container>
-  )
+  return <Container></Container>
 }
 
 const Container = styled.div`

@@ -1,8 +1,13 @@
 import shadows from './shadows'
 
 export default {
+  font: {
+    family: 'Ralway',
+    normal: 500,
+    bold: 700,
+  },
   color: {
-    primary: '#86c456',
+    primary: '#858585',
     secondary: '#f69131',
     error: '#cf2e2e',
     success: '#629a37',
@@ -16,5 +21,7 @@ export default {
     gray400: '#a3a3a3',
     gray500: '#858585',
   },
+  maxWidth: '70rem',
+  headerHeight: '8rem',
   shadows,
 }

@@ -5,6 +5,11 @@ async function redirects() {
       destination: '/blog/email-wordpress-form-and-save-to-google-sheet/',
       permanent: true,
     },
+    {
+      source: '/posts/how-to-build-a-color-picker',
+      destination: '/blog/how-to-build-a-color-picker-with-react/',
+      permanent: true,
+    },
   ]
 }
 

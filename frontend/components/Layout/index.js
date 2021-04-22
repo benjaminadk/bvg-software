@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { GlobalStyles } from '../styles'
 import Meta from './Meta'
+import Header from './Header'
 import Main from './Main'
 
 function Layout({ children }) {
@@ -11,6 +12,7 @@ function Layout({ children }) {
     <Container>
       <Meta />
       <GlobalStyles />
+      <Header />
       <Main>{children}</Main>
     </Container>
   )
