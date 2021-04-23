@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -64,10 +63,6 @@ function Meta({ pageProps }) {
       />
     </Head>
   )
-}
-
-Meta.propTypes = {
-  pageProps: PropTypes.object,
 }
 
 export default Meta

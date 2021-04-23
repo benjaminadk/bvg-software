@@ -10,7 +10,8 @@ export default {
   },
   color: {
     primary: '#858585',
-    secondary: '#4467d6',
+    secondary: '#165bbb',
+    cobaltBg: '#193549',
     error: '#cf2e2e',
     success: '#629a37',
     link: '#4467d6',

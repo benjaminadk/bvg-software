@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { StrictMode, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'styled-components'
+import SimpleReactLightbox from 'simple-react-lightbox'
 import NProgress from 'nprogress'
 
 import Layout from '@/components/Layout'
@@ -36,11 +37,15 @@ function App({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout pageProps={pageProps}>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <StrictMode>
+      <ThemeProvider theme={theme}>
+        <SimpleReactLightbox>
+          <Layout pageProps={pageProps}>
+            <Component {...pageProps} />
+          </Layout>
+        </SimpleReactLightbox>
+      </ThemeProvider>
+    </StrictMode>
   )
 }
 

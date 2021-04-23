@@ -1,6 +1,7 @@
 import React from 'react'
 import unified from 'unified'
 import parse from 'remark-parse'
+import gfm from 'remark-gfm'
 import remark2rehype from 'remark-rehype'
 import rehype2react from 'rehype-react'
 import refractor from 'refractor/core'
@@ -20,7 +21,7 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
-import { Pre } from './elements'
+import { Img, Li, Pre, Span } from './elements'
 
 refractor.register(autohotkey)
 refractor.register(bash)
@@ -90,13 +91,17 @@ function rehypePrism(options) {
 
 const parser = unified()
   .use(parse)
+  .use(gfm)
   .use(remark2rehype, { allowDangerousHtml: true })
   .use(raw)
   .use(rehypePrism)
   .use(rehype2react, {
     createElement: React.createElement,
     components: {
+      img: Img,
+      li: Li,
       pre: Pre,
+      span: Span,
     },
   })
 

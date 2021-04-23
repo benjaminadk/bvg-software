@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -30,9 +29,5 @@ const Container = styled.div`
     }
   }
 `
-
-Blog.propTypes = {
-  blogPosts: PropTypes.array,
-}
 
 export default Blog

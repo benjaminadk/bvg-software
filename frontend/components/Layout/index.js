@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { GlobalStyles } from '../styles'
@@ -19,10 +18,5 @@ function Layout({ children, pageProps }) {
 }
 
 const Container = styled.main``
-
-Layout.propTypes = {
-  children: PropTypes.object,
-  pageProps: PropTypes.object,
-}
 
 export default Layout

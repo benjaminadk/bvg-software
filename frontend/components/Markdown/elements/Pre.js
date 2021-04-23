@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Check, FileCopy } from '@styled-icons/material'
+import { Check } from '@styled-icons/material'
 import copy from 'clipboard-copy'
 
 function Pre({ children, className }) {
@@ -23,7 +22,11 @@ function Pre({ children, className }) {
       <pre ref={pre} className={className}>
         {children}
         <span className='copy-icon' onClick={onClick}>
-          {copied ? <Check size={20} /> : <FileCopy size={20} />}
+          {copied ? (
+            <Check size={20} />
+          ) : (
+            <span className='copy-text'>COPY</span>
+          )}
         </span>
       </pre>
     </Container>
@@ -31,19 +34,31 @@ function Pre({ children, className }) {
 }
 
 const Container = styled.div`
-  pre {
-    position: relative;
-    font-family: ${(p) => p.theme.font.code};
-    font-size: 1.4rem;
-    line-height: 1.4;
-    margin: 0;
-  }
-
   .copy-icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1rem;
+    top: 1rem;
+    background-color: ${(p) => p.theme.color.gray500};
+    margin: 0;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+
+    &:hover {
+      background-color: ${(p) => p.theme.color.gray500};
+
+      .copy-text {
+        color: ${(p) => p.theme.color.white};
+      }
+    }
+
+    svg {
+      color: ${(p) => p.theme.color.black};
+    }
+
+    .copy-text {
+      font-size: 1.2rem;
+      color: ${(p) => p.theme.color.white};
+    }
   }
 
   .highlight {
@@ -57,6 +72,7 @@ const Container = styled.div`
 
   code[class*='language-'],
   pre[class*='language-'] {
+    direction: ltr;
     tab-size: 2;
     hyphens: none;
     white-space: pre-wrap;
@@ -64,11 +80,14 @@ const Container = styled.div`
     font-family: ${(p) => p.theme.font.code};
     font-size: 1.3rem;
     color: #76d9e6;
-    text-shadow: none;
-  }
 
-  pre > code[class*='language-'] {
-    font-size: 1.3rem;
+    & > span.token {
+      font-size: 1.3rem;
+    }
+
+    & > span > span.token {
+      font-size: 1.3rem;
+    }
   }
 
   pre[class*='language-'],
@@ -79,11 +98,12 @@ const Container = styled.div`
   pre[class*='language-'] {
     position: relative;
     overflow: auto;
-    padding: 1.5rem;
-    border-radius: 4px;
-    /* border: 1px solid ${(p) => p.theme.color.black}; */
+    line-height: 1.4;
+    border-radius: 0.4rem;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
+    margin: 0;
+    padding: 1.4rem;
   }
 
   pre[class*='language-'] code {
@@ -194,36 +214,9 @@ const Container = styled.div`
     color: #76d9e6;
   }
 
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    font-size: 1.4rem;
-    border: 1px solid lightgrey;
-    margin-bottom: 50px;
-    box-shadow: ${(p) => p.theme.shadows[2]};
-  }
-
-  table th {
-    background-color: #fff;
-    padding: 4px 8px;
-  }
-
-  table td {
-    padding: 4px 8px;
-  }
-
-  table tr {
-    background-color: #fff;
-  }
-
-  table tr:nth-child(odd) {
-    background-color: #edf2f7;
+  code.language-html .token.attr-value {
+    color: #a5d14d;
   }
 `
-
-Pre.propTypes = {
-  children: PropTypes.object,
-  className: PropTypes.string,
-}
 
 export default Pre
