@@ -691,6 +691,10 @@
               }
             }
           },
+          "published_on": {
+            "type": "string",
+            "format": "date"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -730,6 +734,10 @@
                 }
               }
             }
+          },
+          "published_on": {
+            "type": "string",
+            "format": "date"
           },
           "published_at": {
             "type": "string",
