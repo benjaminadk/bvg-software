@@ -60,7 +60,7 @@ const Container = styled.header`
         cursor: pointer;
 
         &:hover {
-          border-color: ${(p) => p.theme.color.secondary};
+          border-color: ${(p) => p.theme.color.primary};
         }
       }
     }

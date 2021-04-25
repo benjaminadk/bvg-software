@@ -27,15 +27,15 @@ const Container = styled.li`
 
   & > code {
     font-size: 1.3rem;
-    background-color: ${(p) => lighten(0.4, p.theme.color.secondary)};
-    color: ${(p) => p.theme.color.secondary};
+    background-color: ${(p) => lighten(0.4, p.theme.color.primary)};
+    color: ${(p) => p.theme.color.primary};
     padding: 0.2rem 0.4rem;
     margin: 0 0.4rem;
     border-radius: 0.4rem;
   }
 
   & > a {
-    color: ${(p) => p.theme.color.secondary};
+    color: ${(p) => p.theme.color.primary};
     margin: 0 0.4rem;
 
     &:hover {

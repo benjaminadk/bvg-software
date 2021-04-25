@@ -9,7 +9,11 @@ function Pre({ children, className }) {
   const [copied, setCopied] = useState(false)
 
   function onClick() {
-    copy(pre.current.textContent)
+    copy(
+      pre.current.textContent
+        .slice(0, pre.current.textContent.length - 4)
+        .trim()
+    )
     setCopied(true)
 
     setTimeout(() => {
@@ -38,6 +42,10 @@ const Container = styled.div`
     position: absolute;
     right: 1rem;
     top: 1rem;
+    width: 5rem;
+    height: 3rem;
+    display: grid;
+    place-items: center center;
     background-color: ${(p) => p.theme.color.gray500};
     margin: 0;
     padding: 0.5rem 1rem;
@@ -52,7 +60,7 @@ const Container = styled.div`
     }
 
     svg {
-      color: ${(p) => p.theme.color.black};
+      color: ${(p) => p.theme.color.white};
     }
 
     .copy-text {
@@ -174,7 +182,7 @@ const Container = styled.div`
   .token.important,
   .token.statement,
   .token.bold {
-    font-weight: bold;
+    font-weight: normal;
   }
 
   .token.punctuation {

@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
 function Blog({ blogPosts }) {
+  const [sortedPosts, setSortedPosts] = useState([])
+
+  useEffect(() => {
+    setSortedPosts(
+      blogPosts.slice().sort((a, b) => {
+        return new Date(b.published_on) - new Date(a.published_on)
+      })
+    )
+  }, [])
+
   return (
     <Container>
-      {blogPosts.map(({ id, title, slug }) => (
+      {sortedPosts.map(({ id, title, slug }) => (
         <Link key={id} href={`/blog/${slug}`}>
           <a>{title}</a>
         </Link>
@@ -22,7 +33,7 @@ const Container = styled.div`
   a {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: ${(p) => p.theme.color.secondary};
+    color: ${(p) => p.theme.color.primary};
 
     &:hover {
       text-decoration: underline;

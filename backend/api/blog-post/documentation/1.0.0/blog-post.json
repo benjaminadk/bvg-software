@@ -695,6 +695,9 @@
             "type": "string",
             "format": "date"
           },
+          "read_time": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -738,6 +741,9 @@
           "published_on": {
             "type": "string",
             "format": "date"
+          },
+          "read_time": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

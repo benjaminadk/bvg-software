@@ -44,6 +44,9 @@
     },
     "published_on": {
       "type": "date"
+    },
+    "read_time": {
+      "type": "string"
     }
   }
 }
