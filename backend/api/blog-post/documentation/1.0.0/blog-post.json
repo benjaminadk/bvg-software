@@ -698,6 +698,9 @@
           "read_time": {
             "type": "string"
           },
+          "video_id": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -743,6 +746,9 @@
             "format": "date"
           },
           "read_time": {
+            "type": "string"
+          },
+          "video_id": {
             "type": "string"
           },
           "published_at": {

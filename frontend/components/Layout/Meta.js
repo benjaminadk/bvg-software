@@ -9,7 +9,9 @@ function Meta({ pageProps }) {
   const router = useRouter()
 
   const page = useMemo(() => {
-    return pageProps?.homePage || pageProps?.blogPost || null
+    return (
+      pageProps?.homePage || pageProps?.aboutPage || pageProps?.blogPost || null
+    )
   }, [pageProps])
 
   const [title, description] = useMemo(() => {
@@ -51,7 +53,7 @@ function Meta({ pageProps }) {
       {/* Google Font */}
       <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link
-        href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap'
+        href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap'
         rel='stylesheet'
       />
 

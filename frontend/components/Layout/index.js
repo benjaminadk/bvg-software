@@ -5,6 +5,7 @@ import { GlobalStyles } from '../styles'
 import Meta from './Meta'
 import Header from './Header'
 import Main from './Main'
+import Footer from './Footer'
 
 function Layout({ children, pageProps }) {
   return (
@@ -13,6 +14,7 @@ function Layout({ children, pageProps }) {
       <GlobalStyles />
       <Header />
       <Main>{children}</Main>
+      <Footer />
     </Container>
   )
 }

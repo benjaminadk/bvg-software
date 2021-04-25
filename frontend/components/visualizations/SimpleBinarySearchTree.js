@@ -89,7 +89,7 @@ const Container = styled.div`
 
   input[type='number'] {
     font-size: 2rem !important;
-    font-weight: ${(p) => p.theme.font.bold};
+    font-weight: ${(p) => p.theme.font.normal};
     text-align: center;
     border: 0;
     border-radius: 3px;
@@ -99,7 +99,7 @@ const Container = styled.div`
   input[type='button'],
   input[type='submit'] {
     font-size: 1.6rem;
-    font-weight: ${(p) => p.theme.font.bold};
+    font-weight: ${(p) => p.theme.font.normal};
     background-color: ${(p) => p.theme.color.primary};
     color: ${(p) => p.theme.color.white};
     padding: 1.25rem 2rem;

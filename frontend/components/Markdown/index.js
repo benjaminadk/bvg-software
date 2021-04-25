@@ -17,14 +17,14 @@ function Markdown({ source, className }) {
 const Container = styled.div`
   h2 {
     font-size: 2.6rem;
-    font-weight: ${(p) => p.theme.font.bold};
+    font-weight: ${(p) => p.theme.font.normal};
     margin-top: 4rem;
     margin-bottom: 1rem;
   }
 
   h3 {
     font-size: 2rem;
-    font-weight: ${(p) => p.theme.font.bold};
+    font-weight: ${(p) => p.theme.font.normal};
     margin-top: 4rem;
   }
 

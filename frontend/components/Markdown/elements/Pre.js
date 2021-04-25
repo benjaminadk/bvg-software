@@ -38,10 +38,16 @@ function Pre({ children, className }) {
 }
 
 const Container = styled.div`
+  &:after {
+    content: '';
+    display: block;
+    margin-bottom: 3rem;
+  }
+
   .copy-icon {
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    right: 0.75rem;
+    top: 0.75rem;
     width: 5rem;
     height: 3rem;
     display: grid;
@@ -73,9 +79,9 @@ const Container = styled.div`
     position: absolute;
     left: 0;
     width: 100%;
-    height: 1.5rem;
+    height: 2rem;
     display: inline-block;
-    background-color: #eff3db2b;
+    background-color: ${(p) => p.theme.code.highlight};
   }
 
   code[class*='language-'],

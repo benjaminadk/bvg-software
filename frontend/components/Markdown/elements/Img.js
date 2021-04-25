@@ -33,7 +33,7 @@ const Container = styled.figure`
 
   figcaption {
     font-size: 1.5rem;
-    font-weight: ${(p) => p.theme.font.bold};
+    font-weight: ${(p) => p.theme.font.normal};
     color: ${(p) => p.theme.color.gray400};
     margin-top: 2rem;
   }

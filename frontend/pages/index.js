@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import Home from '@/components/Home'
 
 import { getHomePage } from '@/lib/strapi'
@@ -22,10 +21,6 @@ export async function getStaticProps() {
     },
     revalidate: 1,
   }
-}
-
-HomePage.propTypes = {
-  homePage: PropTypes.object,
 }
 
 export default HomePage

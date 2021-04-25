@@ -5,6 +5,7 @@ function Main({ children }) {
 }
 
 const Container = styled.main`
+  min-height: ${(p) => `calc(100vh - ${p.theme.headerHeight})`};
   margin-top: ${(p) => p.theme.headerHeight};
   padding-top: 5rem;
 `

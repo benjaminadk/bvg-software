@@ -54,7 +54,7 @@ const Container = styled.header`
 
       li {
         font-size: 1.6rem;
-        font-weight: ${(p) => p.theme.font.bold};
+        font-weight: ${(p) => p.theme.font.normal};
         padding: 32px 2rem 26px;
         border-bottom: 4px solid ${(p) => p.theme.color.white};
         cursor: pointer;

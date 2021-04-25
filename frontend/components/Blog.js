@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import moment from 'moment'
 
 function Blog({ blogPosts }) {
   const [sortedPosts, setSortedPosts] = useState([])
@@ -15,10 +16,15 @@ function Blog({ blogPosts }) {
 
   return (
     <Container>
-      {sortedPosts.map(({ id, title, slug }) => (
-        <Link key={id} href={`/blog/${slug}`}>
-          <a>{title}</a>
-        </Link>
+      {sortedPosts.map(({ id, title, slug, published_on }) => (
+        <div key={id} className='post'>
+          <div className='date'>
+            {moment(published_on).format('YYYY-MM-DD')}
+          </div>
+          <Link href={`/blog/${slug}`}>
+            <a>{title}</a>
+          </Link>
+        </div>
       ))}
     </Container>
   )
@@ -30,9 +36,21 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  .post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .date {
+    font-size: 1.2rem;
+    color: ${(p) => p.theme.color.secondary};
+    margin-right: 1rem;
+  }
+
   a {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    font-weight: ${(p) => p.theme.font.normal};
     color: ${(p) => p.theme.color.primary};
 
     &:hover {

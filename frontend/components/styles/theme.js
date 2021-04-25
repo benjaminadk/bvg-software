@@ -5,7 +5,6 @@ export default {
     regular: `'Ralway', sans-serif`,
     code: `'Cascadia Code', monospace`,
     normal: 400,
-    bold: 500,
     bolder: 600,
   },
   color: {
@@ -26,8 +25,12 @@ export default {
     gray400: '#a3a3a3',
     gray500: '#858585',
   },
+  code: {
+    highlight: '#eff3db2b',
+  },
   maxWidth: '70rem',
   headerHeight: '8rem',
+  footerHeight: '50rem',
   borderRadius: '.3rem',
   shadows,
 }
