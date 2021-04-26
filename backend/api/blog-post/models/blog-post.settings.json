@@ -48,8 +48,10 @@
     "read_time": {
       "type": "string"
     },
-    "video_id": {
-      "type": "string"
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "multimedia.video"
     }
   }
 }

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import moment from 'moment'
 
+import Heading from './Heading'
+
 function Blog({ blogPosts }) {
   const [sortedPosts, setSortedPosts] = useState([])
 
@@ -16,25 +18,39 @@ function Blog({ blogPosts }) {
 
   return (
     <Container>
-      {sortedPosts.map(({ id, title, slug, published_on }) => (
-        <div key={id} className='post'>
-          <div className='date'>
-            {moment(published_on).format('YYYY-MM-DD')}
+      <Heading>
+        <h1>Posts</h1>
+      </Heading>
+      <div className='content'>
+        {sortedPosts.map(({ id, title, slug, published_on }) => (
+          <div key={id} className='post'>
+            <div className='date'>
+              {moment(published_on).format('YYYY-MM-DD')}
+            </div>
+            <Link href={`/blog/${slug}`}>
+              <a>{title}</a>
+            </Link>
           </div>
-          <Link href={`/blog/${slug}`}>
-            <a>{title}</a>
-          </Link>
-        </div>
-      ))}
+        ))}
+      </div>
     </Container>
   )
 }
 
 const Container = styled.div`
-  max-width: ${(p) => p.theme.maxWidth};
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  h1 {
+    font-size: 3.2rem;
+    font-weight: ${(p) => p.theme.font.normal};
+    margin: 0;
+  }
+
+  .content {
+    max-width: ${(p) => p.theme.maxWidth};
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
 
   .post {
     display: flex;
@@ -51,9 +67,10 @@ const Container = styled.div`
   a {
     font-size: 2rem;
     font-weight: ${(p) => p.theme.font.normal};
-    color: ${(p) => p.theme.color.primary};
+    color: ${(p) => p.theme.color.black};
 
     &:hover {
+      color: ${(p) => p.theme.color.primary};
       text-decoration: underline;
     }
   }

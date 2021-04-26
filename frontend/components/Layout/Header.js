@@ -30,7 +30,7 @@ const Container = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   height: ${(p) => p.theme.headerHeight};
   background-color: ${(p) => p.theme.color.white};
   box-shadow: ${(p) => p.theme.shadows[1]};
