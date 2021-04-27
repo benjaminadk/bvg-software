@@ -5,7 +5,7 @@ export default {
     regular: `'Ralway', sans-serif`,
     code: `'Cascadia Code', monospace`,
     normal: 400,
-    bolder: 600,
+    bold: 600,
   },
   color: {
     primary: '#007BFF',

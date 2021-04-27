@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 import { ArrowNarrowRight } from '@styled-icons/heroicons-outline'
-import { lighten } from 'polished'
+import { lighten, darken } from 'polished'
 
-function Li({ children, ...rest }) {
+function Li({ children, number, ...rest }) {
   return (
     <Container {...rest}>
-      <ArrowNarrowRight size={20} />
+      {number ? (
+        <span className='item'>{number}</span>
+      ) : (
+        <span className='item'>
+          <ArrowNarrowRight size={20} />
+        </span>
+      )}
       {children}
     </Container>
   )
@@ -21,8 +27,16 @@ const Container = styled.li`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 
-  svg {
-    margin-right: 0.5rem;
+  .item {
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center center;
+    border-radius: 50%;
+    background-color: ${(p) => lighten(0.45, p.theme.color.warning)};
+    color: ${(p) => darken(0.15, p.theme.color.warning)};
+    border: 1px solid ${(p) => lighten(0.35, p.theme.color.warning)};
+    margin-right: 0.75rem;
   }
 
   & > code {

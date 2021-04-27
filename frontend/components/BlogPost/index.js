@@ -10,6 +10,7 @@ import SimpleBinarySearchTree from '../visualizations/SimpleBinarySearchTree'
 import Heading from '../Heading'
 import Video from '../Video'
 import Markdown from '../Markdown'
+import Author from '../Author'
 
 function BlogPost({ blogPost }) {
   if (blogPost) {
@@ -49,6 +50,7 @@ function BlogPost({ blogPost }) {
           )}
           <Markdown source={blogPost.content} className='blog-post' />
         </div>
+        <Author />
       </Container>
     )
   } else {
@@ -110,7 +112,7 @@ const Container = styled.article`
 
   .content {
     width: 700px;
-    margin: 3rem auto 10rem;
+    margin: 3rem auto 5rem;
   }
 `
 

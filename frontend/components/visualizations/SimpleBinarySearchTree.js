@@ -59,15 +59,15 @@ function SimpleBinarySearchTree() {
         <div ref={searchFor1} />
         <div ref={reset1} />
       </div>
-      <div ref={linear1} />
-      <div ref={binary1} />
+      <div className='text' ref={linear1} />
+      <div className='text' ref={binary1} />
       <div ref={tree1} className='visualization' />
       <div className='flex-row'>
         <div ref={searchFor2} />
         <div ref={reset2} />
       </div>
-      <div ref={linear2} />
-      <div ref={binary2} />
+      <div className='text' ref={linear2} />
+      <div className='text' ref={binary2} />
       <div ref={tree2} className='visualization' />
     </Container>
   )
@@ -81,6 +81,10 @@ const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 2rem;
+  }
+
+  .text {
+    font-size: 1.6rem;
   }
 
   .visualization {

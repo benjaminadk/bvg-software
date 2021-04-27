@@ -27,7 +27,7 @@ const Container = styled.div`
 
   h1 {
     font-size: 4rem;
-    font-weight: ${(p) => p.theme.font.bolder};
+    font-weight: ${(p) => p.theme.font.bold};
     text-align: center;
     text-transform: uppercase;
     color: ${(p) => p.theme.color.dark};

@@ -14,9 +14,7 @@ function Header() {
         <nav>
           {MAIN_MENU_ITEMS.map((item) => (
             <Link key={item.text} href={item.href}>
-              <li>
-                <a>{item.text}</a>
-              </li>
+              <a>{item.text}</a>
             </Link>
           ))}
         </nav>
@@ -52,7 +50,8 @@ const Container = styled.header`
       list-style: none;
       display: flex;
 
-      li {
+      li,
+      a {
         font-size: 1.6rem;
         font-weight: ${(p) => p.theme.font.normal};
         padding: 32px 2rem 26px;

@@ -26,6 +26,11 @@ function redirects() {
       permanent: true,
     },
     {
+      source: '/posts/how-to-use-local-storage-to-persist-data',
+      destination: '/blog/how-to-use-local-storage-to-persist-data/',
+      permanent: true,
+    },
+    {
       source: '/posts/minesweeper',
       destination: '/blog/minesweeper/',
       permanent: true,

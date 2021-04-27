@@ -57,7 +57,7 @@ const Container = styled.div`
 
   .input-label {
     font-size: 1.6rem;
-    font-weight: ${(p) => p.theme.font.bolder};
+    font-weight: ${(p) => p.theme.font.bold};
     margin-bottom: 0.5rem;
   }
 

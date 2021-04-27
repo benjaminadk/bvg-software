@@ -28,6 +28,19 @@ const Container = styled.div`
     margin-top: 4rem;
   }
 
+  h4 {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: ${(p) => p.theme.font.normal};
+    margin-top: 2rem;
+    margin-bottom: 0;
+    background-color: ${(p) => lighten(0.45, p.theme.color.warning)};
+    color: ${(p) => darken(0.15, p.theme.color.warning)};
+    border: 1px solid ${(p) => lighten(0.35, p.theme.color.warning)};
+    border-radius: ${(p) => p.theme.borderRadius};
+    padding: 1.2rem 2rem;
+  }
+
   p > a {
     color: ${(p) => p.theme.color.primary};
 
@@ -59,11 +72,6 @@ const Container = styled.div`
     margin-bottom: 1.5rem;
   }
 
-  ol {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
   blockquote {
     display: flex;
     justify-content: center;
@@ -74,6 +82,11 @@ const Container = styled.div`
       border: 1px solid ${(p) => lighten(0.35, p.theme.color.warning)};
       border-radius: ${(p) => p.theme.borderRadius};
       padding: 1.2rem 2rem;
+
+      & > code {
+        background-color: ${(p) => lighten(0.45, p.theme.color.warning)};
+        color: ${(p) => darken(0.15, p.theme.color.warning)};
+      }
     }
   }
 
@@ -81,17 +94,17 @@ const Container = styled.div`
     border-collapse: collapse;
     border-spacing: 0;
     font-size: 1.6rem;
-    border: 1px solid ${(p) => p.theme.color.gray200};
+    border: 1px solid ${(p) => p.theme.color.gray100};
     margin-bottom: 3rem;
   }
 
   table th {
     background-color: ${(p) => p.theme.color.white};
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
   }
 
   table td {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
   }
 
   table tr {
@@ -111,7 +124,7 @@ const Container = styled.div`
     border-top-left-radius: ${(p) => p.theme.borderRadius};
     border-bottom: 0;
     padding: 0.75rem 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .flex-row {

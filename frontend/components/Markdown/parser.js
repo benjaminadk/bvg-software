@@ -21,7 +21,7 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
-import { Img, Li, Pre, Span } from './elements'
+import { Img, Li, Pre, Span, Ol } from './elements'
 
 refractor.register(autohotkey)
 refractor.register(bash)
@@ -99,6 +99,7 @@ const parser = unified()
     createElement: React.createElement,
     components: {
       img: Img,
+      ol: Ol,
       li: Li,
       pre: Pre,
       span: Span,
