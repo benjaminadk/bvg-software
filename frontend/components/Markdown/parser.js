@@ -21,7 +21,7 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
-import { Img, Li, Pre, Span, Ol, Blockquote } from './elements'
+import { Blockquote, Img, Li, Pre, Ol, Span } from './elements'
 
 refractor.register(autohotkey)
 refractor.register(bash)
@@ -62,6 +62,10 @@ function rehypePrism(options) {
       node.properties.target = '_blank'
     }
 
+    if (node.tagName === 'table') {
+      node.properties.className = 'table'
+    }
+
     if (!parent || parent.tagName !== 'pre' || node.tagName !== 'code') {
       return
     }
@@ -98,12 +102,12 @@ const parser = unified()
   .use(rehype2react, {
     createElement: React.createElement,
     components: {
+      blockquote: Blockquote,
       img: Img,
-      ol: Ol,
       li: Li,
       pre: Pre,
+      ol: Ol,
       span: Span,
-      blockquote: Blockquote,
     },
   })
 

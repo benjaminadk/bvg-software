@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { SRLWrapper } from 'simple-react-lightbox'
 import Image from 'next/image'
 
@@ -16,4 +15,4 @@ function Img({ src, alt, width, height }) {
   )
 }
 
-export default memo(Img)
+export default Img

@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import styled from 'styled-components'
 
 function Ol({ children }) {
   const modifiedChildren = useMemo(() =>
@@ -10,12 +9,7 @@ function Ol({ children }) {
     )
   )
 
-  return <Container>{modifiedChildren}</Container>
+  return <ol>{modifiedChildren}</ol>
 }
-
-const Container = styled.ol`
-  padding-left: 3rem;
-  padding-right: 3rem;
-`
 
 export default Ol

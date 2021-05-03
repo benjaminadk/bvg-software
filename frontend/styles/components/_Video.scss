@@ -1,0 +1,46 @@
+.Video {
+  display: grid;
+  place-items: center center;
+  margin-bottom: 3rem;
+
+  iframe,
+  .placeholder-image {
+    position: relative;
+    width: 95vw;
+    height: calc(95vw * 9 / 16);
+
+    &:hover .yt-button-bg {
+      fill: red;
+      fill-opacity: 1;
+    }
+  }
+
+  .yt-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    display: grid;
+    place-items: center center;
+    transition: background-color 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .yt-button-bg {
+    transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1),
+      fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+    fill: #212121;
+    fill-opacity: 0.8;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .Video {
+    iframe,
+    .placeholder-image {
+      width: 560px;
+      height: 315px;
+    }
+  }
+}

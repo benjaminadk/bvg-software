@@ -9,6 +9,19 @@ h3 {
   margin-top: $spacer * 2;
 }
 
+h4 {
+  display: inline-block;
+  font-size: $h5-font-size;
+  font-weight: $font-weight-base;
+  margin: $spacer * 0.5 0 $spacer * 0.2;
+  background-color: $yellow-100;
+  background-color: $yellow-100;
+  color: $yellow-700;
+  border: 1px solid $warning;
+  border-radius: $border-radius;
+  padding: $spacer * 0.5 $spacer;
+}
+
 p {
   font-size: 1.1rem;
   text-align: justify;
@@ -34,6 +47,11 @@ li > code {
   border-radius: $border-radius;
 }
 
+ul,
+ol {
+  margin: $spacer * 1.5 0;
+}
+
 li {
   .li-content {
     width: 2rem;
@@ -45,6 +63,16 @@ li {
     color: $yellow-700;
     border: 1px solid $warning;
     margin-right: $spacer * 0.75;
+  }
+
+  & > a {
+    color: $cyan-500;
+    font-weight: $font-weight-bold;
+    margin: 0 $spacer * 0.2;
+
+    &:hover {
+      color: $cyan-600;
+    }
   }
 }
 
