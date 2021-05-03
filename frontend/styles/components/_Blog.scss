@@ -1,0 +1,8 @@
+.blog-link {
+  color: $cyan-500;
+  font-weight: $font-weight-bold;
+
+  &:hover {
+    color: $cyan-600;
+  }
+}

@@ -1,6 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import styled from 'styled-components'
-import { lighten } from 'polished'
 import { Runtime, Inspector } from '@observablehq/runtime'
 import notebook from './simple-binary-search-tree/file1'
 
@@ -54,68 +52,23 @@ function SimpleBinarySearchTree() {
   }, [])
 
   return (
-    <Container id='simple-binary-search-tree'>
-      <div className='flex-row'>
+    <div className='mt-5'>
+      <div className='d-flex my-3'>
         <div ref={searchFor1} />
         <div ref={reset1} />
       </div>
-      <div className='text' ref={linear1} />
-      <div className='text' ref={binary1} />
-      <div ref={tree1} className='visualization' />
-      <div className='flex-row'>
+      <div className='fs-5' ref={linear1} />
+      <div className='fs-5' ref={binary1} />
+      <div ref={tree1} className='my-5' />
+      <div className='d-flex my-3'>
         <div ref={searchFor2} />
         <div ref={reset2} />
       </div>
-      <div className='text' ref={linear2} />
-      <div className='text' ref={binary2} />
-      <div ref={tree2} className='visualization' />
-    </Container>
+      <div className='fs-5' ref={linear2} />
+      <div className='fs-5' ref={binary2} />
+      <div ref={tree2} className='my-5' />
+    </div>
   )
 }
-
-const Container = styled.div`
-  padding-top: 5rem;
-
-  .flex-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
-  }
-
-  .text {
-    font-size: 1.6rem;
-  }
-
-  .visualization {
-    margin: 3rem 0 6rem -6rem;
-  }
-
-  input[type='number'] {
-    font-size: 2rem !important;
-    font-weight: ${(p) => p.theme.font.normal};
-    text-align: center;
-    border: 0;
-    border-radius: 3px;
-    padding: 0.5rem;
-  }
-
-  input[type='button'],
-  input[type='submit'] {
-    font-size: 1.6rem;
-    font-weight: ${(p) => p.theme.font.normal};
-    background-color: ${(p) => p.theme.color.primary};
-    color: ${(p) => p.theme.color.white};
-    padding: 1.25rem 2rem;
-    border: 0;
-    border-radius: 3px;
-    transition: background-color 0.2s ease-in;
-    cursor: pointer;
-
-    &:hover {
-      background-color: ${(p) => lighten(0.1, p.theme.color.primary)};
-    }
-  }
-`
 
 export default SimpleBinarySearchTree

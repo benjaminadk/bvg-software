@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 import { GlobalStyles } from '../styles'
 import Meta from './Meta'
-import Header from './Header'
+import Navbar from './Navbar'
+import Search from './Search'
 import Main from './Main'
 import Footer from './Footer'
 
@@ -12,7 +13,8 @@ function Layout({ children, pageProps }) {
     <Container>
       <Meta pageProps={pageProps} />
       <GlobalStyles />
-      <Header />
+      <Navbar />
+      <Search />
       <Main>{children}</Main>
       <Footer />
     </Container>

@@ -1,0 +1,64 @@
+h2 {
+  font-weight: $font-weight-base;
+  margin-top: $spacer * 2;
+}
+
+h3 {
+  font-size: $h4-font-size;
+  font-weight: $font-weight-base;
+  margin-top: $spacer * 2;
+}
+
+p {
+  font-size: 1.1rem;
+  text-align: justify;
+  line-height: 1.5;
+  margin-bottom: $spacer * 1.25;
+}
+
+p > a {
+  color: $cyan-500;
+  font-weight: $font-weight-bold;
+
+  &:hover {
+    color: $cyan-600;
+    text-decoration: underline;
+  }
+}
+
+p > code,
+li > code {
+  background-color: rgba($pink-100, 0.5);
+  padding: $spacer * 0.1 $spacer * 0.3;
+  margin: 0 $spacer * 0.2;
+  border-radius: $border-radius;
+}
+
+li {
+  .li-content {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center center;
+    border-radius: 50%;
+    background-color: $yellow-100;
+    color: $yellow-700;
+    border: 1px solid $warning;
+    margin-right: $spacer * 0.75;
+  }
+}
+
+.filename {
+  position: relative;
+  z-index: 1;
+  font-family: $font-family-code;
+  font-size: 1rem;
+  background-color: $gray-100;
+  border: 1px solid $black;
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  border-bottom: 0;
+  padding: 0.75rem 1rem;
+  margin-top: 3rem;
+  margin-bottom: -0.15rem;
+}

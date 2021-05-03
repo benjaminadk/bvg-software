@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { Runtime, Inspector } from '@observablehq/runtime'
-import styled from 'styled-components'
 
 import notebook from './minesweeper/file1'
 
@@ -30,32 +29,15 @@ function Minesweeper() {
   }, [])
 
   return (
-    <Container>
-      <div ref={level} className='level' />
-      <div className='flex-row'>
+    <div className='mt-5'>
+      <div ref={level} />
+      <div className='d-flex justify-content-center'>
         <div ref={minesweeper} />
       </div>
       <div ref={pattern} />
       <div ref={style} />
-    </Container>
+    </div>
   )
 }
-
-const Container = styled.div`
-  .level {
-    margin: 4rem auto 2rem;
-
-    form > div > div,
-    select {
-      font-size: 1.6rem !important;
-    }
-  }
-
-  .flex-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`
 
 export default Minesweeper

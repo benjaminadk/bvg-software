@@ -8,6 +8,7 @@ import NProgress from 'nprogress'
 import Layout from '@/components/Layout'
 
 import { theme } from '@/components/styles'
+import '../styles/styles.scss'
 
 function App({ Component, pageProps }) {
   const router = useRouter()

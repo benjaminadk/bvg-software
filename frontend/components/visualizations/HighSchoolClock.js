@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { Runtime, Inspector } from '@observablehq/runtime'
 import notebook from './high-school-clock/file1'
 
@@ -33,9 +32,9 @@ function HighSchoolClock() {
   }, [size])
 
   return (
-    <Container>
+    <div className='mt-5'>
       <div>
-        <div className='input-label'>Clock Size</div>
+        <div className='fs-5 fw-bold'>Clock Size</div>
         <input
           type='range'
           value={size}
@@ -45,27 +44,11 @@ function HighSchoolClock() {
           onChange={(e) => setSize(e.target.value)}
         />
       </div>
-      <div className='clock-wrapper'>
+      <div className='d-flex justify-content-center'>
         <div ref={clock} />
       </div>
-    </Container>
+    </div>
   )
 }
-
-const Container = styled.div`
-  margin: 5rem auto;
-
-  .input-label {
-    font-size: 1.6rem;
-    font-weight: ${(p) => p.theme.font.bold};
-    margin-bottom: 0.5rem;
-  }
-
-  .clock-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 5rem;
-  }
-`
 
 export default HighSchoolClock

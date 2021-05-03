@@ -26,6 +26,7 @@ function Meta({ pageProps }) {
       <title>{title}</title>
       <meta name='description' content={description} />
 
+      {/* Icons */}
       <link rel='icon' type='image/x-icon' href='/icons/favicon.ico' />
       <link
         rel='apple-touch-icon'

@@ -1,19 +1,19 @@
 import styled from 'styled-components'
-import { ArrowNarrowRight } from '@styled-icons/heroicons-outline'
+import { ArrowRight } from '@styled-icons/bootstrap'
 import { lighten, darken } from 'polished'
 
 function Li({ children, number, ...rest }) {
   return (
-    <Container {...rest}>
+    <li className='list-unstyled d-flex align-items-center m-2' {...rest}>
       {number ? (
-        <span className='item'>{number}</span>
+        <span className='li-content'>{number}</span>
       ) : (
-        <span className='item'>
-          <ArrowNarrowRight size={20} />
+        <span className='li-content'>
+          <ArrowRight size={20} />
         </span>
       )}
       {children}
-    </Container>
+    </li>
   )
 }
 

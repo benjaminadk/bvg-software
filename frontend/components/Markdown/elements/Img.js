@@ -1,42 +1,19 @@
 import { memo } from 'react'
 import { SRLWrapper } from 'simple-react-lightbox'
-import styled from 'styled-components'
 import Image from 'next/image'
 
 function Img({ src, alt, width, height }) {
   if (!width) return null
   return (
     <SRLWrapper>
-      <Container>
+      <figure className='figure d-flex flex-column align-items-center my-5 cursor-zoom-in'>
         <div className='image-wrapper'>
           <Image src={src} alt={alt} width={width} height={height} />
         </div>
-
-        {alt && <figcaption>{alt}</figcaption>}
-      </Container>
+        {alt && <figcaption className='figure-caption'>{alt}</figcaption>}
+      </figure>
     </SRLWrapper>
   )
 }
-
-const Container = styled.figure`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5rem auto;
-  cursor: zoom-in;
-
-  .image-wrapper {
-    display: grid;
-    place-items: center center;
-    box-shadow: ${(p) => p.theme.shadows[2]};
-  }
-
-  figcaption {
-    font-size: 1.5rem;
-    font-weight: ${(p) => p.theme.font.normal};
-    color: ${(p) => p.theme.color.gray400};
-    margin-top: 2rem;
-  }
-`
 
 export default memo(Img)

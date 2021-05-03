@@ -21,7 +21,7 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
-import { Img, Li, Pre, Span, Ol } from './elements'
+import { Img, Li, Pre, Span, Ol, Blockquote } from './elements'
 
 refractor.register(autohotkey)
 refractor.register(bash)
@@ -103,6 +103,7 @@ const parser = unified()
       li: Li,
       pre: Pre,
       span: Span,
+      blockquote: Blockquote,
     },
   })
 

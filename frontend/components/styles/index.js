@@ -5,40 +5,39 @@ import theme from './theme'
 import media from './media'
 
 const GlobalStyles = createGlobalStyle`
-  ${normalize}
+  /* ${normalize} */
 
-  @font-face {
+  /* @font-face {
     font-family: 'Cascadia Code';
     src: url('/fonts/CascadiaCode-Regular.woff2') format('woff2');
     font-style: normal;
     font-display: swap;
-  }
+  } */
 
-  html {
-    font-family: ${theme.font.regular};
-    font-size: 10px;
+  /* html {
     -webkit-font-smoothing: antialiased;
-  }
+  } */
 
-  body {
+  /* body {
     box-sizing: border-box;
+    font-family: ${theme.font.regular};
     color: ${theme.color.black};
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-  }
+  } */
 
-  *, *::before,*::after {
+  /* *, *::before,*::after {
     box-sizing: border-box;
     user-select: none;
-  }
+  } */
 
-  a {
+  /* a {
     text-decoration: none;
     color: ${theme.color.black};
-  }
+  } */
 
-  #nprogress {
+  /* #nprogress {
    pointer-events: none;
   }
 
@@ -49,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
     left: 0;
     width: 100%;
     height: 3px;
-  }
+  } */
 `
 
 export { GlobalStyles, theme, media }
