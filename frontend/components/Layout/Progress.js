@@ -1,10 +1,16 @@
+import { useAppState } from '@/lib/context'
+import cn from 'classnames'
+
 function ProgressBar() {
+  const { progress } = useAppState()
+
   return (
-    <div id='Progress' className='progress position-sticky'>
+    <div id='Progress' className={cn('progress position-sticky', { 'bg-white': !progress })}>
       <div
-        className='progress-bar'
+        className='progress-bar bg-pink-500'
         role='progressbar'
-        aria-valuenow='0'
+        style={{ width: progress + '%' }}
+        aria-valuenow={progress}
         aria-valuemin='0'
         aria-valuemax='100'
       ></div>

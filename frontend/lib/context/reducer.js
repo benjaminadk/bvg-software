@@ -4,6 +4,7 @@ const initialState = {
   token: null,
   showAuthModal: false,
   showBackToTop: false,
+  progress: 0,
   errorMessage: null,
 }
 
@@ -158,6 +159,12 @@ function AppReducer(initialState, action) {
       return {
         ...initialState,
         errorMessage: action.error,
+      }
+
+    case 'PROGRESS':
+      return {
+        ...initialState,
+        progress: action.payload,
       }
 
     default:

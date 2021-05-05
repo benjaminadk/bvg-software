@@ -149,6 +149,10 @@ async function setShowBackToTop(dispatch, showBackToTop = true) {
   }
 }
 
+function setProgress(dispatch, progress = 0) {
+  dispatch({ type: 'PROGRESS', payload: progress })
+}
+
 export {
   initializeUser,
   getCurrentUser,
@@ -158,4 +162,5 @@ export {
   googleAuthentication,
   setShowAuthModal,
   setShowBackToTop,
+  setProgress,
 }

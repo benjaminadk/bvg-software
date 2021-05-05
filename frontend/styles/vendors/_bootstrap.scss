@@ -4,11 +4,11 @@
 // Include any default variable overrides here
 
 // Font related
-$font-family-sans-serif: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
-$font-family-monospace: 'Cascadia Code', SFMono-Regular, Menlo, Monaco, Consolas,
-  'Liberation Mono', 'Courier New', monospace !default;
+$font-family-sans-serif: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+  Arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$font-family-monospace: 'Cascadia Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  'Courier New', monospace !default;
 
 // Color
 $black: #2d2d2d;
@@ -65,6 +65,7 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, 'background-color'), 'values'),
               (
+                'pink-500': $pink-500,
                 'yellow-100': $yellow-100,
               )
             ),
