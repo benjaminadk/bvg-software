@@ -1,4 +1,4 @@
-import { ArrowRight } from '@styled-icons/bootstrap'
+import { ArrowRight } from 'react-bootstrap-icons'
 
 function Li({ children, number, ...rest }) {
   return (

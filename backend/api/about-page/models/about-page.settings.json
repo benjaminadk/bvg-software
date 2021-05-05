@@ -16,6 +16,12 @@
     },
     "meta_description": {
       "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
