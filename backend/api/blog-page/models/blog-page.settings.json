@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "about_pages",
+  "collectionName": "blog_pages",
   "info": {
-    "name": "About Page",
+    "name": "Blog Page",
     "description": ""
   },
   "options": {
@@ -16,9 +16,6 @@
     },
     "meta_description": {
       "type": "text"
-    },
-    "content": {
-      "type": "richtext"
     }
   }
 }

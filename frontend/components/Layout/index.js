@@ -23,12 +23,11 @@ function Layout({ children, pageProps }) {
   }, [])
 
   useEffect(() => {
-    console.log(router.pathname)
     const onScroll = throttle(() => {
       const progress = !window.scrollY
         ? 0
         : Math.round(((window.scrollY + 150) / main.current.offsetHeight) * 100)
-      console.log(progress)
+
       setProgress(dispatch, progress)
     }, 100)
 

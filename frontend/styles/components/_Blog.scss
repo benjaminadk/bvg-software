@@ -1,8 +1,45 @@
-.blog-link {
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  background-color: $gray-200;
+  font-size: 0.75rem;
+  font-family: $font-family-monospace;
+
+  &:hover {
+    background-color: $gray-300;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &.tag-active {
+    background-color: $pink;
+    color: $white;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .badge {
+    color: $gray-100;
+    background-color: $gray-500;
+  }
+}
+
+.blog-snippet a {
   color: $cyan-500;
-  font-weight: $font-weight-bold;
 
   &:hover {
     color: $cyan-600;
   }
+}
+
+.blog-snippet p {
+  font-size: 0.875rem;
 }
