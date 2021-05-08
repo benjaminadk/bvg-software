@@ -32,14 +32,29 @@
   }
 }
 
-.blog-snippet a {
-  color: $cyan-500;
+.blog-snippet {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: $spacer;
+  align-items: center;
 
-  &:hover {
-    color: $cyan-600;
+  .badge {
+    width: 100px;
+    margin-bottom: 5px;
   }
-}
 
-.blog-snippet p {
-  font-size: 0.875rem;
+  a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $cyan-500;
+
+    &:hover {
+      color: $cyan-600;
+    }
+  }
+
+  p {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+  }
 }

@@ -1,4 +1,5 @@
 import MAIN_MENU_ITEMS from './main-menu-items'
+import SOCIAL_MEDIA_ITEMS from './social-media-items'
 
 const GA_TRACKING_ID = ''
 const FACEBOOK_APP_ID = ''
@@ -6,14 +7,10 @@ const MONTH = 60 * 60 * 24 * 30
 const SITE_NAME = 'Benjamin Brooke'
 
 const CLIENT_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://bvgsoftware.com'
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://bvgsoftware.com'
 
 const SERVER_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:1337'
-    : 'https://api.bvgsoftware.com'
+  process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://api.bvgsoftware.com'
 
 export {
   CLIENT_URL,
@@ -23,4 +20,5 @@ export {
   MONTH,
   SERVER_URL,
   SITE_NAME,
+  SOCIAL_MEDIA_ITEMS,
 }

@@ -13,6 +13,7 @@ function Meta({ pageProps }) {
       pageProps?.homePage ||
       pageProps?.blogPage ||
       pageProps?.aboutPage ||
+      pageProps?.coursesPage ||
       pageProps?.blogPost ||
       null
     )

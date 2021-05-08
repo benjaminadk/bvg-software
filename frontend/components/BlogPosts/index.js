@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import moment from 'moment'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import Tags from './Tags'
 
-function Blog({ blogPosts }) {
+import { formatImageUrl } from '@/lib/utils'
+
+function BlogPosts({ blogPosts }) {
   const [selectedTags, setSelectedTags] = useState(['all posts'])
   const [sortedPosts, setSortedPosts] = useState([])
 
   useEffect(() => {
-    console.log('UF')
     setSortedPosts(
       blogPosts
         .slice()
@@ -48,31 +52,41 @@ function Blog({ blogPosts }) {
   }
 
   return (
-    <div className='container'>
+    <Container fluid='xxl'>
       <Tags blogPosts={blogPosts} selectedTags={selectedTags} onTagClick={onTagClick} />
-      <div className='row'>
-        <div className='col-md-6 offset-md-3'>
-          <div className='list-group list-group-flush'>
+      <Row>
+        <Col md={{ span: 6, offset: 3 }}>
+          <ul className='list-group list-group-flush'>
             {sortedPosts.map(({ id, title, meta_description, slug, video, published_on }) => (
-              <li key={id} className='blog-snippet list-group-item d-flex py-3'>
+              <li key={id} className='blog-snippet list-group-item py-3'>
                 <div className='d-flex flex-column'>
-                  <span className='badge align-self-start bg-light text-dark me-3'>
+                  <span className='badge bg-light text-dark'>
                     {moment(published_on).format('YYYY-MM-DD')}
                   </span>
+                  {video ? (
+                    <div>
+                      <Image
+                        src={formatImageUrl(video.thumbnail.url)}
+                        alt={video.thumbnail.alt}
+                        width={100}
+                        height={56}
+                      />
+                    </div>
+                  ) : null}
                 </div>
                 <div className='d-flex flex-column'>
                   <Link href={`/blog/${slug}`}>
-                    <a className='fs-6 fw-bold'>{title}</a>
+                    <a>{title}</a>
                   </Link>
-                  <p className='mb-0'>{meta_description}</p>
+                  <p>{meta_description}</p>
                 </div>
               </li>
             ))}
-          </div>
-        </div>
-      </div>
-    </div>
+          </ul>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
-export default Blog
+export default BlogPosts

@@ -3,9 +3,10 @@ import { useRouter } from 'next/router'
 import throttle from 'lodash.throttle'
 
 import Meta from './Meta'
-import Navbar from './Navbar'
+import Navigation from './Navigation'
 import Search from './Search'
 import Progress from './Progress'
+import Main from './Main'
 import Footer from './Footer'
 
 import { useAppDispatch } from '@/lib/context'
@@ -62,12 +63,10 @@ function Layout({ children, pageProps }) {
   return (
     <>
       <Meta pageProps={pageProps} />
-      <Navbar />
+      <Navigation />
       <Search />
       <Progress />
-      <main ref={main} className='min-vh-100 mt-5'>
-        {children}
-      </main>
+      <Main ref={main}>{children}</Main>
       <Footer />
     </>
   )

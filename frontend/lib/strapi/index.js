@@ -8,6 +8,8 @@ import getBlogPosts from './get-blog-posts'
 import getHomePage from './get-home-page'
 import getBlogPage from './get-blog-page'
 import getAboutPage from './get-about-page'
+import getCoursesPage from './get-courses-page'
+import getCourses from './get-courses'
 
 export {
   getCurrentUser,
@@ -17,7 +19,9 @@ export {
   getBlogPostSlugs,
   getBlogPostBySlug,
   getBlogPosts,
+  getCourses,
   getHomePage,
   getBlogPage,
   getAboutPage,
+  getCoursesPage,
 }

@@ -1,9 +1,9 @@
-import Blog from '@/components/Blog'
+import BlogPosts from '@/components/BlogPosts'
 
 import { getBlogPage, getBlogPosts } from '@/lib/strapi'
 
 function BlogPage({ blogPosts }) {
-  return <Blog blogPosts={blogPosts} />
+  return <BlogPosts blogPosts={blogPosts} />
 }
 
 export async function getStaticProps() {
