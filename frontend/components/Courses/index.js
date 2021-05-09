@@ -8,7 +8,7 @@ import { formatImageUrl } from '@/lib/utils'
 
 function Courses({ courses }) {
   const course = courses[0]
-
+  console.log(course)
   return (
     <Container fluid='xxl'>
       <Row>
@@ -21,7 +21,7 @@ function Courses({ courses }) {
               height={course.image.height}
             />
             <Card.Body>
-              <Card.Title>{course.title}</Card.Title>
+              <Card.Title className='text-info fw-bold'>{course.title}</Card.Title>
               <Card.Text>{course.meta_description}</Card.Text>
             </Card.Body>
           </Card>

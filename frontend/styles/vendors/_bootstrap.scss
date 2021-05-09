@@ -10,11 +10,13 @@ $font-family-sans-serif: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto
 $font-family-monospace: 'Cascadia Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
   'Courier New', monospace !default;
 
-// Color
+// Colors
 $black: #2d2d2d;
 
 $link-decoration: none;
 $breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+
+$enable-shadows: true;
 
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
@@ -65,6 +67,7 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, 'color'), 'values'),
               (
+                'pink-500': $pink-500,
                 'gray-800': $gray-800,
                 'yellow-700': $yellow-700,
               )

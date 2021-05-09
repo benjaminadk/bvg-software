@@ -32,29 +32,11 @@
   }
 }
 
-.blog-snippet {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-gap: $spacer;
-  align-items: center;
+.blog-post-item {
+  margin-bottom: $spacer * 2;
+  box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
 
-  .badge {
-    width: 100px;
-    margin-bottom: 5px;
-  }
-
-  a {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $cyan-500;
-
-    &:hover {
-      color: $cyan-600;
-    }
-  }
-
-  p {
-    font-size: 0.875rem;
-    margin-bottom: 0;
+  &:hover .text-info {
+    color: $pink-500 !important;
   }
 }

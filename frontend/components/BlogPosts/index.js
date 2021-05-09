@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import moment from 'moment'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import { CalendarEventFill, ClockFill } from 'react-bootstrap-icons'
 
 import Tags from './Tags'
 
-import { formatImageUrl } from '@/lib/utils'
+import { formatImageUrl, formatDate } from '@/lib/utils'
 
 function BlogPosts({ blogPosts }) {
   const [selectedTags, setSelectedTags] = useState(['all posts'])
@@ -20,11 +21,14 @@ function BlogPosts({ blogPosts }) {
         .slice()
         .filter((el) => {
           if (selectedTags.includes('all posts')) {
-            return el
+            return true
           } else {
             for (let tagName of selectedTags) {
-              return el.tags.find((t) => t.name === tagName)
+              if (el.tags.find((t) => t.name === tagName)) {
+                return true
+              }
             }
+            return false
           }
         })
         .sort((a, b) => {
@@ -56,33 +60,34 @@ function BlogPosts({ blogPosts }) {
       <Tags blogPosts={blogPosts} selectedTags={selectedTags} onTagClick={onTagClick} />
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
-          <ul className='list-group list-group-flush'>
-            {sortedPosts.map(({ id, title, meta_description, slug, video, published_on }) => (
-              <li key={id} className='blog-snippet list-group-item py-3'>
-                <div className='d-flex flex-column'>
-                  <span className='badge bg-light text-dark'>
-                    {moment(published_on).format('YYYY-MM-DD')}
-                  </span>
-                  {video ? (
-                    <div>
-                      <Image
-                        src={formatImageUrl(video.thumbnail.url)}
-                        alt={video.thumbnail.alt}
-                        width={100}
-                        height={56}
-                      />
-                    </div>
-                  ) : null}
-                </div>
-                <div className='d-flex flex-column'>
-                  <Link href={`/blog/${slug}`}>
-                    <a>{title}</a>
-                  </Link>
-                  <p>{meta_description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          {sortedPosts.map((post) => (
+            <Link key={post.id} href={`/blog/${post.slug}`} passHref>
+              <Card as='a' className='blog-post-item'>
+                {post.image ? (
+                  <Image
+                    src={formatImageUrl(post.image.url)}
+                    alt={post.image.alt}
+                    width={post.image.width}
+                    height={post.image.height}
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title className='text-info fw-bold'>{post.title}</Card.Title>
+                  <Card.Text className='text-dark'>{post.meta_description}</Card.Text>
+                </Card.Body>
+                <Card.Footer className='d-flex align-items-end justify-content-between'>
+                  <small className='text-muted '>
+                    <ClockFill size={12} className='me-2' />
+                    <span className='lh-1'>{post.read_time} min read</span>
+                  </small>
+                  <small className='text-muted '>
+                    <CalendarEventFill size={12} className='me-2' />
+                    <span className='lh-1'>{formatDate(post.published_on)}</span>
+                  </small>
+                </Card.Footer>
+              </Card>
+            </Link>
+          ))}
         </Col>
       </Row>
     </Container>
