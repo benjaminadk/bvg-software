@@ -11,7 +11,6 @@ function HighSchoolClock() {
   useEffect(() => {
     const runtime = new Runtime()
     runtime.module(notebook, (name) => {
-      console.log(name)
       if (name === 'clock') {
         return new Inspector(clock.current)
       }

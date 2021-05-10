@@ -8,7 +8,7 @@ import { formatImageUrl } from '@/lib/utils'
 
 function Courses({ courses }) {
   const course = courses[0]
-  console.log(course)
+
   return (
     <Container fluid='xxl'>
       <Row>

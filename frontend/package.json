@@ -5,7 +5,7 @@
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "build:local": "next build --profile --debug",
+    "build:analyze": "cross-env ANALYZE=true next build",
     "dev": "next dev",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "cleanup": "rm -rf .next && rm -rf build"
@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@next/bundle-analyzer": "^10.2.0",
     "@observablehq/runtime": "^4.7.1",
     "axios": "^0.21.1",
     "bootstrap": "5.0.0",
