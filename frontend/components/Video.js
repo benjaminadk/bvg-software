@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Image from 'next/image'
+import CloudnaryImage from './CloudinaryImage'
 
-import { formatImageUrl } from '@/lib/utils'
-
-function Video({ video, isHomePage }) {
+function Video({ video, width, height }) {
   const [loaded, setLoaded] = useState(false)
 
   if (video) {
@@ -11,8 +9,8 @@ function Video({ video, isHomePage }) {
       <div className='Video'>
         {loaded ? (
           <iframe
-            width={isHomePage ? '800' : '560'}
-            height={isHomePage ? '448' : '315'}
+            width={width}
+            height={height}
             src={`https://www.youtube-nocookie.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=1`}
             title='YouTube video player'
             frameBorder='0'
@@ -20,14 +18,12 @@ function Video({ video, isHomePage }) {
             allowFullScreen
           ></iframe>
         ) : (
-          <div className='placeholder-image' onClick={() => setLoaded(true)}>
-            <Image
-              src={formatImageUrl(video.thumbnail.url)}
-              alt={video.thumbnail.alt}
-              width={video.thumbnail.width}
-              height={video.thumbnail.height}
-              layout='responsive'
-            />
+          <div
+            className='placeholder-image'
+            style={{ width: width + 'px', height: height + 'px' }}
+            onClick={() => setLoaded(true)}
+          >
+            <CloudnaryImage image={video.thumbnail} />
             <div className='yt-button'>
               <svg height='100%' version='1.1' viewBox='0 0 68 48' width='100%'>
                 <path

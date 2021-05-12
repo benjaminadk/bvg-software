@@ -1,7 +1,9 @@
-import moment from 'moment'
+import { format } from 'date-fns'
 
-function formatDate(date) {
-  return moment(date).format('MMMM Do, YYYY')
+const formats = ['MMM do, yyyy']
+
+function formatDate(date, index) {
+  return format(new Date(date), formats[index])
 }
 
 export default formatDate

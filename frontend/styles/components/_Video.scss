@@ -28,19 +28,18 @@
   }
 
   .yt-button-bg {
-    transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1),
-      fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
+    transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
     fill: #212121;
     fill-opacity: 0.8;
   }
 }
 
-@include media-breakpoint-up(lg) {
-  .Video {
-    iframe,
-    .placeholder-image {
-      width: 560px;
-      height: 315px;
-    }
-  }
-}
+// @include media-breakpoint-up(lg) {
+//   .Video {
+//     iframe,
+//     .placeholder-image {
+//       width: 560px;
+//       height: 315px;
+//     }
+//   }
+// }

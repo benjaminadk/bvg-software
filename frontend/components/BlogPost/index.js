@@ -4,7 +4,6 @@ import Minesweeper from '../visualizations/Minesweeper'
 import HighSchoolClock from '../visualizations/HighSchoolClock'
 import SimpleBinarySearchTree from '../visualizations/SimpleBinarySearchTree'
 import Heading from './Heading'
-import Video from '../Video'
 import Markdown from '../Markdown'
 import Author from './Author'
 
@@ -15,13 +14,10 @@ function BlogPost({ blogPost }) {
         <div className='row'>
           <div className='col-lg-8 offset-lg-2'>
             <Heading post={blogPost} />
-            <Video video={blogPost.video} />
             <div>
               {blogPost.slug === 'minesweeper' && <Minesweeper />}
               {blogPost.slug === 'high-school-clock' && <HighSchoolClock />}
-              {blogPost.slug === 'simple-binary-search-tree' && (
-                <SimpleBinarySearchTree />
-              )}
+              {blogPost.slug === 'simple-binary-search-tree' && <SimpleBinarySearchTree />}
               <Markdown source={blogPost.content} />
             </div>
             <Author />

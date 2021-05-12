@@ -7,10 +7,10 @@ const MONTH = 60 * 60 * 24 * 30
 const SITE_NAME = 'Benjamin Brooke'
 
 const CLIENT_URL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://bvgsoftware.com'
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://localhost:3000'
 
 const SERVER_URL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://api.bvgsoftware.com'
+  process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'http://localhost:1337'
 
 export {
   CLIENT_URL,
