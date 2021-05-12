@@ -14,7 +14,7 @@ function CloudinaryImage({ image }) {
       }, 2000)
     }, [])
 
-    const url = cl.url(image.url, { transformation: [{ effect: 'blur:100' }] })
+    const url = cl.url(image.url, { transformation: [{ effect: 'blur:1000' }] })
 
     return (
       <div

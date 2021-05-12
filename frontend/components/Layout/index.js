@@ -11,6 +11,7 @@ import Footer from './Footer'
 
 import { useAppDispatch } from '@/lib/context'
 import { initializeUser, setProgress } from '@/lib/context/actions'
+import { getPageHeight } from '@/lib/utils'
 
 function Layout({ children, pageProps }) {
   const dispatch = useAppDispatch()
@@ -27,6 +28,8 @@ function Layout({ children, pageProps }) {
     const onScroll = throttle(() => {
       const progress = !window.scrollY
         ? 0
+        : window.scrollY + window.innerHeight === getPageHeight()
+        ? 100
         : Math.round(((window.scrollY + 150) / main.current.offsetHeight) * 100)
 
       setProgress(dispatch, progress)

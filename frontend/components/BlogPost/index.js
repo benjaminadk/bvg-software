@@ -1,4 +1,7 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import Minesweeper from '../visualizations/Minesweeper'
 import HighSchoolClock from '../visualizations/HighSchoolClock'
@@ -10,9 +13,9 @@ import Author from './Author'
 function BlogPost({ blogPost }) {
   if (blogPost) {
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='col-lg-8 offset-lg-2'>
+      <Container id='BlogPost'>
+        <Row>
+          <Col md={{ span: 8, offset: 2 }}>
             <Heading post={blogPost} />
             <div>
               {blogPost.slug === 'minesweeper' && <Minesweeper />}
@@ -21,9 +24,9 @@ function BlogPost({ blogPost }) {
               <Markdown source={blogPost.content} />
             </div>
             <Author />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     )
   } else {
     return null

@@ -31,7 +31,7 @@ function Heading({ post }) {
     }
   }, [])
 
-  const smallerH1 = useMemo(() => post.title.length > 40, [])
+  const long = useMemo(() => post.title.length > 40, [])
 
   return (
     <Card ref={cardRef} className='mb-5'>
@@ -41,7 +41,7 @@ function Heading({ post }) {
         <CloudinaryImage image={post.image} />
       )}
       <Card.Body>
-        <div className='text-muted'>
+        <div className='d-flex align-items-center lh-1 text-muted'>
           <span>Updated on {formatDate(post.updated_at, 0)}</span>
           <ChevronRight size={10} className='mx-2' />
           <span>{post.read_time} min read</span>
@@ -56,9 +56,7 @@ function Heading({ post }) {
             ))}
           </span>
         </div>
-        <Card.Title className={cn('fw-bold text-dark mt-3', { 'fs-3': smallerH1 })}>
-          {post.title}
-        </Card.Title>
+        <Card.Title className={cn('post-title', { long })}>{post.title}</Card.Title>
       </Card.Body>
     </Card>
   )

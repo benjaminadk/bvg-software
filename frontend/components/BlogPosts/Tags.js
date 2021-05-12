@@ -19,8 +19,8 @@ function Tags({ blogPosts, selectedTags, onTagClick }) {
   }, [])
 
   return (
-    <div className='row mb-5'>
-      <div className='tags col-md-6 offset-md-3'>
+    <div id='Tags' className='row mb-5'>
+      <div className='tags-wrapper col-md-6 offset-md-3'>
         {[{ name: 'all posts' }, ...tags].map((tag) => (
           <button
             key={tag.name}
