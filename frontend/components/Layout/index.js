@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import throttle from 'lodash.throttle'
 
@@ -8,6 +8,7 @@ import Search from './Search'
 import Progress from './Progress'
 import Main from './Main'
 import Footer from './Footer'
+import BackToTop from './BackToTop'
 
 import { useAppDispatch } from '@/lib/context'
 import { initializeUser, setProgress } from '@/lib/context/actions'
@@ -15,9 +16,7 @@ import { getPageHeight } from '@/lib/utils'
 
 function Layout({ children, pageProps }) {
   const dispatch = useAppDispatch()
-
   const router = useRouter()
-
   const main = useRef()
 
   useEffect(() => {
@@ -26,20 +25,20 @@ function Layout({ children, pageProps }) {
 
   useEffect(() => {
     const onScroll = throttle(() => {
-      const progress = !window.scrollY
-        ? 0
-        : window.scrollY + window.innerHeight === getPageHeight()
-        ? 100
-        : Math.round(((window.scrollY + 150) / main.current.offsetHeight) * 100)
+      if (['/', '/blog', '/about'].includes(router.pathname)) {
+        setProgress(dispatch, 0)
+      } else {
+        let progress = !window.scrollY
+          ? 0
+          : window.scrollY + window.innerHeight === getPageHeight()
+          ? 100
+          : Math.round(((window.scrollY + 150) / main.current.offsetHeight) * 100)
 
-      setProgress(dispatch, progress)
+        setProgress(dispatch, progress)
+      }
     }, 100)
 
-    if (router.pathname == '/blog/[slug]') {
-      window.addEventListener('scroll', onScroll)
-    } else {
-      window.removeEventListener('scroll', onScroll)
-    }
+    window.addEventListener('scroll', onScroll)
 
     return () => {
       window.removeEventListener('scroll', onScroll)
@@ -63,15 +62,17 @@ function Layout({ children, pageProps }) {
       router.events.off('routeChangeError', handleRouteChangeError)
     }
   }, [router.events])
+
   return (
-    <>
+    <Fragment>
       <Meta pageProps={pageProps} />
       <Navigation />
       <Search />
       <Progress />
       <Main ref={main}>{children}</Main>
+      <BackToTop />
       <Footer />
-    </>
+    </Fragment>
   )
 }
 

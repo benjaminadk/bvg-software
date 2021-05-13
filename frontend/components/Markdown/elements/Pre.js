@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react'
-import { Check } from 'react-bootstrap-icons'
+import { useState, useRef } from 'react'
+import Button from 'react-bootstrap/Button'
+import { Clipboard, ClipboardCheck } from 'react-bootstrap-icons'
 import copy from 'clipboard-copy'
 
 function Pre({ children, className }) {
@@ -20,13 +21,9 @@ function Pre({ children, className }) {
     <div className='pre-container'>
       <pre ref={pre} className={className}>
         {children}
-        <button
-          type='button'
-          className='copy-btn btn btn-secondary text-uppercase shadow-none'
-          onClick={onClick}
-        >
-          {copied ? <Check size={20} /> : 'Copy'}
-        </button>
+        <Button className='copy-btn' variant='secondary' onClick={onClick}>
+          {copied ? <ClipboardCheck size={16} /> : <Clipboard size={16} />}
+        </Button>
       </pre>
     </div>
   )

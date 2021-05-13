@@ -15,8 +15,8 @@ function Courses({ courses }) {
           <Card>
             <CloudinaryImage image={course.image} />
             <Card.Body>
-              <Card.Title className='text-info fw-bold'>{course.title}</Card.Title>
-              <Card.Text>{course.meta_description}</Card.Text>
+              <Card.Title className='text-info text-center fw-bold'>{course.title}</Card.Title>
+              <Card.Text className='text-center'>{course.meta_description}</Card.Text>
             </Card.Body>
           </Card>
         </Col>

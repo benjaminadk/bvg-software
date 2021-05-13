@@ -17,8 +17,9 @@ function Img({ src, alt, width, height }) {
         <Image src={src} alt={alt} width={width} height={height} />
         <Figure.Caption className='mt-1'>{alt}</Figure.Caption>
       </Figure>
-      <Modal show={show} onHide={() => setShow(false)}>
-        <Modal.Body>
+      <Modal className='image-modal' fullscreen show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body className='d-flex align-items-center justify-content-center'>
           <Image src={src} alt={alt} width={width} height={height} />
         </Modal.Body>
       </Modal>

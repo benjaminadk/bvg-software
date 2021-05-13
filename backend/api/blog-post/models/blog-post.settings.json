@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "meta_title": {
@@ -40,7 +40,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "published_on": {
       "type": "date"
@@ -52,6 +53,10 @@
       "type": "component",
       "repeatable": false,
       "component": "multimedia.video"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

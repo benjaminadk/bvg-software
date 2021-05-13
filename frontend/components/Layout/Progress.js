@@ -5,7 +5,7 @@ function ProgressBar() {
   const { progress } = useAppState()
 
   return (
-    <div id='Progress' className={cn('progress position-sticky', { 'bg-white': !progress })}>
+    <div id='Progress' className={cn('progress position-sticky bg-gray-300')}>
       <div
         className='progress-bar bg-pink-500'
         role='progressbar'

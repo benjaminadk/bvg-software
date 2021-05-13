@@ -41,7 +41,7 @@ function Heading({ post }) {
         <CloudinaryImage image={post.image} />
       )}
       <Card.Body>
-        <div className='d-flex align-items-center lh-1 text-muted'>
+        <div className='d-flex align-items-center justify-content-center lh-1 text-muted'>
           <span>Updated on {formatDate(post.updated_at, 0)}</span>
           <ChevronRight size={10} className='mx-2' />
           <span>{post.read_time} min read</span>

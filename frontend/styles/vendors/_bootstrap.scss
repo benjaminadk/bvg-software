@@ -10,6 +10,14 @@ $font-family-sans-serif: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto
 $font-family-monospace: 'Cascadia Code', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
   'Courier New', monospace !default;
 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
 // Colors
 $black: #2d2d2d;
 
@@ -52,7 +60,9 @@ $utilities: map-merge(
             map-merge(
               map-get(map-get($utilities, 'background-color'), 'values'),
               (
+                'cyan-700': $cyan-700,
                 'gray-300': $gray-300,
+                'gray-400': $gray-400,
                 'pink-500': $pink-500,
                 'yellow-100': $yellow-100,
               )

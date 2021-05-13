@@ -1,0 +1,28 @@
+#BackToTop {
+  z-index: 2;
+  position: fixed;
+  bottom: $spacer;
+  display: grid;
+  place-items: center center;
+  background-color: $white;
+  border-radius: $border-radius * 1.2;
+  opacity: 0.75;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  svg {
+    fill: $secondary;
+  }
+
+  &.show-btt {
+    right: $spacer;
+  }
+
+  &.hide-btt {
+    right: $spacer * -4;
+  }
+}

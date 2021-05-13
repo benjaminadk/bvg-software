@@ -779,9 +779,9 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "preview": {
+            "type": "boolean",
+            "default": true
           }
         }
       },
@@ -907,9 +907,9 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "preview": {
+            "type": "boolean",
+            "default": true
           },
           "created_by": {
             "type": "string"

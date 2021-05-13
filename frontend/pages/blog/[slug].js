@@ -15,8 +15,8 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(ctx) {
-  const blogPost = await getBlogPostBySlug(ctx.params.slug)
+export async function getStaticProps({ params }) {
+  const blogPost = await getBlogPostBySlug(params.slug)
 
   if (!blogPost) {
     return {

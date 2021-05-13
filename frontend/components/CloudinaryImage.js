@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Cloudinary } from 'cloudinary-core'
 
 const cl = new Cloudinary({ cloud_name: 'bvgsoftware', secure: true })
+const baseUrl = 'https://res.cloudinary.com/bvgsoftware/image/upload/'
 
 function CloudinaryImage({ image }) {
   if (image) {
@@ -11,10 +12,12 @@ function CloudinaryImage({ image }) {
     useEffect(() => {
       setTimeout(() => {
         setRealImage(image)
-      }, 2000)
+      }, 1000)
     }, [])
 
-    const url = cl.url(image.url, { transformation: [{ effect: 'blur:1000' }] })
+    const url = cl.url(image.url.replace(baseUrl, ''), {
+      transformation: [{ effect: 'blur:1000' }],
+    })
 
     return (
       <div
@@ -36,7 +39,7 @@ function CloudinaryImage({ image }) {
         >
           {realImage ? (
             <Image
-              src={realImage.url}
+              src={realImage.url.replace(baseUrl, '')}
               alt={realImage.alt}
               width={realImage.width}
               height={realImage.height}

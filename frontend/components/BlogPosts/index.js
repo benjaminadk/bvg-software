@@ -65,8 +65,8 @@ function BlogPosts({ blogPosts }) {
               <Card as='a' className='blog-post-item'>
                 <CloudinaryImage image={post.image} />
                 <Card.Body>
-                  <Card.Title className='text-info fw-bold'>{post.title}</Card.Title>
-                  <Card.Text className='text-dark'>{post.meta_description}</Card.Text>
+                  <Card.Title className='text-info text-center fw-bold'>{post.title}</Card.Title>
+                  <Card.Text className='text-dark text-center'>{post.meta_description}</Card.Text>
                 </Card.Body>
                 <Card.Footer className='d-flex align-items-end justify-content-between'>
                   <small className='text-muted '>
