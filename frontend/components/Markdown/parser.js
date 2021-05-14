@@ -13,6 +13,7 @@ import bash from 'refractor/lang/bash'
 import graphql from 'refractor/lang/graphql'
 import jsx from 'refractor/lang/jsx'
 import javascript from 'refractor/lang/javascript'
+import sass from 'refractor/lang/sass'
 import css from 'refractor/lang/css'
 import cssExtras from 'refractor/lang/css-extras'
 import jsExtras from 'refractor/lang/js-extras'
@@ -32,6 +33,7 @@ refractor.register(php)
 refractor.register(yaml)
 refractor.register(javascript)
 refractor.register(jsExtras)
+refractor.register(sass)
 refractor.register(css)
 refractor.register(cssExtras)
 refractor.register(markdown)
@@ -78,9 +80,7 @@ function rehypePrism(options) {
 
     let result
     try {
-      parent.properties.className = (parent.properties.className || []).concat(
-        'language-' + lang
-      )
+      parent.properties.className = (parent.properties.className || []).concat('language-' + lang)
       result = refractor.highlight(nodeToString(node), lang)
     } catch (err) {
       if (options.ignoreMissing && /Unknown language/.test(err.message)) {

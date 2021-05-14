@@ -1,7 +1,9 @@
 #Progress {
   z-index: 1021;
+  position: sticky;
   top: 55px;
-  height: 5px;
+  height: 6px;
+  background-color: $gray-300;
   border-radius: 0;
   box-shadow: none;
 }

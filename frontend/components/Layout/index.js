@@ -28,11 +28,13 @@ function Layout({ children, pageProps }) {
       if (['/', '/blog', '/about'].includes(router.pathname)) {
         setProgress(dispatch, 0)
       } else {
-        let progress = !window.scrollY
+        const { scrollY, innerHeight } = window
+        const pageHeight = getPageHeight()
+        let progress = !scrollY
           ? 0
-          : window.scrollY + window.innerHeight === getPageHeight()
+          : scrollY + innerHeight === pageHeight
           ? 100
-          : Math.round(((window.scrollY + 150) / main.current.offsetHeight) * 100)
+          : Math.round(((scrollY + innerHeight * (scrollY / pageHeight)) / pageHeight) * 100)
 
         setProgress(dispatch, progress)
       }

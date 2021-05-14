@@ -1,21 +1,10 @@
 import { useAppState } from '@/lib/context'
-import cn from 'classnames'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
-function ProgressBar() {
+function Progress() {
   const { progress } = useAppState()
 
-  return (
-    <div id='Progress' className={cn('progress position-sticky bg-gray-300')}>
-      <div
-        className='progress-bar bg-pink-500'
-        role='progressbar'
-        style={{ width: progress + '%' }}
-        aria-valuenow={progress}
-        aria-valuemin='0'
-        aria-valuemax='100'
-      ></div>
-    </div>
-  )
+  return <ProgressBar id='Progress' variant='pink-500' min={0} max={100} now={progress} />
 }
 
-export default ProgressBar
+export default Progress
