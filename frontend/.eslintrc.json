@@ -19,6 +19,7 @@
   "globals": {
     "React": "writable",
     "process": "readonly",
-    "module": "writable"
+    "module": "writable",
+    "require": "writable"
   }
 }

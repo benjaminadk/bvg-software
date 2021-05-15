@@ -79,6 +79,10 @@
     }
   }
 
+  table {
+    margin: $spacer * 3 0;
+  }
+
   .filename {
     position: relative;
     z-index: 1;

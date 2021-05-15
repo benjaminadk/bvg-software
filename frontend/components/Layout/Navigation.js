@@ -14,9 +14,9 @@ function Navigation() {
         </Link>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
-          <Nav className='me-auto' defaultActiveKey='/blog'>
+          <Nav className='me-auto' activeKey='/' defaultActiveKey='/'>
             {MAIN_MENU_ITEMS.map((item) => (
-              <Link key={item.href} href={item.href} passHref>
+              <Link key={item.href} eventKey={item.href} href={item.href} passHref>
                 <Nav.Link>{item.text}</Nav.Link>
               </Link>
             ))}
