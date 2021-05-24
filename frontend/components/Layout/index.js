@@ -32,7 +32,7 @@ function Layout({ children, pageProps }) {
         const pageHeight = getPageHeight()
         let progress = !scrollY
           ? 0
-          : scrollY + innerHeight === pageHeight
+          : scrollY + innerHeight >= pageHeight
           ? 100
           : Math.round(((scrollY + innerHeight * (scrollY / pageHeight)) / pageHeight) * 100)
 

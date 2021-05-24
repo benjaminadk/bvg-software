@@ -16,6 +16,16 @@
     },
     "meta_description": {
       "type": "text"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.card"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.card"
     }
   }
 }
