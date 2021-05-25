@@ -2,15 +2,15 @@ import { ArrowRight } from 'react-bootstrap-icons'
 
 function Li({ children, number, ...rest }) {
   return (
-    <li className='list-unstyled d-flex align-items-center m-2' {...rest}>
+    <li className='list-unstyled m-2' {...rest}>
       {number ? (
-        <span className='li-content'>{number}</span>
+        <span className='li-icon'>{number}</span>
       ) : (
-        <span className='li-content'>
+        <span className='li-icon'>
           <ArrowRight size={20} />
         </span>
       )}
-      {children}
+      <span className='li-content'>{children}</span>
     </li>
   )
 }

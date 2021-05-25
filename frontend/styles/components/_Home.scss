@@ -1,18 +1,80 @@
 #Home {
-  .Banner {
-    background-color: $secondary;
-    padding: $spacer * 4 0;
+  .Landing {
+    padding-bottom: $spacer * 8;
+  }
 
-    h2 {
+  form#klaviyo-signup {
+    display: flex;
+    flex-direction: column;
+
+    input[type='email']:focus {
+      border-color: $pink-300;
+      box-shadow: 0 0 0 0.25rem rgba($pink, 0.25);
+    }
+
+    button {
+      align-self: flex-end;
+      background-color: $pink;
       color: $white;
-      font-size: 4rem;
-      font-weight: bold;
-      text-align: center;
+    }
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+
+    .li-icon {
+      align-self: flex-start;
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center center;
+      border-radius: 50%;
+      background-color: $yellow-100;
+      color: $yellow-700;
+      border: 1px solid $warning;
+      margin-right: $spacer * 0.75;
+    }
+
+    .li-content {
+      align-self: center;
+    }
+
+    & > a {
+      color: $cyan-500;
+      font-weight: $font-weight-bold;
+      margin: 0 $spacer * 0.2;
+
+      &:hover {
+        color: $cyan-600;
+      }
+    }
+  }
+
+  .Contents {
+    padding: $spacer 0 $spacer * 8;
+  }
+
+  .contents-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: $spacer * 2;
+  }
+
+  .contents-item {
+    box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+
+    &:hover .text-info {
+      color: $pink-500 !important;
     }
   }
 
   .Services {
-    padding: $spacer * 8 0;
+    padding: $spacer 0 $spacer * 8;
   }
 
   .services-grid {
@@ -20,40 +82,16 @@
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: $spacer * 2;
   }
-
-  .Content {
-    padding: $spacer * 8 0;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: $spacer * 2;
-  }
-
-  .content-item {
-    box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
-
-    &:hover .text-info {
-      color: $pink-500 !important;
-    }
-  }
 }
 
 @include media-breakpoint-up(lg) {
   #Home {
-    .Banner {
-      h2 {
-        font-size: 5rem;
-      }
-    }
-
     .services-grid {
       grid-template-rows: unset;
       grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .content-grid {
+    .contents-grid {
       grid-template-rows: unset;
       grid-template-columns: 1fr 1fr;
     }

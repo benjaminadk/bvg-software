@@ -1,16 +1,26 @@
+import Container from 'react-bootstrap/Container'
+
+import Landing from './Landing'
 import Banner from './Banner'
 import Services from './Services'
-import Content from './Content'
+import Contents from './Contents'
 
 function Home({ homePage }) {
-  const { services, content } = homePage
+  const { landing, contents, services } = homePage
   return (
-    <div id='Home'>
-      <Banner text='Buy It' />
+    <Container id='Home'>
+      <Landing landing={landing} />
+      <Banner
+        heading='Content'
+        text='Learn everything I know about web development throught free blog posts and affordable courses.'
+      />
+      <Contents contents={contents} />
+      <Banner
+        heading='Services'
+        text='I offer a wide range of freelance services. Contact me to schedule a free consultation.'
+      />
       <Services services={services} />
-      <Banner text='Learn It' />
-      <Content content={content} />
-    </div>
+    </Container>
   )
 }
 

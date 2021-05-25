@@ -9,8 +9,6 @@ const initialState = {
 }
 
 function AppReducer(initialState, action) {
-  console.log(action.type)
-
   switch (action.type) {
     case 'INITIALIZE_REQUEST':
       return {

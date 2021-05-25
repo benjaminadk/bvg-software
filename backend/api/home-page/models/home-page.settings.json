@@ -22,7 +22,12 @@
       "repeatable": true,
       "component": "multimedia.card"
     },
-    "content": {
+    "landing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "multimedia.card"
+    },
+    "contents": {
       "type": "component",
       "repeatable": true,
       "component": "multimedia.card"

@@ -3,4 +3,13 @@
   position: relative;
   min-height: 600px;
   background-color: $secondary;
+  color: $white;
+  padding: $spacer;
+}
+
+@include media-breakpoint-up(lg) {
+  #Footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

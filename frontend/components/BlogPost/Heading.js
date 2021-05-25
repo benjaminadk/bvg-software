@@ -41,11 +41,11 @@ function Heading({ post }) {
         <CloudinaryImage image={post.image} />
       )}
       <Card.Body>
-        <div className='d-flex align-items-center justify-content-center lh-1 text-muted'>
-          <span>Updated on {formatDate(post.updated_at, 0)}</span>
-          <ChevronRight size={10} className='mx-2' />
-          <span>{post.read_time} min read</span>
-          <ChevronRight size={10} className='mx-2' />
+        <div className='d-flex flex-column flex-md-row align-items-center justify-content-center lh-1 text-muted'>
+          <span className='mb-1 mb-md-0'>Updated on {formatDate(post.updated_at, 0)}</span>
+          <ChevronRight size={10} className='d-none d-md-block mx-2' />
+          <span className='mb-1 mb-md-0'>{post.read_time} min read</span>
+          <ChevronRight size={10} className='d-none d-md-block mx-2' />
           <span>
             {post.tags.map((tag) => (
               <Link key={tag.name} href='#'>
