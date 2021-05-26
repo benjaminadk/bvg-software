@@ -2,6 +2,7 @@ import getCurrentUser from './get-current-user'
 import googleAuthentication from './google-authentication'
 import loginUser from './login-user'
 import registerUser from './register-user'
+import getBlogPostTags from './get-blog-post-tags'
 import getBlogPostSlugs from './get-blog-post-slugs'
 import getBlogPostBySlug from './get-blog-post-by-slug'
 import getBlogPosts from './get-blog-posts'
@@ -16,6 +17,7 @@ export {
   googleAuthentication,
   loginUser,
   registerUser,
+  getBlogPostTags,
   getBlogPostSlugs,
   getBlogPostBySlug,
   getBlogPosts,

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
@@ -11,8 +12,23 @@ import CloudinaryImage from '../CloudinaryImage'
 
 function Landing({ landing }) {
   const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('')
 
-  async function onSubmit() {}
+  async function onSubmit(e) {
+    e.preventDefault()
+    const res = await Axios({
+      method: 'POST',
+      url: '/api/newsletter',
+      data: {
+        email,
+      },
+    })
+    if (res.data.success) {
+      setStatus('success')
+    } else {
+      setStatus('danger')
+    }
+  }
 
   return (
     <div className='Landing'>
@@ -30,7 +46,7 @@ function Landing({ landing }) {
             </Card>
           </Col>
           <Col md={6}>
-            <p className='mt-2 mt-md-0'>Sign up for newsletter:</p>
+            <p className='mt-2 mt-md-0'>Here&apos;s what you can do:</p>
             <Card>
               <Card.Body>
                 <ul>
@@ -53,11 +69,19 @@ function Landing({ landing }) {
                     <span>Deals on upcoming courses</span>
                   </li>
                 </ul>
+                {status ? (
+                  <Alert variant={status}>
+                    {status === 'success'
+                      ? 'Thanks for signing up!'
+                      : 'Whoops! Something went wrong.'}
+                  </Alert>
+                ) : null}
                 <Form id='klaviyo-signup' onSubmit={onSubmit}>
                   <Form.Group>
                     <Form.Control
                       type='email'
                       placeholder='Email Address'
+                      autoComplete='email'
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}

@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import cn from 'classnames'
 
-function Tags({ blogPosts, selectedTags, onTagClick }) {
+import { getBlogPostTags } from '@/lib/strapi'
+
+function Tags({ selectedTags, onTagClick }) {
   const [tags, setTags] = useState([])
 
   useEffect(() => {
-    let tmp = []
-    for (let post of blogPosts) {
-      for (let tag of post.tags) {
-        if (!tmp.find((el) => el.name === tag.name)) {
-          tmp.push({ ...tag, count: 1 })
-        } else {
-          tmp.find((el) => el.name === tag.name)['count'] += 1
-        }
-      }
+    async function fetchTags() {
+      let allTags = await getBlogPostTags()
+      setTags(allTags)
     }
-    setTags(tmp.sort((a, b) => (a.name > b.name ? 1 : -1)))
+    fetchTags()
   }, [])
 
   return (

@@ -1,16 +1,16 @@
-import BlogPosts from '@/components/BlogPosts'
+import Blog from '@/components/Blog'
 
 import { getBlogPage, getBlogPosts } from '@/lib/strapi'
 
-function BlogPage({ blogPosts }) {
-  return <BlogPosts blogPosts={blogPosts} />
+function BlogPage() {
+  return <Blog />
 }
 
 export async function getStaticProps() {
   const blogPage = await getBlogPage()
-  const blogPosts = await getBlogPosts()
+  const { posts } = await getBlogPosts(0, 6)
 
-  if (!blogPosts || !blogPage) {
+  if (!posts || !blogPage) {
     return {
       notFound: true,
     }
@@ -19,7 +19,7 @@ export async function getStaticProps() {
   return {
     props: {
       blogPage,
-      blogPosts,
+      recentPosts: posts,
     },
     revalidate: 1,
   }

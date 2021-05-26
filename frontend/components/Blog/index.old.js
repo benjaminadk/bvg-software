@@ -11,7 +11,7 @@ import CloudinaryImage from '../CloudinaryImage'
 
 import { formatDate } from '@/lib/utils'
 
-function BlogPosts({ blogPosts }) {
+function Blog({ blogPosts }) {
   const [selectedTags, setSelectedTags] = useState(['all posts'])
   const [sortedPosts, setSortedPosts] = useState([])
 
@@ -87,4 +87,4 @@ function BlogPosts({ blogPosts }) {
   )
 }
 
-export default BlogPosts
+export default Blog

@@ -1,10 +1,14 @@
+import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
 
 import CloudinaryImage from '../CloudinaryImage'
 
 function Services({ services }) {
   return (
-    <div className='Services'>
+    <Alert variant='warning' className='Services'>
+      <Alert.Heading className='fw-bold'>Services</Alert.Heading>
+      <p>I offer a wide range of freelance services. Contact me to schedule a free consultation.</p>
+      <hr />
       <div className='services-grid'>
         {services.map((service) => (
           <Card key={service.id}>
@@ -16,7 +20,7 @@ function Services({ services }) {
           </Card>
         ))}
       </div>
-    </div>
+    </Alert>
   )
 }
 

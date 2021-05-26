@@ -1,15 +1,44 @@
 #Footer {
   z-index: 1;
   position: relative;
-  min-height: 600px;
   background-color: $secondary;
   color: $white;
-  padding: $spacer;
+
+  .inner-footer {
+    padding: $spacer * 2 0;
+  }
+
+  .sub-footer {
+    height: 60px;
+    background-color: $gray-300;
+  }
+
+  .recent-posts {
+    padding: $spacer * 2;
+
+    h4 {
+      text-align: center;
+      margin-bottom: $spacer;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        color: $white;
+        margin-bottom: $spacer;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-up(lg) {
   #Footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    .recent-posts {
+      h4 {
+        text-align: left;
+      }
+    }
   }
 }

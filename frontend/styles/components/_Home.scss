@@ -1,6 +1,6 @@
 #Home {
   .Landing {
-    padding-bottom: $spacer * 8;
+    padding-bottom: $spacer * 4;
   }
 
   form#klaviyo-signup {
@@ -56,7 +56,7 @@
   }
 
   .Contents {
-    padding: $spacer 0 $spacer * 8;
+    margin: 0 0 $spacer * 4;
   }
 
   .contents-grid {
@@ -74,7 +74,7 @@
   }
 
   .Services {
-    padding: $spacer 0 $spacer * 8;
+    margin: 0 0 $spacer * 4;
   }
 
   .services-grid {

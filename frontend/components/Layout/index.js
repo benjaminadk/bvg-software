@@ -73,7 +73,7 @@ function Layout({ children, pageProps }) {
       <Progress />
       <Main ref={main}>{children}</Main>
       <BackToTop />
-      <Footer />
+      <Footer recentPosts={pageProps?.recentPosts} />
     </Fragment>
   )
 }

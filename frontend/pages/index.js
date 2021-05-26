@@ -1,6 +1,6 @@
 import Home from '@/components/Home'
 
-import { getHomePage } from '@/lib/strapi'
+import { getHomePage, getBlogPosts } from '@/lib/strapi'
 
 function HomePage({ homePage }) {
   return <Home homePage={homePage} />
@@ -8,6 +8,7 @@ function HomePage({ homePage }) {
 
 export async function getStaticProps() {
   const homePage = await getHomePage()
+  const { posts } = await getBlogPosts(0, 6)
 
   if (!homePage) {
     return {
@@ -18,6 +19,7 @@ export async function getStaticProps() {
   return {
     props: {
       homePage,
+      recentPosts: posts,
     },
     revalidate: 1,
   }

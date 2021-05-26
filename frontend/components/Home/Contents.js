@@ -1,11 +1,18 @@
 import Link from 'next/link'
+import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
 
 import CloudinaryImage from '../CloudinaryImage'
 
 function Contents({ contents }) {
   return (
-    <div className='Contents'>
+    <Alert variant='warning' className='Contents'>
+      <Alert.Heading className='fw-bold'>Contents</Alert.Heading>
+      <p>
+        Learn everything I know about web development throught free blog posts and affordable
+        courses.
+      </p>
+      <hr />
       <div className='contents-grid'>
         {contents.map((content) => (
           <Link key={content.id} href={content.href} passHref>
@@ -19,7 +26,7 @@ function Contents({ contents }) {
           </Link>
         ))}
       </div>
-    </div>
+    </Alert>
   )
 }
 

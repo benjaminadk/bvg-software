@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/blog-posts/tags",
+      "handler": "blog-post.tags",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/blog-posts/count",
       "handler": "blog-post.count",
       "config": {
