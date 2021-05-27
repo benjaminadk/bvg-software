@@ -181,19 +181,6 @@
 
 @media (min-width: 768px) {
   .pre-container {
-    code[class*='language-'],
-    pre[class*='language-'] {
-      font-size: 1rem;
-
-      & > span.token {
-        font-size: 1rem;
-      }
-
-      & > span > span.token {
-        font-size: 1rem;
-      }
-    }
-
     .highlight {
       height: 1.35rem;
     }
