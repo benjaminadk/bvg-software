@@ -16,32 +16,34 @@ export default function createStructuredData(type, data) {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: SITE_NAME,
-      legalName: SITE_NAME,
+      legalName: 'BVG Enterprises',
       url: CLIENT_URL,
       logo: '',
       foundingDate: '',
       founders: [
         {
           '@type': 'Person',
-          name: '',
+          name: 'Benjamin Brooke',
         },
       ],
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '',
+        streetAddress: '3240 S Kerckhoff Ave',
         addressLocality: '',
         addressRegion: '',
-        postalCode: '',
-        addressCountry: '',
+        postalCode: '90731',
+        addressCountry: 'USA',
       },
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
         telephone: '[+]',
-        email: '',
+        email: 'tech@bvgsoftware.com',
       },
       sameAs: [''],
     }
+  } else if (type === 'posts') {
+    
   } else if (type === 'breadcrumbs') {
     structuredData = {
       '@context': 'https://schema.org',
@@ -54,6 +56,10 @@ export default function createStructuredData(type, data) {
           item: d.href,
         }
       }),
+    }
+  } else if (type === 'video') {
+    structuredData = {
+
     }
   }
 
