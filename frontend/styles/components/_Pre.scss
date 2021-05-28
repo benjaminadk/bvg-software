@@ -179,7 +179,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .pre-container {
     .highlight {
       height: 1.35rem;

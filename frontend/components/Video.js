@@ -1,13 +1,47 @@
 import React, { useState } from 'react'
 import CloudnaryImage from './CloudinaryImage'
 
-function Video({ video, width, height }) {
+function Video({ defer = false, video, width, height }) {
   const [loaded, setLoaded] = useState(false)
-
+  console.log(width, height)
   if (video) {
-    return (
-      <div className='Video'>
-        {loaded ? (
+    if (defer) {
+      return (
+        <div className='Video'>
+          {loaded ? (
+            <iframe
+              width={width}
+              height={height}
+              src={`https://www.youtube-nocookie.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=1`}
+              title='YouTube video player'
+              frameBorder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <div
+              className='placeholder-image'
+              style={{ width: width + 'px', height: height + 'px' }}
+              onClick={() => setLoaded(true)}
+            >
+              <CloudnaryImage image={video.thumbnail} />
+              <div className='yt-button'>
+                <svg height='100%' version='1.1' viewBox='0 0 68 48' width='100%'>
+                  <path
+                    className='yt-button-bg'
+                    d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'
+                    fill='#f00'
+                  ></path>
+                  <path d='M 45,24 27,14 27,34' fill='#fff'></path>
+                </svg>
+              </div>
+            </div>
+          )}
+        </div>
+      )
+    } else {
+      return (
+        <div className='Video'>
           <iframe
             width={width}
             height={height}
@@ -17,27 +51,9 @@ function Video({ video, width, height }) {
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
           ></iframe>
-        ) : (
-          <div
-            className='placeholder-image'
-            style={{ width: width + 'px', height: height + 'px' }}
-            onClick={() => setLoaded(true)}
-          >
-            <CloudnaryImage image={video.thumbnail} />
-            <div className='yt-button'>
-              <svg height='100%' version='1.1' viewBox='0 0 68 48' width='100%'>
-                <path
-                  className='yt-button-bg'
-                  d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'
-                  fill='#f00'
-                ></path>
-                <path d='M 45,24 27,14 27,34' fill='#fff'></path>
-              </svg>
-            </div>
-          </div>
-        )}
-      </div>
-    )
+        </div>
+      )
+    }
   } else {
     return null
   }

@@ -13,7 +13,7 @@ import Author from './Author'
 function BlogPost({ blogPost }) {
   if (blogPost) {
     return (
-      <Container id='BlogPost' fluid='xxl'>
+      <Container className='BlogPost' fluid='xxl'>
         <Row>
           <Col md={2}></Col>
           <Col md={8}>

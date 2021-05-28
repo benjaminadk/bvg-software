@@ -28,6 +28,10 @@
       a {
         color: $white;
         margin-bottom: $spacer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

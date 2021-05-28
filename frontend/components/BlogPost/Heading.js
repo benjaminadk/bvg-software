@@ -23,7 +23,6 @@ function Heading({ post }) {
     }
 
     window.addEventListener('resize', setVideoSize)
-
     setVideoSize()
 
     return () => {
