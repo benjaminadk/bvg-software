@@ -42,14 +42,15 @@ module.exports = {
   // Fetch all slugs
   async slugs(ctx) {
     const knex = strapi.connections.default
-    const result = await knex('blog_posts').select('slug')
-    return result
+    const slugs = await knex('blog_posts').select('slug')
+    return slugs
   },
 
   // Fetch all tags
   async tags(ctx) {
     const knex = strapi.connections.default
-    const result = await knex('components_blog_tags').distinct('name')
-    return result
+    const result = await knex('blog_posts').select('tags')
+    const tags = Array.from(new Set(result.map((el) => el.tags.split(',')).flat()))
+    return tags
   },
 }

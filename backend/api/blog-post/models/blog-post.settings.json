@@ -26,11 +26,6 @@
     "slug": {
       "type": "string"
     },
-    "tags": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blog.tag"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -57,6 +52,9 @@
     "preview": {
       "type": "boolean",
       "default": true
+    },
+    "tags": {
+      "type": "string"
     }
   }
 }

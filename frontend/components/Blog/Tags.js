@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import cn from 'classnames'
 
 import { getBlogPostTags } from '@/lib/strapi'
@@ -15,22 +18,21 @@ function Tags({ selectedTags, onTagClick }) {
   }, [])
 
   return (
-    <div id='Tags' className='row mb-5'>
-      <div className='tags-wrapper col-md-6 offset-md-3'>
-        {[{ name: 'all posts' }, ...tags].map((tag) => (
-          <button
-            key={tag.name}
-            type='button'
+    <Row className='Tags'>
+      <Col md={{ span: 6, offset: 3 }} className='d-flex justify-content-center flex-wrap'>
+        {['all posts', ...tags].map((tag) => (
+          <Button
+            key={tag}
             className={cn('tag btn btn-sm ms-2 mb-2', {
-              'tag-active': selectedTags.includes(tag.name),
+              'tag-active': selectedTags.includes(tag),
             })}
-            onClick={() => onTagClick(tag.name)}
+            onClick={() => onTagClick(tag)}
           >
-            {tag.name}
-          </button>
+            {tag}
+          </Button>
         ))}
-      </div>
-    </div>
+      </Col>
+    </Row>
   )
 }
 

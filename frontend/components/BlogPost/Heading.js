@@ -46,10 +46,10 @@ function Heading({ post }) {
           <span className='mb-1 mb-md-0'>{post.read_time} min read</span>
           <ChevronRight size={10} className='d-none d-md-block mx-2' />
           <span>
-            {post.tags.map((tag) => (
-              <Link key={tag.name} href='#'>
+            {post.tags.split(',').map((tag) => (
+              <Link key={tag} href='#'>
                 <Badge bg='secondary' className='me-1 cursor-pointer'>
-                  {tag.name}
+                  {tag}
                 </Badge>
               </Link>
             ))}
