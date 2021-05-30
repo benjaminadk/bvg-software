@@ -28,11 +28,7 @@ function BackToTop() {
   }
 
   return (
-    <div
-      id='BackToTop'
-      className={cn({ 'show-btt': show, 'hide-btt': !show })}
-      onClick={scrollToTop}
-    >
+    <div className={cn('BackToTop', { 'show-btt': show, 'hide-btt': !show })} onClick={scrollToTop}>
       <ArrowUpSquareFill size={40} />
     </div>
   )

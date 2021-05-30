@@ -10,7 +10,7 @@ const SERVER_URL =
   process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://api.bvgsoftware.com'
 const TODAY = format(new Date(), 'yyyy-MM-dd')
 
-const coreRoutes = ['', 'about', 'blog', 'courses']
+const coreRoutes = ['', 'about', 'blog', 'courses', 'privacy']
 
 async function main() {
   const res = await Axios({

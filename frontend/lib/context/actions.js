@@ -1,7 +1,8 @@
+import debounce from 'lodash.debounce'
 import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
-import * as API from '../strapi'
-import { MONTH } from '../constants'
+import * as API from '@/lib/strapi'
+import { MONTH } from '@/lib/constants'
 
 async function initializeUser(dispatch) {
   try {
@@ -153,6 +154,21 @@ function setProgress(dispatch, progress = 0) {
   dispatch({ type: 'PROGRESS', payload: progress })
 }
 
+const setSearchTerm = debounce(async (dispatch, searchTerm) => {
+  try {
+    if (searchTerm) {
+      const data = await API.getBlogPosts(0, 100, {
+        _or: [{ title_contains: searchTerm, meta_description_contains: searchTerm }],
+      })
+      dispatch({ type: 'SEARCH', payload: { searchTerm, searchResults: data.posts } })
+    } else {
+      dispatch({ type: 'SEARCH', payload: { searchTerm, searchResults: [] } })
+    }
+  } catch (error) {
+    dispatch({ type: 'SEARCH_ERROR', error: error })
+  }
+}, 500)
+
 export {
   initializeUser,
   getCurrentUser,
@@ -162,5 +178,6 @@ export {
   googleAuthentication,
   setShowAuthModal,
   setShowBackToTop,
+  setSearchTerm,
   setProgress,
 }

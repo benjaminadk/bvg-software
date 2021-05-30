@@ -5,6 +5,8 @@ const initialState = {
   showAuthModal: false,
   showBackToTop: false,
   progress: 0,
+  searchTerm: '',
+  searchResults: [],
   errorMessage: null,
 }
 
@@ -154,6 +156,19 @@ function AppReducer(initialState, action) {
       }
 
     case 'SHOW_AUTH_MODAL_ERROR':
+      return {
+        ...initialState,
+        errorMessage: action.error,
+      }
+
+    case 'SEARCH':
+      return {
+        ...initialState,
+        searchTerm: action.payload.searchTerm,
+        searchResults: action.payload.searchResults,
+      }
+
+    case 'SEARCH_ERROR':
       return {
         ...initialState,
         errorMessage: action.error,

@@ -1,32 +1,16 @@
-import { Fragment, useMemo, useEffect, useRef } from 'react'
+import { Fragment, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
 import { ChevronRight } from 'react-bootstrap-icons'
 
 import { BREADCRUMB_MAP } from '@/lib/constants'
 
+import Search from './Search'
+
 function StickyBar() {
-  const searchRef = useRef()
-
   const router = useRouter()
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-
-    function handleKeyDown({ ctrlKey, keyCode }) {
-      if (ctrlKey && keyCode === 191) {
-        searchRef.current.focus()
-      }
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
 
   const breadcrumbs = useMemo(() => {
     return ['/', ...router.asPath.split('/').filter((el) => !!el)]
@@ -51,9 +35,7 @@ function StickyBar() {
             }
           })}
         </div>
-        <Form>
-          <FormControl ref={searchRef} type='search' placeholder='Search' className='mr-sm-2' />
-        </Form>
+        <Search />
       </Container>
     </Navbar>
   )

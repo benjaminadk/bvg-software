@@ -7,7 +7,7 @@ import { MAIN_MENU_ITEMS, SOCIAL_MEDIA_ITEMS } from '../../lib/constants'
 
 function Navigation() {
   return (
-    <Navbar collapseOnSelect expand='lg' bg='secondary' variant='dark'>
+    <Navbar className='Navigation' collapseOnSelect expand='lg' bg='secondary' variant='dark'>
       <Container fluid='xxl'>
         <Link href='/' passHref>
           <Navbar.Brand>Benjamin Brooke</Navbar.Brand>
@@ -21,7 +21,7 @@ function Navigation() {
               </Link>
             ))}
           </Nav>
-          <Nav className='flex-row'>
+          <Nav className='social-media flex-row'>
             {SOCIAL_MEDIA_ITEMS.map((item) => (
               <Link key={item.href} href={item.href} passHref>
                 <Nav.Link className='me-2 p-2'>{item.icon}</Nav.Link>

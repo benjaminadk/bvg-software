@@ -46,6 +46,7 @@
       padding-right: 0.25rem;
       padding-left: 0.25rem;
       font-size: 0.75rem;
+      background-color: $white;
       color: $secondary;
       content: 'Ctrl + /';
       border: 1px solid $gray-300;
@@ -55,13 +56,51 @@
     input[type='search'] {
       &:focus {
         border-color: $pink-300;
-        box-shadow: 0 0 0 0.25rem rgba($pink, 0.25);
+        box-shadow: $pink-shadow;
       }
 
       &::-webkit-search-cancel-button {
         position: relative;
         right: 3rem;
       }
+    }
+  }
+
+  .DropDown {
+    z-index: 1022;
+    position: absolute;
+    top: $sticky-bar-height-mobile + $progress-height;
+    overflow-y: auto;
+    width: 100vw;
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-top: 0;
+    box-shadow: $dark-shadow;
+    cursor: pointer;
+  }
+
+  .DropDownItem {
+    padding: $spacer * 0.5 $spacer;
+
+    &.highlight {
+      background-color: $gray-100;
+    }
+
+    .thumbnail {
+      display: grid;
+      place-items: center center;
+      margin-right: $spacer * 0.5;
+    }
+
+    .result-text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .search-highlight {
+      font-weight: 700;
+      color: $pink;
     }
   }
 }
@@ -77,6 +116,15 @@
 
     .breadcrumbs-container {
       margin-top: unset;
+    }
+
+    form {
+      width: 448px;
+    }
+
+    .DropDown {
+      top: $sticky-bar-height-desktop + $progress-height;
+      width: 600px;
     }
   }
 }

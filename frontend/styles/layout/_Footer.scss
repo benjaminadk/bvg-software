@@ -1,4 +1,4 @@
-#Footer {
+.Footer {
   z-index: 1;
   position: relative;
   background-color: $secondary;
@@ -6,11 +6,6 @@
 
   .inner-footer {
     padding: $spacer * 2 0;
-  }
-
-  .sub-footer {
-    height: 60px;
-    background-color: $gray-300;
   }
 
   .recent-posts {
@@ -35,10 +30,70 @@
       }
     }
   }
+
+  .policies {
+    height: 100%;
+    display: grid;
+    place-items: center center;
+
+    a {
+      color: $white;
+      font-size: 0.75rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .copyright {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    font-size: 0.75rem;
+
+    span:first-of-type {
+      align-self: flex-end;
+    }
+
+    span:last-of-type {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        color: $white;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacer * 0.5 0;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: $gray-300;
+      transition: color 0.2 ease-in;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
 }
 
-@include media-breakpoint-up(lg) {
-  #Footer {
+@include media-breakpoint-up(md) {
+  .Footer {
     .recent-posts {
       h4 {
         text-align: left;

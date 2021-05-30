@@ -14,6 +14,7 @@ function Meta({ pageProps }) {
       pageProps?.blogPage ||
       pageProps?.aboutPage ||
       pageProps?.coursesPage ||
+      pageProps?.privacyPage ||
       pageProps?.blogPost ||
       null
     )

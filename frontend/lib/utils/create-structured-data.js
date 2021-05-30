@@ -83,7 +83,6 @@ export default function createStructuredData(type, data = null) {
     }
   } else if (type === 'breadcrumbs') {
     const crumbs = data.split('/').filter((el) => !!el)
-    console.log(crumbs)
     structuredData = {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',

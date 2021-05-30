@@ -2,6 +2,7 @@ export default {
   '/': 'Home',
   blog: 'Blog',
   courses: 'Courses',
+  privacy: 'Privacy Policy',
   about: 'About',
   'how-to-build-a-color-picker-with-react': 'Build a Color Picker',
   'react-svg-icons-with-no-artistic-abilities': 'SVG Without Artistic Ability',
