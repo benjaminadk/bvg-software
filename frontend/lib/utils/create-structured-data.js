@@ -1,6 +1,9 @@
-import { SITE_NAME, CLIENT_URL } from '../constants'
+import removeMd from 'remove-markdown'
 
-export default function createStructuredData(type, data) {
+import { BREADCRUMB_MAP, SITE_NAME, CLIENT_URL } from '@/lib/constants'
+import { formatDate } from '@/lib/utils'
+
+export default function createStructuredData(type, data = null) {
   let structuredData
 
   if (type === 'website') {
@@ -9,7 +12,12 @@ export default function createStructuredData(type, data) {
       '@type': 'WebSite',
       name: SITE_NAME,
       url: CLIENT_URL,
-      sameAs: [''],
+      sameAs: [
+        'https://www.facebook.com/bvgsoftware/',
+        'https://www.linkedin.com/in/bvgsoftware/',
+        'https://www.youtube.com/channel/UCZ86uFH5o_5yjjBEbi2oFSw',
+        'https://github.com/benjaminadk',
+      ],
     }
   } else if (type === 'organization') {
     structuredData = {
@@ -19,7 +27,7 @@ export default function createStructuredData(type, data) {
       legalName: 'BVG Enterprises',
       url: CLIENT_URL,
       logo: '',
-      foundingDate: '',
+      foundingDate: '2016',
       founders: [
         {
           '@type': 'Person',
@@ -29,37 +37,88 @@ export default function createStructuredData(type, data) {
       address: {
         '@type': 'PostalAddress',
         streetAddress: '3240 S Kerckhoff Ave',
-        addressLocality: '',
-        addressRegion: '',
+        addressLocality: 'Los Angeles',
+        addressRegion: 'CA',
         postalCode: '90731',
         addressCountry: 'USA',
       },
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        telephone: '[+]',
+        telephone: '[+1518-791-4620]',
         email: 'tech@bvgsoftware.com',
       },
-      sameAs: [''],
+      sameAs: [
+        'https://www.facebook.com/bvgsoftware/',
+        'https://www.linkedin.com/in/bvgsoftware/',
+        'https://www.youtube.com/channel/UCZ86uFH5o_5yjjBEbi2oFSw',
+        'https://github.com/benjaminadk',
+      ],
     }
-  } else if (type === 'posts') {
-    
+  } else if (type === 'post') {
+    structuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BlogPosting',
+      image: data.image.url,
+      url: `${CLIENT_URL}/blog/${data.slug}/`,
+      headline: data.title,
+      alternativeHeadline: data.meta_description,
+      dateCreated: formatDate(data.created_at, 1),
+      datePublished: formatDate(data.published_on, 1),
+      dateModified: formatDate(data.updated_at, 1),
+      inLanguage: 'en-US',
+      contentLocation: {
+        '@type': 'Place',
+        name: 'Los Angeles, CA',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Benjamin Brooke',
+        url: CLIENT_URL,
+      },
+      mainEntityOfPage: 'True',
+      keywords: [...data.tags.split(','), 'web development', 'software', 'coding'],
+      genre: ['Web Development', 'Software Engineering'],
+      articleBody: removeMd(data.content),
+    }
   } else if (type === 'breadcrumbs') {
+    const crumbs = data.split('/').filter((el) => !!el)
+    console.log(crumbs)
     structuredData = {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: data.map((d, i) => {
-        return {
-          '@type': 'ListItem',
-          position: i + 1,
-          name: d.name,
-          item: d.href,
+      itemListElement: crumbs.map((d, i) => {
+        if (['blog', 'courses'].includes(d) && crumbs.length > 1) {
+          return {
+            '@type': 'ListItem',
+            position: i + 1,
+            name: BREADCRUMB_MAP[d],
+            item: `${CLIENT_URL}/${d}`,
+          }
+        } else {
+          return {
+            '@type': 'ListItem',
+            position: i + 1,
+            name: BREADCRUMB_MAP[d],
+          }
         }
       }),
     }
   } else if (type === 'video') {
     structuredData = {
-
+      '@context': 'https://schema.org/',
+      '@type': 'VideoObject',
+      name: data.title,
+      description: data.description,
+      thumbnailUrl: data.thumbnail.url,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${data.shortcode}`,
+      duration: data.duration,
+      uploadDate: formatDate(data.uploaded_on, 1),
+      author: {
+        '@type': 'Person',
+        name: 'Benjamin Brooke',
+        url: CLIENT_URL,
+      },
     }
   }
 

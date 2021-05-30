@@ -4,7 +4,7 @@ import throttle from 'lodash.throttle'
 
 import Meta from './Meta'
 import Navigation from './Navigation'
-import Search from './Search'
+import StickyBar from './StickyBar'
 import Progress from './Progress'
 import Main from './Main'
 import Footer from './Footer'
@@ -69,7 +69,7 @@ function Layout({ children, pageProps }) {
     <Fragment>
       <Meta pageProps={pageProps} />
       <Navigation />
-      <Search />
+      <StickyBar />
       <Progress />
       <Main ref={main}>{children}</Main>
       <BackToTop />

@@ -34,7 +34,7 @@ function Blog() {
     } else {
       refetchPosts()
     }
-  }, [tags])
+  }, [tags, tagLogic])
 
   async function fetchPosts() {
     const payload = await getBlogPosts(0, limit)
@@ -45,7 +45,7 @@ function Blog() {
   }
 
   async function refetchPosts() {
-    const where = getWhereParameter(tags)
+    const where = getWhereParameter(tags, tagLogic)
     const payload = await getBlogPosts(0, limit, where)
     setPosts(payload.posts)
     setTotalPosts(payload.totalPosts)

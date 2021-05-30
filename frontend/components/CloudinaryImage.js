@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Cloudinary } from 'cloudinary-core'
 
+import { CLOUDINARY_URL } from '@/lib/constants'
+
 const cl = new Cloudinary({ cloud_name: 'bvgsoftware', secure: true })
-const baseUrl = 'https://res.cloudinary.com/bvgsoftware/image/upload/'
 
 function CloudinaryImage({ image }) {
   if (image) {
@@ -15,7 +16,7 @@ function CloudinaryImage({ image }) {
       }, 1000)
     }, [])
 
-    const url = cl.url(image.url.replace(baseUrl, ''), {
+    const url = cl.url(image.url.replace(CLOUDINARY_URL, ''), {
       transformation: [{ effect: 'blur:1000' }],
     })
 
@@ -39,7 +40,7 @@ function CloudinaryImage({ image }) {
         >
           {realImage ? (
             <Image
-              src={realImage.url.replace(baseUrl, '')}
+              src={realImage.url.replace(CLOUDINARY_URL, '')}
               alt={realImage.alt}
               width={realImage.width}
               height={realImage.height}

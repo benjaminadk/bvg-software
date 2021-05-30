@@ -1,17 +1,30 @@
 {
   "name": "bvg-software-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Benjamin Brooke Web Development Blog",
   "scripts": {
     "start": "next start",
     "build": "next build",
     "build:analyze": "cross-env ANALYZE=true next build",
     "dev": "next dev",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "cleanup": "rm -rf .next && rm -rf build"
+    "cleanup": "rm -rf .next && rm -rf build",
+    "sitemap:dev": "cross-env NODE_ENV=development node ./lib/utils/create-sitemap",
+    "sitemap:prod": "cross-env NODE_ENV=production node ./lib/utils/create-sitemap"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "node",
+    "javascript",
+    "nextjs",
+    "strapi",
+    "blog"
+  ],
+  "author": {
+    "name": "Benjamin Brooke",
+    "email": "ben@bvgsoftware.com",
+    "url": "https://github.com/benjaminadk/"
+  },
   "license": "ISC",
   "dependencies": {
     "@next/bundle-analyzer": "^10.2.0",
@@ -33,6 +46,7 @@
     "next": "10.0.5",
     "node-klaviyo": "^1.1.1",
     "nookies": "^2.5.2",
+    "prettier": "^2.3.0",
     "qs": "^6.10.1",
     "react": "^17.0.2",
     "react-bootstrap": "2.0.0-alpha.1",
@@ -47,6 +61,7 @@
     "remark-html": "^13.0.1",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.1.0",
+    "remove-markdown": "^0.3.0",
     "sass": "^1.32.12",
     "unified": "^9.2.1",
     "unist-util-visit": "^2.0.3",

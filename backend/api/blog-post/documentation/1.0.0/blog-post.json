@@ -816,6 +816,19 @@
                     "type": "string"
                   }
                 }
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "string"
+              },
+              "uploaded_on": {
+                "type": "string",
+                "format": "date"
               }
             }
           },
@@ -930,6 +943,19 @@
                     "type": "string"
                   }
                 }
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "string"
+              },
+              "uploaded_on": {
+                "type": "string",
+                "format": "date"
               }
             }
           },

@@ -2,7 +2,8 @@
   "collectionName": "components_multimedia_videos",
   "info": {
     "name": "Video",
-    "icon": "video"
+    "icon": "video",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,7 +19,20 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "uploaded_on": {
+      "type": "date"
     }
   }
 }

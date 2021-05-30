@@ -22,6 +22,7 @@
     "React": "writable",
     "process": "readonly",
     "module": "writable",
-    "require": "writable"
+    "require": "writable",
+    "__dirname": "writable"
   }
 }

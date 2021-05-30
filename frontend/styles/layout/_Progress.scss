@@ -1,9 +1,15 @@
-#Progress {
+.Progress {
   z-index: 1021;
   position: sticky;
-  top: 55px;
+  top: $sticky-bar-height-mobile;
   height: 6px;
   background-color: $gray-300;
   border-radius: 0;
   box-shadow: 0 0.125rem 0.25rem rgba($black, 0.075);
+}
+
+@include media-breakpoint-up(md) {
+  .Progress {
+    top: $sticky-bar-height-desktop;
+  }
 }
