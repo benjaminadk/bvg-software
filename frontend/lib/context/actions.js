@@ -158,7 +158,12 @@ const setSearchTerm = debounce(async (dispatch, searchTerm) => {
   try {
     if (searchTerm) {
       const data = await API.getBlogPosts(0, 100, {
-        _or: [{ title_contains: searchTerm, meta_description_contains: searchTerm }],
+        _or: [
+          ...searchTerm
+            .split(' ')
+            .filter((q) => !!q)
+            .map((q) => ({ title_contains: q })),
+        ],
       })
       dispatch({ type: 'SEARCH', payload: { searchTerm, searchResults: data.posts } })
     } else {

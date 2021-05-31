@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { googleAuthentication } from '@/lib/context/actions'
 import { useAppDispatch } from '@/lib/context'
 
-function Google({ query }) {
+function GooglePage({ query }) {
   const dispatch = useAppDispatch()
 
   const router = useRouter()
@@ -17,11 +17,15 @@ function Google({ query }) {
     init()
   }, [])
 
-  return <div>Authenticating Google Account</div>
+  return (
+    <div className='d-flex justify-content-center'>
+      <p>Authenticating Google Account</p>
+    </div>
+  )
 }
 
-Google.getInitialProps = (ctx) => {
+GooglePage.getInitialProps = (ctx) => {
   return { query: ctx.query }
 }
 
-export default Google
+export default GooglePage

@@ -29,7 +29,7 @@ function Meta({ pageProps }) {
   }, [pageProps])
 
   const video = useMemo(() => {
-    return post?.video || null
+    return post?.video || pageProps?.aboutPage?.video || null
   }, [post])
 
   const route = useMemo(() => {

@@ -74,15 +74,14 @@ function Search() {
               })}
             />
           </Form>
-          {isOpen ||
-            (true && (
-              <DropDown
-                dropDownRight={dropDownRight}
-                inputValue={inputValue}
-                highlightedIndex={highlightedIndex}
-                getItemProps={getItemProps}
-              />
-            ))}
+          {isOpen && (
+            <DropDown
+              dropDownRight={dropDownRight}
+              inputValue={inputValue}
+              highlightedIndex={highlightedIndex}
+              getItemProps={getItemProps}
+            />
+          )}
         </div>
       )}
     </Downshift>

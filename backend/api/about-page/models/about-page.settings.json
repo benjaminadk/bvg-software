@@ -19,6 +19,23 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "multimedia.video"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

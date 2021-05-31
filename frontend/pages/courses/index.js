@@ -1,6 +1,6 @@
 import Courses from '@/components/Courses'
 
-import { getCoursesPage, getCourses } from '@/lib/strapi'
+import { getCoursesPage, getCourses, getBlogPosts } from '@/lib/strapi'
 
 function CoursesPage({ courses }) {
   return <Courses courses={courses} />
@@ -9,6 +9,7 @@ function CoursesPage({ courses }) {
 export async function getStaticProps() {
   const coursesPage = await getCoursesPage()
   const courses = await getCourses()
+  const { posts } = await getBlogPosts(0, 6)
 
   if (!courses || !coursesPage) {
     return {
@@ -20,6 +21,7 @@ export async function getStaticProps() {
     props: {
       coursesPage,
       courses,
+      recentPosts: posts,
     },
     revalidate: 1,
   }

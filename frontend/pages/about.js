@@ -1,6 +1,6 @@
 import About from '@/components/About'
 
-import { getAboutPage } from '@/lib/strapi'
+import { getAboutPage, getBlogPosts } from '@/lib/strapi'
 
 function AboutPage({ aboutPage }) {
   return <About aboutPage={aboutPage} />
@@ -8,6 +8,7 @@ function AboutPage({ aboutPage }) {
 
 export async function getStaticProps() {
   const aboutPage = await getAboutPage()
+  const { posts } = await getBlogPosts(0, 6)
 
   if (!aboutPage) {
     return {
@@ -18,6 +19,7 @@ export async function getStaticProps() {
   return {
     props: {
       aboutPage,
+      recentPosts: posts,
     },
     revalidate: 1,
   }

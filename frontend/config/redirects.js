@@ -6,6 +6,11 @@ function redirects() {
       permanent: true,
     },
     {
+      source: '/posts/react-contact-form-with-klaviyo-and-formik',
+      destination: '/blog/read-time-feature-for-react-markdown-blog/',
+      permanent: true,
+    },
+    {
       source: '/posts/wordpress-form-to-email-and-google-sheet',
       destination: '/blog/email-wordpress-form-and-save-to-google-sheet/',
       permanent: true,
@@ -28,6 +33,26 @@ function redirects() {
     {
       source: '/posts/how-to-use-local-storage-to-persist-data',
       destination: '/blog/how-to-use-local-storage-to-persist-data/',
+      permanent: true,
+    },
+    {
+      source: '/posts/how-to-create-gifs-with-node-js',
+      destination: '/blog/how-to-encode-gifs-with-node/',
+      permanent: true,
+    },
+    {
+      source: '/posts/autohotkey-to-save-development-time',
+      destination: '/blog/save-development-time-with-autohotkey/',
+      permanent: true,
+    },
+    {
+      source: '/posts/svg-icon-with-no-artistic-ability',
+      destination: '/blog/react-svg-icons-with-no-artistic-abilities/',
+      permanent: true,
+    },
+    {
+      source: '/posts/simple-binary-search-tree',
+      destination: '/blog/simple-binary-search-tree/',
       permanent: true,
     },
     {

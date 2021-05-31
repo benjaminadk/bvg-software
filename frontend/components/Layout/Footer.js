@@ -26,14 +26,14 @@ function Footer({ recentPosts = [] }) {
           <Col md={4}></Col>
         </Row>
         <Row>
-          <Col md={4}>
+          <Col md={{ span: 4, order: 1 }} xs={{ span: 12, order: 2 }}>
             <div className='policies'>
               <Link href='/privacy/'>
                 <a>Privacy Policy</a>
               </Link>
             </div>
           </Col>
-          <Col md={4}>
+          <Col md={{ span: 4, order: 2 }} xs={{ span: 12, order: 3 }} className='my-2'>
             <div className='copyright'>
               <span>&copy; {formatDate(Date.now(), 2)} BVG Software. All rights reserved.</span>
               <span>
@@ -43,12 +43,14 @@ function Footer({ recentPosts = [] }) {
               </span>
             </div>
           </Col>
-          <Col md={4} className='social-media'>
-            {SOCIAL_MEDIA_ITEMS.map((item) => (
-              <Link key={item.href} href={item.href} passHref>
-                <Nav.Link className=''>{item.icon}</Nav.Link>
-              </Link>
-            ))}
+          <Col md={{ span: 4, order: 3 }} xs={{ span: 12, order: 1 }}>
+            <div className='social-media'>
+              {SOCIAL_MEDIA_ITEMS.map((item) => (
+                <Link key={item.href} href={item.href} passHref>
+                  <Nav.Link className=''>{item.icon}</Nav.Link>
+                </Link>
+              ))}
+            </div>
           </Col>
         </Row>
       </Container>
