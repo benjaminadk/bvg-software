@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Alert from 'react-bootstrap/Alert'
 import Form from 'react-bootstrap/Form'
+import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Button from 'react-bootstrap/Button'
 import { ArrowRight } from 'react-bootstrap-icons'
 
@@ -78,14 +79,20 @@ function Landing({ landing }) {
                 ) : null}
                 <Form id='klaviyo-signup' onSubmit={onSubmit}>
                   <Form.Group>
-                    <Form.Control
-                      type='email'
-                      placeholder='Email Address'
-                      autoComplete='email'
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
+                    <FloatingLabel
+                      controlId='klaviyo-signup'
+                      label='Email address'
+                      className='mb-1'
+                    >
+                      <Form.Control
+                        type='email'
+                        placeholder='Email Address'
+                        autoComplete='email'
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </FloatingLabel>
                     <Form.Text className='text-muted'>
                       I do NOT share email addresses with third parties.
                     </Form.Text>

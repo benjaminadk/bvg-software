@@ -8,7 +8,7 @@ import { MAIN_MENU_ITEMS, SOCIAL_MEDIA_ITEMS } from '../../lib/constants'
 
 function Navigation() {
   return (
-    <Navbar className='Navigation' collapseOnSelect expand='lg' bg='secondary' variant='dark'>
+    <Navbar className='Navigation' collapseOnSelect expand='lg' bg='dark' variant='dark'>
       <Container fluid='xxl'>
         <Link href='/'>
           <a className='d-flex align-items-center'>

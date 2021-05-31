@@ -5,6 +5,7 @@
   display: grid;
   place-items: center center;
   background-color: $white;
+  border: 2px solid $white;
   border-radius: $border-radius * 1.2;
   opacity: 0.75;
   transition: all 0.2s ease-in;

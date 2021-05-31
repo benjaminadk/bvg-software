@@ -12,6 +12,7 @@ import getAboutPage from './get-about-page'
 import getPrivacyPage from './get-privacy-page'
 import getCoursesPage from './get-courses-page'
 import getCourses from './get-courses'
+import createContact from './create-contact'
 
 export {
   getCurrentUser,
@@ -28,4 +29,5 @@ export {
   getAboutPage,
   getPrivacyPage,
   getCoursesPage,
+  createContact,
 }
