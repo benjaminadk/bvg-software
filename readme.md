@@ -1,5 +1,9 @@
 # Benjamin Brooke Web Development Blog
 
+## Front End
+
+Built with NextJS
+
 ### Environment Variables
 
 |          Name           |                 Description                 |
