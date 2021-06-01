@@ -1,8 +1,4 @@
-# Benjamin Brooke Website
-
-## Front End
-
-Created with NextJS
+# Benjamin Brooke Web Development Blog
 
 ### Environment Variables
 
