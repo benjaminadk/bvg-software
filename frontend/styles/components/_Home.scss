@@ -1,21 +1,35 @@
-#Home {
-  .Landing {
-    padding-bottom: $spacer * 4;
+.Home {
+  h2.alert-heading {
+    font-size: 2rem;
   }
 
-  form#klaviyo-signup {
-    display: flex;
-    flex-direction: column;
+  input:focus,
+  textarea:focus {
+    border-color: $pink;
+    box-shadow: $pink-shadow;
+  }
 
-    input[type='email']:focus {
-      border-color: $pink-300;
-      box-shadow: $pink-shadow;
+  button.btn-primary {
+    width: 100%;
+    height: 100%;
+    background-color: $pink;
+    border-color: $pink;
+
+    &:hover {
+      background-color: $pink-600;
     }
 
-    button {
-      align-self: flex-end;
-      background-color: $pink;
-      color: $white;
+    &:focus {
+      box-shadow: $pink-shadow;
+    }
+  }
+
+  .Landing {
+    padding-bottom: $spacer * 4;
+
+    form {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -85,7 +99,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-  #Home {
+  .Home {
     .services-grid {
       grid-template-rows: unset;
       grid-template-columns: 1fr 1fr 1fr;

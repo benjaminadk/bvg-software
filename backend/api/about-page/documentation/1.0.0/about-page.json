@@ -493,6 +493,9 @@
               }
             }
           },
+          "summary": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -603,6 +606,9 @@
                 "format": "date"
               }
             }
+          },
+          "summary": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

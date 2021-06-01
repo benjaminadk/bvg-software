@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
 import Axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -11,33 +13,34 @@ import { ArrowRight } from 'react-bootstrap-icons'
 
 import CloudinaryImage from '../CloudinaryImage'
 
-function Landing({ landing }) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('')
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required'),
+})
 
-  async function onSubmit(e) {
-    e.preventDefault()
+function Landing({ landing }) {
+  const [status, setStatus] = useState(false)
+
+  async function onSubmit(values, actions) {
     const res = await Axios({
       method: 'POST',
       url: '/api/newsletter',
       data: {
-        email,
+        email: values.email,
       },
     })
     if (res.data.success) {
       setStatus('success')
-    } else {
-      setStatus('danger')
+      actions.resetForm()
     }
   }
 
   return (
     <div className='Landing'>
       <Alert variant='warning'>
-        <Alert.Heading as='h1' className='fs-2 fw-bold'>
+        <Alert.Heading as='h1' className='fs-2 fw-bold text-center text-md-start'>
           {landing.title}
         </Alert.Heading>
-        <p>{landing.description}</p>
+        <p className='text-center text-md-start'>{landing.description}</p>
         <hr />
         <Row>
           <Col md={6}>
@@ -50,6 +53,9 @@ function Landing({ landing }) {
             <p className='mt-2 mt-md-0'>Here&apos;s what you can do:</p>
             <Card>
               <Card.Body>
+                <Card.Title as='h3' className='mb-4'>
+                  Newsletter
+                </Card.Title>
                 <ul>
                   <li className='list-unstyled m-2'>
                     <span className='li-icon'>
@@ -70,37 +76,48 @@ function Landing({ landing }) {
                     <span>Deals on upcoming courses</span>
                   </li>
                 </ul>
-                {status ? (
-                  <Alert variant={status}>
-                    {status === 'success'
-                      ? 'Thanks for signing up!'
-                      : 'Whoops! Something went wrong.'}
-                  </Alert>
-                ) : null}
-                <Form id='klaviyo-signup' onSubmit={onSubmit}>
-                  <Form.Group>
-                    <FloatingLabel
-                      controlId='klaviyo-signup'
-                      label='Email address'
-                      className='mb-1'
-                    >
-                      <Form.Control
-                        type='email'
-                        placeholder='Email Address'
-                        autoComplete='email'
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </FloatingLabel>
-                    <Form.Text className='text-muted'>
-                      I do NOT share email addresses with third parties.
-                    </Form.Text>
-                  </Form.Group>
-                  <Button variant='light' type='submit'>
-                    Submit
-                  </Button>
-                </Form>
+                {status === 'success' && (
+                  <Alert variant='secondary'>Thank you for signing up!</Alert>
+                )}
+                <Formik
+                  initialValues={{
+                    email: '',
+                  }}
+                  validationSchema={validationSchema}
+                  onSubmit={onSubmit}
+                >
+                  {({ handleSubmit, handleChange, values, touched, errors, submitCount }) =>
+                    console.log(errors, submitCount) || (
+                      <Form noValidate onSubmit={handleSubmit}>
+                        <Form.Group as={Col}>
+                          <FloatingLabel controlId='email' label='Email address' className='mb-1'>
+                            <Form.Control
+                              type='email'
+                              placeholder='Email Address'
+                              autoComplete='email'
+                              required
+                              value={values.email}
+                              onChange={handleChange}
+                              isValid={touched.email && !errors.email}
+                              isInvalid={submitCount && !!errors.email}
+                            />
+                            <Form.Control.Feedback type='invalid'>
+                              {errors.email}
+                            </Form.Control.Feedback>
+                          </FloatingLabel>
+                          <Form.Text className='text-muted'>
+                            Email addresses are not sold to 3rd parties
+                          </Form.Text>
+                        </Form.Group>
+                        <Form.Group as={Col} md={{ span: 3, offset: 9 }}>
+                          <Button type='submit' variant='primary' className='mt-1'>
+                            Submit
+                          </Button>
+                        </Form.Group>
+                      </Form>
+                    )
+                  }
+                </Formik>
               </Card.Body>
             </Card>
           </Col>

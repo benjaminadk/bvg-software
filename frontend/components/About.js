@@ -38,7 +38,7 @@ function About({ aboutPage }) {
               <Card.Title className='text-info text-center fw-bold'>
                 About | Benjamin Brooke Web Developer
               </Card.Title>
-              <Markdown source={aboutPage.content} />
+              <Markdown source={aboutPage.summary} />
             </Card.Body>
           </Card>
         </Col>

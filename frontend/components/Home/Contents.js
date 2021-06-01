@@ -7,9 +7,11 @@ import CloudinaryImage from '../CloudinaryImage'
 function Contents({ contents }) {
   return (
     <Alert variant='warning' className='Contents'>
-      <Alert.Heading className='fw-bold'>Contents</Alert.Heading>
-      <p>
-        Learn everything I know about web development throught free blog posts and affordable
+      <Alert.Heading as='h2' className='fw-bold text-center text-md-start'>
+        Contents
+      </Alert.Heading>
+      <p className='text-center text-md-start'>
+        Learn everything I know about web development through free blog posts and affordable
         courses.
       </p>
       <hr />

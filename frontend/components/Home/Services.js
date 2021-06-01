@@ -6,9 +6,11 @@ import CloudinaryImage from '../CloudinaryImage'
 function Services({ services }) {
   return (
     <Alert variant='warning' className='Services'>
-      <Alert.Heading className='fw-bold'>Services</Alert.Heading>
-      <p>
-        I offer a wide range of web related services. Contact me to schedule a free consultation.
+      <Alert.Heading as='h2' className='fw-bold text-center text-md-start'>
+        Services
+      </Alert.Heading>
+      <p className='text-center text-md-start'>
+        We offer a wide range of web related services. Contact us to schedule a free consultation.
       </p>
       <hr />
       <div className='services-grid'>
