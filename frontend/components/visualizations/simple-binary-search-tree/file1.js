@@ -6,11 +6,9 @@ export default function define(runtime, observer) {
     return md`
 # Simple Binary Search Tree`
   })
-  main
-    .variable(observer('viewof reset1'))
-    .define('viewof reset1', ['button'], function (button) {
-      return button('Re-Shuffle Array Values')
-    })
+  main.variable(observer('viewof reset1')).define('viewof reset1', ['button'], function (button) {
+    return button('Re-Shuffle Array Values')
+  })
   main
     .variable(observer('reset1'))
     .define('reset1', ['Generators', 'viewof reset1'], (G, _) => G.input(_))
@@ -37,9 +35,7 @@ export default function define(runtime, observer) {
     )
   main
     .variable(observer('searchFor1'))
-    .define('searchFor1', ['Generators', 'viewof searchFor1'], (G, _) =>
-      G.input(_)
-    )
+    .define('searchFor1', ['Generators', 'viewof searchFor1'], (G, _) => G.input(_))
   main
     .variable(observer('linear1'))
     .define(
@@ -71,22 +67,8 @@ Sumbit a value
     .variable(observer('tree1'))
     .define(
       'tree1',
-      [
-        'BinarySearchTree',
-        'weBeSearchingOver1',
-        'd3',
-        'searchFor1',
-        'mutable recurs1',
-        'length',
-      ],
-      function (
-        BinarySearchTree,
-        weBeSearchingOver1,
-        d3,
-        searchFor1,
-        $0,
-        length
-      ) {
+      ['BinarySearchTree', 'weBeSearchingOver1', 'd3', 'searchFor1', 'mutable recurs1', 'length'],
+      function (BinarySearchTree, weBeSearchingOver1, d3, searchFor1, $0, length) {
         const width = 800
         const height = 600
         const margin = 20
@@ -123,9 +105,7 @@ Sumbit a value
           .attr('width', width + margin * 2)
           .attr('height', height + margin * 2)
 
-        var g = svg
-          .append('g')
-          .attr('transform', `translate(${margin},${margin})`)
+        var g = svg.append('g').attr('transform', `translate(${margin},${margin})`)
 
         var link = g.selectAll('line.link').data(links)
 
@@ -219,11 +199,9 @@ Sumbit a value
         return svg.node()
       }
     )
-  main
-    .variable(observer('viewof reset2'))
-    .define('viewof reset2', ['button'], function (button) {
-      return button('Re-Shuffle Array Values')
-    })
+  main.variable(observer('viewof reset2')).define('viewof reset2', ['button'], function (button) {
+    return button('Re-Shuffle Array Values')
+  })
   main
     .variable(observer('reset2'))
     .define('reset2', ['Generators', 'viewof reset2'], (G, _) => G.input(_))
@@ -250,9 +228,7 @@ Sumbit a value
     )
   main
     .variable(observer('searchFor2'))
-    .define('searchFor2', ['Generators', 'viewof searchFor2'], (G, _) =>
-      G.input(_)
-    )
+    .define('searchFor2', ['Generators', 'viewof searchFor2'], (G, _) => G.input(_))
   main
     .variable(observer('linear2'))
     .define(
@@ -267,15 +243,13 @@ Sumbit a value
         return md`*Linear Search* of ${weBeSearchingOver2.length} items took **${count}** recursions`
       }
     )
-  main
-    .variable(observer('binary2'))
-    .define('binary2', ['recurs2', 'md'], function (recurs2, md) {
-      return recurs2
-        ? md`*Binary Search Tree* of 10000 items took **${recurs2}** recursions`
-        : md`
+  main.variable(observer('binary2')).define('binary2', ['recurs2', 'md'], function (recurs2, md) {
+    return recurs2
+      ? md`*Binary Search Tree* of 10000 items took **${recurs2}** recursions`
+      : md`
 Sumbit a value
-          `
-    })
+        `
+  })
   main
     .variable(observer('tree2'))
     .define(
@@ -317,9 +291,7 @@ Sumbit a value
           .attr('width', width + margin * 2)
           .attr('height', height + margin * 2)
 
-        var g = svg
-          .append('g')
-          .attr('transform', `translate(${margin},${margin})`)
+        var g = svg.append('g').attr('transform', `translate(${margin},${margin})`)
 
         var link = g.selectAll('line.link').data(links)
 
@@ -389,11 +361,9 @@ Sumbit a value
         return svg.node()
       }
     )
-  main
-    .variable(observer('weBeSearchingOver3'))
-    .define('weBeSearchingOver3', ['d3'], function (d3) {
-      return d3.shuffle(d3.range(0, 100000))
-    })
+  main.variable(observer('weBeSearchingOver3')).define('weBeSearchingOver3', ['d3'], function (d3) {
+    return d3.shuffle(d3.range(0, 100000))
+  })
   main
     .variable(observer('viewof searchFor3'))
     .define(
@@ -411,9 +381,7 @@ Sumbit a value
     )
   main
     .variable(observer('searchFor3'))
-    .define('searchFor3', ['Generators', 'viewof searchFor3'], (G, _) =>
-      G.input(_)
-    )
+    .define('searchFor3', ['Generators', 'viewof searchFor3'], (G, _) => G.input(_))
   main
     .variable(observer())
     .define(
@@ -434,17 +402,9 @@ Sumbit a value
 Sumbit a value
         `
   })
-  main
-    .variable(observer('viewof spread'))
-    .define('viewof spread', ['html'], function (html) {
-      return html`<input
-        type="range"
-        min="0.05"
-        value="0.4"
-        max="5"
-        step="0.01"
-      />`
-    })
+  main.variable(observer('viewof spread')).define('viewof spread', ['html'], function (html) {
+    return html`<input type="range" min="0.05" value="0.4" max="5" step="0.01" />`
+  })
   main
     .variable(observer('spread'))
     .define('spread', ['Generators', 'viewof spread'], (G, _) => G.input(_))
@@ -461,16 +421,7 @@ Sumbit a value
         'searchFor3',
         'mutable recurs3',
       ],
-      function (
-        DOM,
-        width,
-        BinarySearchTree,
-        weBeSearchingOver3,
-        d3,
-        spread,
-        searchFor3,
-        $0
-      ) {
+      function (DOM, width, BinarySearchTree, weBeSearchingOver3, d3, spread, searchFor3, $0) {
         const height = 600
         const margin = 20
         const c = DOM.context2d(width, height, 1)
@@ -582,121 +533,118 @@ Sumbit a value
     return md`
 Canvas Tree Version modified from [@tmcw/octree-color-quantization](https://observablehq.com/@tmcw/octree-color-quantization)`
   })
-  main
-    .variable(observer('BinarySearchTree'))
-    .define('BinarySearchTree', ['Node'], function (Node) {
-      return class BinarySearchTree {
-        constructor() {
-          this.root = null
-          this.path = []
-        }
+  main.variable(observer('BinarySearchTree')).define('BinarySearchTree', ['Node'], function (Node) {
+    return class BinarySearchTree {
+      constructor() {
+        this.root = null
+        this.path = []
+      }
 
-        insert(value) {
-          var newNode = new Node(value)
+      insert(value) {
+        var newNode = new Node(value)
 
-          if (this.root === null) {
-            this.root = newNode
-          } else {
-            this.insertNode(this.root, newNode)
-          }
-        }
-
-        insertNode(node, newNode) {
-          if (newNode.value < node.value) {
-            if (node.left === null) {
-              node.left = newNode
-            } else {
-              this.insertNode(node.left, newNode)
-            }
-          } else {
-            if (node.right === null) {
-              node.right = newNode
-            } else {
-              this.insertNode(node.right, newNode)
-            }
-          }
-        }
-
-        remove(value) {
-          this.root = this.removeNode(this.root, value)
-        }
-
-        removeNode(node, key) {
-          if (node === null) {
-            return null
-          } else if (key < node.value) {
-            node.left = this.removeNode(node.left, key)
-            return node
-          } else if (key > node.value) {
-            node.right = this.removeNode(node.right, key)
-            return node
-          } else {
-            if (node.left === null && node.right === null) {
-              node = null
-              return node
-            }
-            if (node.left === null) {
-              node = node.right
-              return node
-            } else if (node.right === null) {
-              node = node.left
-              return node
-            }
-            var aux = this.findMinNode(node.right)
-            node.value = aux.value
-            node.right = this.removeNode(node.right, aux.value)
-            return node
-          }
-        }
-
-        findMinMode(node) {
-          if (node.left === null) {
-            return node
-          } else {
-            return this.findMinNode(node.left)
-          }
-        }
-
-        getRootNode() {
-          return this.root
-        }
-
-        inorder(node) {
-          if (node !== null) {
-            this.inorder(node.left)
-            console.log(node.value)
-            this.inorder(node.right)
-          }
-        }
-
-        search(node, value, initial = false) {
-          if (initial) {
-            this.path = []
-          }
-          if (node === null) {
-            return null
-          } else if (value < node.value) {
-            this.path.push(node.value)
-            return this.search(node.left, value)
-          } else if (value > node.value) {
-            this.path.push(node.value)
-            return this.search(node.right, value)
-          } else {
-            this.path.push(node.value)
-            return node
-          }
-        }
-
-        getPath() {
-          return this.path
-        }
-
-        getSearchPath(value) {
-          this.search(this.root, value, true)
-          return this.getPath()
+        if (this.root === null) {
+          this.root = newNode
+        } else {
+          this.insertNode(this.root, newNode)
         }
       }
-    })
+
+      insertNode(node, newNode) {
+        if (newNode.value < node.value) {
+          if (node.left === null) {
+            node.left = newNode
+          } else {
+            this.insertNode(node.left, newNode)
+          }
+        } else {
+          if (node.right === null) {
+            node.right = newNode
+          } else {
+            this.insertNode(node.right, newNode)
+          }
+        }
+      }
+
+      remove(value) {
+        this.root = this.removeNode(this.root, value)
+      }
+
+      removeNode(node, key) {
+        if (node === null) {
+          return null
+        } else if (key < node.value) {
+          node.left = this.removeNode(node.left, key)
+          return node
+        } else if (key > node.value) {
+          node.right = this.removeNode(node.right, key)
+          return node
+        } else {
+          if (node.left === null && node.right === null) {
+            node = null
+            return node
+          }
+          if (node.left === null) {
+            node = node.right
+            return node
+          } else if (node.right === null) {
+            node = node.left
+            return node
+          }
+          var aux = this.findMinNode(node.right)
+          node.value = aux.value
+          node.right = this.removeNode(node.right, aux.value)
+          return node
+        }
+      }
+
+      findMinMode(node) {
+        if (node.left === null) {
+          return node
+        } else {
+          return this.findMinNode(node.left)
+        }
+      }
+
+      getRootNode() {
+        return this.root
+      }
+
+      inorder(node) {
+        if (node !== null) {
+          this.inorder(node.left)
+          this.inorder(node.right)
+        }
+      }
+
+      search(node, value, initial = false) {
+        if (initial) {
+          this.path = []
+        }
+        if (node === null) {
+          return null
+        } else if (value < node.value) {
+          this.path.push(node.value)
+          return this.search(node.left, value)
+        } else if (value > node.value) {
+          this.path.push(node.value)
+          return this.search(node.right, value)
+        } else {
+          this.path.push(node.value)
+          return node
+        }
+      }
+
+      getPath() {
+        return this.path
+      }
+
+      getSearchPath(value) {
+        this.search(this.root, value, true)
+        return this.getPath()
+      }
+    }
+  })
   main.variable(observer('Node')).define('Node', function () {
     return class Node {
       constructor(value) {
@@ -708,9 +656,7 @@ Canvas Tree Version modified from [@tmcw/octree-color-quantization](https://obse
   })
   main.variable(observer('length')).define('length', function () {
     return (d) => {
-      return Math.sqrt(
-        Math.pow(d.parent.x - d.x, 2) + Math.pow(d.parent.y - d.y, 2)
-      )
+      return Math.sqrt(Math.pow(d.parent.x - d.x, 2) + Math.pow(d.parent.y - d.y, 2))
     }
   })
   main.variable(observer('binarySearch')).define('binarySearch', function () {
@@ -742,39 +688,21 @@ Canvas Tree Version modified from [@tmcw/octree-color-quantization](https://obse
   })
   main
     .variable(observer('mutable recurs1'))
-    .define(
-      'mutable recurs1',
-      ['Mutable', 'initial recurs1'],
-      (M, _) => new M(_)
-    )
-  main
-    .variable(observer('recurs1'))
-    .define('recurs1', ['mutable recurs1'], (_) => _.generator)
+    .define('mutable recurs1', ['Mutable', 'initial recurs1'], (M, _) => new M(_))
+  main.variable(observer('recurs1')).define('recurs1', ['mutable recurs1'], (_) => _.generator)
   main.define('initial recurs2', function () {
     return 0
   })
   main
     .variable(observer('mutable recurs2'))
-    .define(
-      'mutable recurs2',
-      ['Mutable', 'initial recurs2'],
-      (M, _) => new M(_)
-    )
-  main
-    .variable(observer('recurs2'))
-    .define('recurs2', ['mutable recurs2'], (_) => _.generator)
+    .define('mutable recurs2', ['Mutable', 'initial recurs2'], (M, _) => new M(_))
+  main.variable(observer('recurs2')).define('recurs2', ['mutable recurs2'], (_) => _.generator)
   main.define('initial recurs3', function () {
     return 0
   })
   main
     .variable(observer('mutable recurs3'))
-    .define(
-      'mutable recurs3',
-      ['Mutable', 'initial recurs3'],
-      (M, _) => new M(_)
-    )
-  main
-    .variable(observer('recurs3'))
-    .define('recurs3', ['mutable recurs3'], (_) => _.generator)
+    .define('mutable recurs3', ['Mutable', 'initial recurs3'], (M, _) => new M(_))
+  main.variable(observer('recurs3')).define('recurs3', ['mutable recurs3'], (_) => _.generator)
   return main
 }

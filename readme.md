@@ -1,10 +1,10 @@
 # Benjamin Brooke Web Development Blog
 
-## Front End
+My website. Built with NextJS + Strapi
 
-Built with NextJS
+## Environment Variables
 
-### Environment Variables
+### Front End
 
 |          Name           |                 Description                 |
 | :---------------------: | :-----------------------------------------: |

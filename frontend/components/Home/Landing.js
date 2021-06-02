@@ -86,37 +86,35 @@ function Landing({ landing }) {
                   validationSchema={validationSchema}
                   onSubmit={onSubmit}
                 >
-                  {({ handleSubmit, handleChange, values, touched, errors, submitCount }) =>
-                    console.log(errors, submitCount) || (
-                      <Form noValidate onSubmit={handleSubmit}>
-                        <Form.Group as={Col}>
-                          <FloatingLabel controlId='email' label='Email address' className='mb-1'>
-                            <Form.Control
-                              type='email'
-                              placeholder='Email Address'
-                              autoComplete='email'
-                              required
-                              value={values.email}
-                              onChange={handleChange}
-                              isValid={touched.email && !errors.email}
-                              isInvalid={submitCount && !!errors.email}
-                            />
-                            <Form.Control.Feedback type='invalid'>
-                              {errors.email}
-                            </Form.Control.Feedback>
-                          </FloatingLabel>
-                          <Form.Text className='text-muted'>
-                            Email addresses are not sold to 3rd parties
-                          </Form.Text>
-                        </Form.Group>
-                        <Form.Group as={Col} md={{ span: 3, offset: 9 }}>
-                          <Button type='submit' variant='primary' className='mt-1'>
-                            Submit
-                          </Button>
-                        </Form.Group>
-                      </Form>
-                    )
-                  }
+                  {({ handleSubmit, handleChange, values, touched, errors, submitCount }) => (
+                    <Form noValidate onSubmit={handleSubmit}>
+                      <Form.Group as={Col}>
+                        <FloatingLabel controlId='email' label='Email address' className='mb-1'>
+                          <Form.Control
+                            type='email'
+                            placeholder='Email Address'
+                            autoComplete='email'
+                            required
+                            value={values.email}
+                            onChange={handleChange}
+                            isValid={touched.email && !errors.email}
+                            isInvalid={submitCount && !!errors.email}
+                          />
+                          <Form.Control.Feedback type='invalid'>
+                            {errors.email}
+                          </Form.Control.Feedback>
+                        </FloatingLabel>
+                        <Form.Text className='text-muted'>
+                          Email addresses are not sold to 3rd parties
+                        </Form.Text>
+                      </Form.Group>
+                      <Form.Group as={Col} md={{ span: 3, offset: 9 }}>
+                        <Button type='submit' variant='primary' className='mt-1'>
+                          Submit
+                        </Button>
+                      </Form.Group>
+                    </Form>
+                  )}
                 </Formik>
               </Card.Body>
             </Card>
