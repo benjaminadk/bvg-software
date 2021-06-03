@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { createStructuredData } from '@/lib/utils'
-import { CLIENT_URL, CLOUDINARY_URL, FACEBOOK_APP_ID } from '@/lib/constants'
+import { CLIENT_URL, FACEBOOK_APP_ID } from '@/lib/constants'
 
 function Meta({ pageProps }) {
   const router = useRouter()
@@ -36,6 +36,8 @@ function Meta({ pageProps }) {
     return router?.asPath || null
   }, [])
 
+  console.log(image)
+
   return (
     <Head>
       <meta charSet='utf-8' />
@@ -59,7 +61,7 @@ function Meta({ pageProps }) {
       <meta property='og:description' content={description} />
       {image ? (
         <>
-          <meta property='og:image' content={`${CLOUDINARY_URL}${image.url}`} />
+          <meta property='og:image' content={image.url} />
           <meta property='og:image:type' content={image.mime} />
           <meta property='og:image:width' content={image.width} />
           <meta property='og:image:height' content={image.height} />
