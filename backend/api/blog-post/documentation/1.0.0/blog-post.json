@@ -832,12 +832,15 @@
               }
             }
           },
-          "preview": {
-            "type": "boolean",
-            "default": true
-          },
           "tags": {
             "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "publish"
+            ]
           }
         }
       },
@@ -959,12 +962,15 @@
               }
             }
           },
-          "preview": {
-            "type": "boolean",
-            "default": true
-          },
           "tags": {
             "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "publish"
+            ]
           },
           "created_by": {
             "type": "string"

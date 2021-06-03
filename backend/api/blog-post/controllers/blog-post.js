@@ -6,6 +6,9 @@ module.exports = {
   // Fetch blog posts
   // Alter image url to use with Cloudinary and Image component
   async find(ctx) {
+    if (process.env.NODE_ENV !== 'development') {
+      ctx.query = Object.assign({}, { status: 'publish' }, ctx.query)
+    }
     let entities
     if (ctx.query._q) {
       entities = await strapi.services['blog-post'].search(ctx.query)
@@ -42,15 +45,26 @@ module.exports = {
   // Fetch all slugs
   async slugs(ctx) {
     const knex = strapi.connections.default
-    const slugs = await knex('blog_posts').select('slug')
-    return slugs
+    if (process.env.NODE_ENV === 'development') {
+      const slugs = await knex('blog_posts').select('slug')
+      return slugs
+    } else {
+      const slugs = await knex('blog_posts').where('status', 'publish').select('slug')
+      return slugs
+    }
   },
 
   // Fetch all tags
   async tags(ctx) {
     const knex = strapi.connections.default
-    const result = await knex('blog_posts').select('tags')
-    const tags = Array.from(new Set(result.map((el) => el.tags.split(',')).flat()))
-    return tags
+    if (process.env.NODE_ENV === 'development') {
+      const result = await knex('blog_posts').select('tags')
+      const tags = Array.from(new Set(result.map((el) => el.tags.split(',')).flat()))
+      return tags
+    } else {
+      const result = await knex('blog_posts').where('status', 'publish').select('tags')
+      const tags = Array.from(new Set(result.map((el) => el.tags.split(',')).flat()))
+      return tags
+    }
   },
 }

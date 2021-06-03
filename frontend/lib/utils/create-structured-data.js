@@ -26,7 +26,7 @@ export default function createStructuredData(type, data = null) {
       name: SITE_NAME,
       legalName: 'BVG Enterprises',
       url: CLIENT_URL,
-      logo: '',
+      logo: CLIENT_URL + '/icons/android-chrome-512x512.png',
       foundingDate: '2016',
       founders: [
         {
@@ -75,6 +75,14 @@ export default function createStructuredData(type, data = null) {
         '@type': 'Person',
         name: 'Benjamin Brooke',
         url: CLIENT_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        logo: {
+          '@type': 'ImageObject',
+          url: CLIENT_URL + '/icons/android-chrome-512x512.png',
+        },
       },
       mainEntityOfPage: 'True',
       keywords: [...data.tags.split(','), 'web development', 'software', 'coding'],

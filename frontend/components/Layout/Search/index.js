@@ -50,7 +50,11 @@ function Search() {
   }
 
   return (
-    <Downshift onChange={onChange} itemToString={(item) => (item ? item.title : '')}>
+    <Downshift
+      id='downshift-search'
+      onChange={onChange}
+      itemToString={(item) => (item ? item.title : '')}
+    >
       {({ getInputProps, getItemProps, isOpen, inputValue, highlightedIndex, closeMenu }) => (
         <div>
           <Form>

@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   settings: {
     cache: {
-      enabled: true,
+      enabled: env('NODE_ENV') !== 'development',
       type: 'redis',
       redisConfig: {
         port: 6379,

@@ -4,6 +4,8 @@ export default {
   courses: 'Courses',
   privacy: 'Privacy Policy',
   about: 'About',
+  'how-to-setup-nextjs-strapi-postgres-nginx-on-digital-ocean':
+    'How To Setup NextJS & Strapi On Digital Ocean',
   'how-to-build-a-color-picker-with-react': 'Build a Color Picker',
   'react-svg-icons-with-no-artistic-abilities': 'SVG Without Artistic Ability',
   'save-development-time-with-autohotkey': 'How To Use AutoHotKey',

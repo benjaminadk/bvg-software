@@ -49,12 +49,15 @@
       "repeatable": false,
       "component": "multimedia.video"
     },
-    "preview": {
-      "type": "boolean",
-      "default": true
-    },
     "tags": {
       "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "publish"
+      ]
     }
   }
 }

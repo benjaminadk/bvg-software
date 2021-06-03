@@ -40,10 +40,8 @@ function Meta({ pageProps }) {
     <Head>
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-
       <title>{title}</title>
       <meta name='description' content={description} />
-
       {/* Icons */}
       <link rel='icon' type='image/x-icon' href='/icons/favicon.ico' />
       <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png' />
@@ -53,10 +51,9 @@ function Meta({ pageProps }) {
       <link rel='mask-icon' href='/icons/safari-pinned-tab.svg' color='#5bbad5' />
       <meta name='msapplication-TileColor' content='#2b5797' />
       <meta name='theme-color' content='#ffffff'></meta>
-
       {/* Facebook Open Graph Tags */}
       <meta key='type' property='og:type' content={post ? 'article' : 'website'} />
-      <meta property='fb:app_id' content={FACEBOOK_APP_ID} />
+      {FACEBOOK_APP_ID && <meta property='fb:app_id' content={FACEBOOK_APP_ID} />}
       <meta property='og:url' content={`${CLIENT_URL}${router.asPath}`} />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
@@ -68,7 +65,6 @@ function Meta({ pageProps }) {
           <meta property='og:image:height' content={image.height} />
         </>
       ) : null}
-
       {/* Website Structured Data */}
       <script
         type='application/ld+json'
@@ -76,7 +72,6 @@ function Meta({ pageProps }) {
           __html: createStructuredData('website'),
         }}
       />
-
       {/* Organization Structured Data */}
       <script
         type='application/ld+json'
@@ -84,7 +79,6 @@ function Meta({ pageProps }) {
           __html: createStructuredData('organization'),
         }}
       />
-
       {/* Blog Post Structured Data */}
       {post ? (
         <script
@@ -94,7 +88,6 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
-
       {/* Video Structured Data */}
       {video ? (
         <script
@@ -104,9 +97,8 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
-
       {/* Breadcrumb Structured Data */}
-      {route ? (
+      {route !== '/' ? (
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
@@ -114,14 +106,12 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
-
       {/* Google Font */}
       <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link
         href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap'
         rel='stylesheet'
       />
-
       {/* Klaviyo */}
       <script
         async
