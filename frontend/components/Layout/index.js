@@ -12,7 +12,8 @@ import BackToTop from './BackToTop'
 
 import { useAppDispatch } from '@/lib/context'
 import { initializeUser, setProgress } from '@/lib/context/actions'
-import { getPageHeight } from '@/lib/utils'
+import { getPageHeight, gtagPageview } from '@/lib/utils'
+import { CLIENT_URL } from '@/lib/constants'
 
 function Layout({ children, pageProps }) {
   const dispatch = useAppDispatch()
@@ -58,12 +59,14 @@ function Layout({ children, pageProps }) {
     router.events.on('routeChangeComplete', handleRouteChangeComplete)
     router.events.on('routeChangeError', handleRouteChangeError)
 
+    gtagPageview(`${CLIENT_URL}${router.pathname}`)
+
     return () => {
       router.events.off('routeChangeStart', handleRouteChangeStart)
       router.events.off('routeChangeComplete', handleRouteChangeComplete)
       router.events.off('routeChangeError', handleRouteChangeError)
     }
-  }, [router.events])
+  }, [router.pathname])
 
   return (
     <Fragment>

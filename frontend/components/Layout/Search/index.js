@@ -6,6 +6,7 @@ import FormControl from 'react-bootstrap/FormControl'
 
 import { useAppDispatch } from '@/lib/context'
 import { setSearchTerm } from '@/lib/context/actions'
+import { gtagEvent } from '@/lib/utils'
 
 import DropDown from './DropDown'
 
@@ -45,6 +46,8 @@ function Search() {
   }, [])
 
   function onChange(item, helpers) {
+    console.log(item.title)
+    gtagEvent('search', 'blog', item.title)
     helpers.setState({ inputValue: '' })
     router.push(`/blog/${item.slug}`)
   }

@@ -36,8 +36,6 @@ function Meta({ pageProps }) {
     return router?.asPath || null
   }, [])
 
-  console.log(image)
-
   return (
     <Head>
       <meta charSet='utf-8' />
