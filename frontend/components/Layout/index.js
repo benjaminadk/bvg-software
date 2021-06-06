@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import throttle from 'lodash.throttle'
 
@@ -7,14 +8,15 @@ import Navigation from './Navigation'
 import StickyBar from './StickyBar'
 import Progress from './Progress'
 import Main from './Main'
-import Footer from './Footer'
-import BackToTop from './BackToTop'
-import ContactModal from '../ContactModal'
 
 import { useAppDispatch } from '@/lib/context'
 import { initializeUser, setProgress } from '@/lib/context/actions'
 import { getPageHeight, gtagPageview } from '@/lib/utils'
 import { CLIENT_URL } from '@/lib/constants'
+
+const DynamicFooter = dynamic(() => import('@/components/Layout/Footer'))
+const DynamicBackToTop = dynamic(() => import('@/components/Layout/BackToTop'))
+const DynamicContactModal = dynamic(() => import('@/components/ContactModal'))
 
 function Layout({ children, pageProps }) {
   const dispatch = useAppDispatch()
@@ -27,7 +29,11 @@ function Layout({ children, pageProps }) {
 
   useEffect(() => {
     const onScroll = throttle(() => {
-      if (['/', '/blog', '/about'].includes(router.pathname)) {
+      if (
+        ['/', '/blog', '/about', '/frequently-asked-questions', '/privacy'].includes(
+          router.pathname
+        )
+      ) {
         setProgress(dispatch, 0)
       } else {
         const { scrollY, innerHeight } = window
@@ -44,28 +50,11 @@ function Layout({ children, pageProps }) {
 
     window.addEventListener('scroll', onScroll)
 
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [router.pathname])
-
-  useEffect(() => {
-    function handleRouteChangeStart() {}
-
-    function handleRouteChangeComplete() {}
-
-    function handleRouteChangeError() {}
-
-    router.events.on('routeChangeStart', handleRouteChangeStart)
-    router.events.on('routeChangeComplete', handleRouteChangeComplete)
-    router.events.on('routeChangeError', handleRouteChangeError)
-
+    // Google Analytics page view
     gtagPageview(`${CLIENT_URL}${router.pathname}`)
 
     return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart)
-      router.events.off('routeChangeComplete', handleRouteChangeComplete)
-      router.events.off('routeChangeError', handleRouteChangeError)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [router.pathname])
 
@@ -76,9 +65,9 @@ function Layout({ children, pageProps }) {
       <StickyBar />
       <Progress />
       <Main ref={main}>{children}</Main>
-      <Footer recentPosts={pageProps?.recentPosts} />
-      <BackToTop />
-      <ContactModal />
+      <DynamicFooter recentPosts={pageProps?.recentPosts} />
+      <DynamicBackToTop />
+      <DynamicContactModal />
     </Fragment>
   )
 }

@@ -6,6 +6,7 @@ module.exports = {
   // Fetch blog posts
   // Alter image url to use with Cloudinary and Image component
   async find(ctx) {
+    console.log(process.env.NODE_ENV)
     if (process.env.NODE_ENV !== 'development') {
       ctx.query = Object.assign({}, { status: 'publish' }, ctx.query)
     }
