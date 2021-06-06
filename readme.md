@@ -71,3 +71,18 @@ git push origin main
 ### Server Repository
 
 A `post-receive` hook runs on the server to rebuild both NextJS and Strapi
+
+### Data Migration
+
+Copy local postgres database to a `tar` file and send it to remote server
+
+```bash
+npm run migrate
+```
+
+On remote server the database must be restored from the `tar` file by the postgres user
+
+```bash
+sudo -i -u postgres
+pg_restore -v -c -d postgres /var/www/bvgsoftware.com/data.tar
+```
