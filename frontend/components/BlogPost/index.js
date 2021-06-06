@@ -1,14 +1,17 @@
-import React from 'react'
+import dynamic from 'next/dynamic'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import Minesweeper from '../visualizations/Minesweeper'
-import HighSchoolClock from '../visualizations/HighSchoolClock'
-import SimpleBinarySearchTree from '../visualizations/SimpleBinarySearchTree'
 import Heading from './Heading'
-import Markdown from '../Markdown'
-import Author from './Author'
+
+const DynamicMinesweeper = dynamic(() => import('@/components/visualizations/Minesweeper'))
+const DynamicHighSchoolClock = dynamic(() => import('@/components/visualizations/HighSchoolClock'))
+const DynamicSimpleBinarySearchTree = dynamic(() =>
+  import('@/components/visualizations/SimpleBinarySearchTree')
+)
+const DynamicAuthor = dynamic(() => import('@/components/BlogPost/Author'))
+const DynamicMarkdown = dynamic(() => import('@/components/Markdown'))
 
 function BlogPost({ blogPost }) {
   if (blogPost) {
@@ -18,12 +21,12 @@ function BlogPost({ blogPost }) {
           <Col md={{ span: 8, offset: 2 }}>
             <Heading post={blogPost} />
             <div>
-              {blogPost.slug === 'minesweeper' && <Minesweeper />}
-              {blogPost.slug === 'high-school-clock' && <HighSchoolClock />}
-              {blogPost.slug === 'simple-binary-search-tree' && <SimpleBinarySearchTree />}
-              <Markdown source={blogPost.content} />
+              {blogPost.slug === 'minesweeper' && <DynamicMinesweeper />}
+              {blogPost.slug === 'high-school-clock' && <DynamicHighSchoolClock />}
+              {blogPost.slug === 'simple-binary-search-tree' && <DynamicSimpleBinarySearchTree />}
+              <DynamicMarkdown source={blogPost.content} />
             </div>
-            <Author />
+            <DynamicAuthor />
           </Col>
         </Row>
       </Container>

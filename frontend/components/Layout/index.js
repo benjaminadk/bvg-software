@@ -6,7 +6,6 @@ import throttle from 'lodash.throttle'
 import Meta from './Meta'
 import Navigation from './Navigation'
 import StickyBar from './StickyBar'
-import Progress from './Progress'
 import Main from './Main'
 
 import { useAppDispatch } from '@/lib/context'
@@ -14,6 +13,7 @@ import { initializeUser, setProgress } from '@/lib/context/actions'
 import { getPageHeight, gtagPageview } from '@/lib/utils'
 import { CLIENT_URL } from '@/lib/constants'
 
+const DynamicProgress = dynamic(() => import('@/components/Layout/Progress'))
 const DynamicFooter = dynamic(() => import('@/components/Layout/Footer'))
 const DynamicBackToTop = dynamic(() => import('@/components/Layout/BackToTop'))
 const DynamicContactModal = dynamic(() => import('@/components/ContactModal'))
@@ -63,7 +63,7 @@ function Layout({ children, pageProps }) {
       <Meta pageProps={pageProps} />
       <Navigation />
       <StickyBar />
-      <Progress />
+      <DynamicProgress />
       <Main ref={main}>{children}</Main>
       <DynamicFooter recentPosts={pageProps?.recentPosts} />
       <DynamicBackToTop />

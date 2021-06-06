@@ -8,7 +8,6 @@ import refractor from 'refractor/core'
 import raw from 'rehype-raw'
 import visit from 'unist-util-visit'
 import nodeToString from 'hast-util-to-string'
-import autohotkey from 'refractor/lang/autohotkey'
 import bash from 'refractor/lang/bash'
 import graphql from 'refractor/lang/graphql'
 import jsx from 'refractor/lang/jsx'
@@ -24,7 +23,6 @@ import yaml from 'refractor/lang/yaml'
 
 import { Blockquote, Img, Li, Pre, Ol, Span } from './elements'
 
-refractor.register(autohotkey)
 refractor.register(bash)
 refractor.register(graphql)
 refractor.register(jsx)
