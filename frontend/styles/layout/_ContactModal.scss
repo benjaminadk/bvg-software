@@ -1,0 +1,14 @@
+.ContactModal {
+  .modal-title {
+    font-weight: $font-weight-bold;
+  }
+
+  .btn-primary {
+    background-color: $pink;
+    border-color: $pink;
+
+    &:focus {
+      box-shadow: $pink-shadow;
+    }
+  }
+}

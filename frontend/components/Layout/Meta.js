@@ -14,6 +14,7 @@ function Meta({ pageProps }) {
       pageProps?.blogPage ||
       pageProps?.aboutPage ||
       pageProps?.coursesPage ||
+      pageProps?.faqPage ||
       pageProps?.privacyPage ||
       pageProps?.blogPost ||
       null
@@ -32,6 +33,10 @@ function Meta({ pageProps }) {
     return post?.video || pageProps?.aboutPage?.video || null
   }, [post])
 
+  const faqs = useMemo(() => {
+    return pageProps?.faqPage?.faqs
+  }, [pageProps])
+
   const route = useMemo(() => {
     return router?.asPath || null
   }, [])
@@ -42,6 +47,7 @@ function Meta({ pageProps }) {
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <title>{title}</title>
       <meta name='description' content={description} />
+
       {/* Icons */}
       <link rel='icon' type='image/x-icon' href='/icons/favicon.ico' />
       <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png' />
@@ -51,6 +57,7 @@ function Meta({ pageProps }) {
       <link rel='mask-icon' href='/icons/safari-pinned-tab.svg' color='#5bbad5' />
       <meta name='msapplication-TileColor' content='#2b5797' />
       <meta name='theme-color' content='#ffffff'></meta>
+
       {/* Facebook Open Graph Tags */}
       <meta key='type' property='og:type' content={post ? 'article' : 'website'} />
       {FACEBOOK_APP_ID && <meta property='fb:app_id' content={FACEBOOK_APP_ID} />}
@@ -65,6 +72,7 @@ function Meta({ pageProps }) {
           <meta property='og:image:height' content={image.height} />
         </>
       ) : null}
+
       {/* Website Structured Data */}
       <script
         type='application/ld+json'
@@ -72,6 +80,7 @@ function Meta({ pageProps }) {
           __html: createStructuredData('website'),
         }}
       />
+
       {/* Organization Structured Data */}
       <script
         type='application/ld+json'
@@ -79,6 +88,7 @@ function Meta({ pageProps }) {
           __html: createStructuredData('organization'),
         }}
       />
+
       {/* Blog Post Structured Data */}
       {post ? (
         <script
@@ -88,6 +98,7 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
+
       {/* Video Structured Data */}
       {video ? (
         <script
@@ -106,12 +117,23 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
+
+      {faqs ? (
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: createStructuredData('faq', faqs),
+          }}
+        />
+      ) : null}
+
       {/* Google Font */}
       <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link
         href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap'
         rel='stylesheet'
       />
+
       {/* Klaviyo */}
       <script
         async

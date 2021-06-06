@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_multimedia_faqs",
+  "info": {
+    "name": "faq",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "richtext"
+    }
+  }
+}

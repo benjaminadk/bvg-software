@@ -127,6 +127,21 @@ export default function createStructuredData(type, data = null) {
         url: CLIENT_URL,
       },
     }
+  } else if (type === 'faq') {
+    structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: data.map((d) => {
+        return {
+          '@type': 'Question',
+          name: d.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: removeMd(d.answer),
+          },
+        }
+      }),
+    }
   }
 
   return JSON.stringify(structuredData)

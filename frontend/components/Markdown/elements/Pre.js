@@ -9,7 +9,7 @@ function Pre({ children, className }) {
   const [copied, setCopied] = useState(false)
 
   function onClick() {
-    copy(pre.current.textContent.slice(0, pre.current.textContent.length - 4).trim())
+    copy(pre.current.textContent.slice(0, pre.current.textContent.length).trim())
     setCopied(true)
 
     setTimeout(() => {

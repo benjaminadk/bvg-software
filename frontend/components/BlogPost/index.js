@@ -15,8 +15,7 @@ function BlogPost({ blogPost }) {
     return (
       <Container className='BlogPost' fluid='xxl'>
         <Row>
-          <Col md={2}></Col>
-          <Col md={8}>
+          <Col md={{ span: 8, offset: 2 }}>
             <Heading post={blogPost} />
             <div>
               {blogPost.slug === 'minesweeper' && <Minesweeper />}

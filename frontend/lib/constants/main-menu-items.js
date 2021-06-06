@@ -8,6 +8,10 @@ export default [
     href: '/courses',
   },
   {
+    text: 'FAQ',
+    href: '/frequently-asked-questions',
+  },
+  {
     text: 'About',
     href: '/about',
   },

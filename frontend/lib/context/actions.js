@@ -138,6 +138,18 @@ async function setShowAuthModal(dispatch, showAuthModal = true) {
   }
 }
 
+async function setShowContactModal(dispatch, showContactModal = true) {
+  try {
+    if (showContactModal) {
+      dispatch({ type: 'SHOW_CONTACT_MODAL' })
+    } else {
+      dispatch({ type: 'HIDE_CONTACT_MODAL' })
+    }
+  } catch (error) {
+    dispatch({ type: 'CONTACT_MODAL_ERROR', error: error })
+  }
+}
+
 async function setShowBackToTop(dispatch, showBackToTop = true) {
   try {
     if (showBackToTop) {
@@ -182,6 +194,7 @@ export {
   logoutUser,
   googleAuthentication,
   setShowAuthModal,
+  setShowContactModal,
   setShowBackToTop,
   setSearchTerm,
   setProgress,

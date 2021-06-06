@@ -8,8 +8,12 @@ import Button from 'react-bootstrap/Button'
 
 import { formatDate } from '@/lib/utils'
 import { SOCIAL_MEDIA_ITEMS } from '@/lib/constants'
+import { useAppDispatch } from '@/lib/context'
+import { setShowContactModal } from '@/lib/context/actions'
 
 function Footer({ recentPosts = [] }) {
+  const dispatch = useAppDispatch()
+
   return (
     <footer className='Footer'>
       <Container fluid='xxl'>
@@ -24,7 +28,9 @@ function Footer({ recentPosts = [] }) {
                 <li>Data Management</li>
                 <li>Content Creation</li>
               </ul>
-              <Button className='contact-us'>Schedule Free Consultation</Button>
+              <Button className='contact-us' onClick={() => setShowContactModal(dispatch, true)}>
+                Schedule Free Consultation
+              </Button>
             </div>
           </Col>
           <Col md={4} className='footer-col'>

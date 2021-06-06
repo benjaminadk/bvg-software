@@ -9,6 +9,7 @@ import getBlogPosts from './get-blog-posts'
 import getHomePage from './get-home-page'
 import getBlogPage from './get-blog-page'
 import getAboutPage from './get-about-page'
+import getFAQPage from './get-faq-page'
 import getPrivacyPage from './get-privacy-page'
 import getCoursesPage from './get-courses-page'
 import getCourses from './get-courses'
@@ -27,6 +28,7 @@ export {
   getHomePage,
   getBlogPage,
   getAboutPage,
+  getFAQPage,
   getPrivacyPage,
   getCoursesPage,
   createContact,

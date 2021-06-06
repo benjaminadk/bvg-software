@@ -3,6 +3,7 @@ const initialState = {
   user: null,
   token: null,
   showAuthModal: false,
+  showContactModal: false,
   showBackToTop: false,
   progress: 0,
   searchTerm: '',
@@ -155,7 +156,25 @@ function AppReducer(initialState, action) {
         showAuthModal: false,
       }
 
-    case 'SHOW_AUTH_MODAL_ERROR':
+    case 'AUTH_MODAL_ERROR':
+      return {
+        ...initialState,
+        errorMessage: action.error,
+      }
+
+    case 'SHOW_CONTACT_MODAL':
+      return {
+        ...initialState,
+        showContactModal: true,
+      }
+
+    case 'HIDE_CONTACT_MODAL':
+      return {
+        ...initialState,
+        showContactModal: false,
+      }
+
+    case 'CONTACT_MODAL_ERROR':
       return {
         ...initialState,
         errorMessage: action.error,

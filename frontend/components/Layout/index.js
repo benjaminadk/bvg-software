@@ -9,6 +9,7 @@ import Progress from './Progress'
 import Main from './Main'
 import Footer from './Footer'
 import BackToTop from './BackToTop'
+import ContactModal from '../ContactModal'
 
 import { useAppDispatch } from '@/lib/context'
 import { initializeUser, setProgress } from '@/lib/context/actions'
@@ -75,8 +76,9 @@ function Layout({ children, pageProps }) {
       <StickyBar />
       <Progress />
       <Main ref={main}>{children}</Main>
-      <BackToTop />
       <Footer recentPosts={pageProps?.recentPosts} />
+      <BackToTop />
+      <ContactModal />
     </Fragment>
   )
 }
