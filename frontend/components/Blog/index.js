@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import InfiniteScroll from 'react-infinite-scroller'
-import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import { CalendarEventFill, ClockFill } from 'react-bootstrap-icons'
 
 import Tags from './Tags'
-import Count from './Count'
-import CloudinaryImage from '../CloudinaryImage'
+import Post from '@/components/Blog/Post'
 
-import { formatDate, getWhereParameter } from '@/lib/utils'
+import { getWhereParameter } from '@/lib/utils'
 import { getBlogPosts } from '@/lib/strapi'
+
+const DynamicCount = dynamic(() => import('@/components/Blog/Count'))
+const DynamicPosts = dynamic(() => import('@/components/Blog/Posts'))
 
 const limit = 6
 
@@ -78,7 +78,7 @@ function Blog() {
   return (
     <Container fluid='xxl'>
       <Tags blogPosts={posts} selectedTags={tags} onTagClick={handleTagClick} />
-      <Count totalPosts={totalPosts} tagLogic={tagLogic} setTagLogic={setTagLogic} />
+      <DynamicCount totalPosts={totalPosts} tagLogic={tagLogic} setTagLogic={setTagLogic} />
       <Row>
         <InfiniteScroll
           pageStart={0}
@@ -88,27 +88,12 @@ function Blog() {
           loader={<div key={start}>Loading...</div>}
         >
           <Col md={{ span: 6, offset: 3 }}>
-            {posts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`} passHref>
-                <Card as='a' className='PostItem'>
-                  <CloudinaryImage image={post.image} />
-                  <Card.Body>
-                    <Card.Title className='text-info text-center fw-bold'>{post.title}</Card.Title>
-                    <Card.Text className='text-dark text-center'>{post.meta_description}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer className='d-flex align-items-end justify-content-between'>
-                    <small className='text-muted '>
-                      <ClockFill size={12} className='me-2' />
-                      <span className='lh-1'>{post.read_time} min read</span>
-                    </small>
-                    <small className='text-muted '>
-                      <CalendarEventFill size={12} className='me-2' />
-                      <span className='lh-1'>{formatDate(post.published_on, 0)}</span>
-                    </small>
-                  </Card.Footer>
-                </Card>
-              </Link>
-            ))}
+            {posts.length ? (
+              <Fragment>
+                <Post post={posts[0]} />
+                <DynamicPosts posts={posts.slice(1)} />
+              </Fragment>
+            ) : null}
           </Col>
         </InfiniteScroll>
       </Row>

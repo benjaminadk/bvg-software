@@ -1,15 +1,16 @@
 import { useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Accordion from 'react-bootstrap/Accordion'
 
-import Markdown from '@/components/Markdown'
-import CloudinaryImage from '@/components/CloudinaryImage'
-
 import { useAppDispatch } from '@/lib/context'
 import { setShowContactModal } from '@/lib/context/actions'
+
+const DynamicMarkdown = dynamic(() => import('@/components/Markdown'))
+const DynamicCloudinaryImage = dynamic(() => import('@/components/CloudinaryImage'))
 
 function FAQ({ faqPage }) {
   const dispatch = useAppDispatch()
@@ -27,7 +28,7 @@ function FAQ({ faqPage }) {
       <Row className='mb-4'>
         <Col md={{ span: 6, offset: 3 }}>
           <Card>
-            <CloudinaryImage image={faqPage.image} />
+            <DynamicCloudinaryImage image={faqPage.image} />
             <Card.Body>
               <Card.Title className='text-info text-center fw-bold'>{faqPage.title}</Card.Title>
               <Card.Text className='text-center'>{faqPage.meta_description}</Card.Text>
@@ -42,7 +43,7 @@ function FAQ({ faqPage }) {
               <Accordion.Item key={faq.id} eventKey={i}>
                 <Accordion.Header>{faq.question}</Accordion.Header>
                 <Accordion.Body>
-                  <Markdown source={faq.answer} />
+                  <DynamicMarkdown source={faq.answer} />
                 </Accordion.Body>
               </Accordion.Item>
             ))}

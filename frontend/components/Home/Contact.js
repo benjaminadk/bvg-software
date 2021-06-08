@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Formik } from 'formik'
-import * as Yup from 'yup'
+import { object as yupObject, string as yupString, number as yupNumber } from 'yup'
 import Alert from 'react-bootstrap/Alert'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
@@ -11,13 +11,13 @@ import Button from 'react-bootstrap/Button'
 import { createContact } from '@/lib/strapi'
 import { getRandomInt } from '@/lib/utils'
 
-const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required('Required'),
-  lastName: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  phone: Yup.string().length(10),
-  message: Yup.string().required('Required'),
-  answer: Yup.number().required('Required'),
+const validationSchema = yupObject().shape({
+  firstName: yupString().required('Required'),
+  lastName: yupString().required('Required'),
+  email: yupString().email('Invalid email').required('Required'),
+  phone: yupString().length(10, 'Use 10 digits'),
+  message: yupString().required('Required'),
+  answer: yupNumber().required('Required'),
 })
 
 function Contact() {

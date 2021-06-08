@@ -77,6 +77,10 @@
     border-top: 0;
     box-shadow: $dark-shadow;
     cursor: pointer;
+
+    &.hide-border {
+      border: 0;
+    }
   }
 
   .DropDownItem {

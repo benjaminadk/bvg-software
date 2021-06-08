@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import unified from 'unified'
 import parse from 'remark-parse'
 import gfm from 'remark-gfm'
@@ -21,7 +22,12 @@ import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
 
-import { Blockquote, Img, Li, Pre, Ol, Span } from './elements'
+const DynamicBlockquote = dynamic(() => import('@/components/Markdown/elements/Blockquote'))
+const DynamicImg = dynamic(() => import('@/components/Markdown/elements/Img'))
+const DynamicLi = dynamic(() => import('@/components/Markdown/elements/Li'))
+const DynamicPre = dynamic(() => import('@/components/Markdown/elements/Pre'))
+const DynamicOl = dynamic(() => import('@/components/Markdown/elements/Ol'))
+const DynamicSpan = dynamic(() => import('@/components/Markdown/elements/Span'))
 
 refractor.register(bash)
 refractor.register(graphql)
@@ -100,12 +106,12 @@ const parser = unified()
   .use(rehype2react, {
     createElement: React.createElement,
     components: {
-      blockquote: Blockquote,
-      img: Img,
-      li: Li,
-      pre: Pre,
-      ol: Ol,
-      span: Span,
+      blockquote: DynamicBlockquote,
+      img: DynamicImg,
+      li: DynamicLi,
+      pre: DynamicPre,
+      ol: DynamicOl,
+      span: DynamicSpan,
     },
   })
 

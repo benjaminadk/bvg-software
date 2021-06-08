@@ -5,12 +5,12 @@
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "build:analyze": "cross-env ANALYZE=true next build",
+    "analyze": "cross-env ANALYZE=true next build",
     "dev": "next dev",
     "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "cleanup": "rm -rf .next && rm -rf build",
-    "sitemap:dev": "cross-env NODE_ENV=development node ./lib/utils/create-sitemap",
-    "sitemap:prod": "cross-env NODE_ENV=production node ./lib/utils/create-sitemap"
+    "cleanup": "rm -rf .next",
+    "sitemap": "cross-env NODE_ENV=production node ./lib/utils/create-sitemap",
+    "docker:sh": "docker exec -it redis1 sh"
   },
   "keywords": [
     "react",
@@ -33,14 +33,11 @@
     "bootstrap": "5.0.0",
     "classnames": "^2.3.1",
     "clipboard-copy": "^4.0.1",
-    "cloudinary-build-url": "^0.2.1",
-    "cloudinary-core": "^2.11.4",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "date-fns": "^2.21.3",
     "downshift": "^6.1.3",
     "formik": "^2.2.8",
-    "framer-motion": "^4.1.17",
     "hast-util-to-string": "^1.0.4",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",

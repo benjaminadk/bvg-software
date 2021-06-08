@@ -1,5 +1,6 @@
 import { Fragment, useMemo } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
@@ -7,7 +8,7 @@ import { ChevronRight } from 'react-bootstrap-icons'
 
 import { BREADCRUMB_MAP } from '@/lib/constants'
 
-import Search from './Search'
+const DynamicSearch = dynamic(() => import('@/components/Layout/Search'))
 
 function StickyBar() {
   const router = useRouter()
@@ -35,7 +36,7 @@ function StickyBar() {
             }
           })}
         </div>
-        <Search />
+        <DynamicSearch />
       </Container>
     </Navbar>
   )

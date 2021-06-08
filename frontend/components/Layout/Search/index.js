@@ -46,7 +46,6 @@ function Search() {
   }, [])
 
   function onChange(item, helpers) {
-    console.log(item.title)
     gtagEvent('search', 'blog', item.title)
     helpers.setState({ inputValue: '' })
     router.push(`/blog/${item.slug}`)

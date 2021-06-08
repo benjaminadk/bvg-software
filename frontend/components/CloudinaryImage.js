@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Cloudinary } from 'cloudinary-core'
 
 import { CLOUDINARY_URL } from '@/lib/constants'
-
-const cl = new Cloudinary({ cloud_name: 'bvgsoftware', secure: true })
 
 function CloudinaryImage({ image }) {
   if (image) {
@@ -16,9 +13,10 @@ function CloudinaryImage({ image }) {
       }, 1000)
     }, [])
 
-    const url = cl.url(image.url.replace(CLOUDINARY_URL, ''), {
-      transformation: [{ effect: 'blur:1000' }],
-    })
+    const url = `${CLOUDINARY_URL}${image.url.replace(CLOUDINARY_URL, '')}`.replace(
+      '/upload/',
+      '/upload/e_blur:1000/'
+    )
 
     return (
       <div

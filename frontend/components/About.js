@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-import Video from '@/components/Video'
-import Markdown from '@/components/Markdown'
+const DynamicVideo = dynamic(() => import('@/components/Video'))
+const DynamicMarkdown = dynamic(() => import('@/components/Markdown'))
 
 function About({ aboutPage }) {
   const cardRef = useRef()
@@ -33,12 +34,12 @@ function About({ aboutPage }) {
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
           <Card ref={cardRef}>
-            <Video video={aboutPage.video} width={videoWidth} height={videoHeight} />
+            <DynamicVideo video={aboutPage.video} width={videoWidth} height={videoHeight} />
             <Card.Body>
               <Card.Title className='text-info text-center fw-bold'>
                 About | Benjamin Brooke Web Developer
               </Card.Title>
-              <Markdown source={aboutPage.summary} />
+              <DynamicMarkdown source={aboutPage.summary} />
             </Card.Body>
           </Card>
         </Col>

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import parser from './parser'
 
 function Markdown({ source }) {
