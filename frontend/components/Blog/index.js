@@ -5,12 +5,13 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import Tags from './Tags'
+// import Tags from '@/components/Blog/Tags'
 import Post from '@/components/Blog/Post'
 
 import { getWhereParameter } from '@/lib/utils'
 import { getBlogPosts } from '@/lib/strapi'
 
+const DynamicTags = dynamic(() => import('@/components/Blog/Tags'))
 const DynamicCount = dynamic(() => import('@/components/Blog/Count'))
 const DynamicPosts = dynamic(() => import('@/components/Blog/Posts'))
 
@@ -23,10 +24,6 @@ function Blog() {
   const [areMorePosts, setAreMorePosts] = useState(false)
   const [tags, setTags] = useState(['all posts'])
   const [tagLogic, setTagLogic] = useState('or')
-
-  useEffect(() => {
-    fetchPosts()
-  }, [])
 
   useEffect(() => {
     if (tags.length === 1 && tags[0] === 'all posts') {
@@ -54,7 +51,8 @@ function Blog() {
   }
 
   async function loadMorePosts() {
-    const payload = await getBlogPosts(start, limit)
+    const where = getWhereParameter(tags, tagLogic)
+    const payload = await getBlogPosts(start, limit, where)
     setPosts([...posts, ...payload.posts])
     setTotalPosts(payload.totalPosts)
     setAreMorePosts(payload.totalPosts > [...posts, ...payload.posts].length)
@@ -77,23 +75,20 @@ function Blog() {
 
   return (
     <Container fluid='xxl'>
-      <Tags blogPosts={posts} selectedTags={tags} onTagClick={handleTagClick} />
+      <DynamicTags blogPosts={posts} selectedTags={tags} onTagClick={handleTagClick} />
       <DynamicCount totalPosts={totalPosts} tagLogic={tagLogic} setTagLogic={setTagLogic} />
       <Row>
         <InfiniteScroll
           pageStart={0}
-          threshold={0}
           loadMore={loadMorePosts}
           hasMore={areMorePosts}
           loader={<div key={start}>Loading...</div>}
         >
           <Col md={{ span: 6, offset: 3 }}>
-            {posts.length ? (
-              <Fragment>
-                <Post post={posts[0]} />
-                <DynamicPosts posts={posts.slice(1)} />
-              </Fragment>
-            ) : null}
+            <Fragment>
+              <Post post={posts[0]} />
+              <DynamicPosts posts={posts.slice(1)} />
+            </Fragment>
           </Col>
         </InfiniteScroll>
       </Row>

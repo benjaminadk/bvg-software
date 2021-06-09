@@ -5,18 +5,22 @@ import { CLOUDINARY_URL } from '@/lib/constants'
 
 function CloudinaryImage({ image }) {
   if (image) {
-    const [realImage, setRealImage] = useState()
+    const [blurImageUrl, setBlurImageUrl] = useState('')
+    const [clearImage, setClearImage] = useState()
 
     useEffect(() => {
-      setTimeout(() => {
-        setRealImage(image)
-      }, 1000)
-    }, [])
+      setBlurImageUrl(
+        `${CLOUDINARY_URL}${image.url.replace(CLOUDINARY_URL, '')}`.replace(
+          '/upload/',
+          '/upload/e_blur:1000/'
+        )
+      )
 
-    const url = `${CLOUDINARY_URL}${image.url.replace(CLOUDINARY_URL, '')}`.replace(
-      '/upload/',
-      '/upload/e_blur:1000/'
-    )
+      setTimeout(() => {
+        setBlurImageUrl('')
+        setClearImage(image)
+      }, 1000)
+    }, [image])
 
     return (
       <div
@@ -24,7 +28,7 @@ function CloudinaryImage({ image }) {
           position: 'relative',
           height: 0,
           paddingTop: `${(image.height / image.width) * 100}%`,
-          backgroundImage: `url(${url})`,
+          backgroundImage: `url(${blurImageUrl})`,
           backgroundPosition: 'center center',
           backgroundSize: `100%`,
         }}
@@ -36,12 +40,12 @@ function CloudinaryImage({ image }) {
             left: 0,
           }}
         >
-          {realImage ? (
+          {clearImage && !blurImageUrl ? (
             <Image
-              src={realImage.url.replace(CLOUDINARY_URL, '')}
-              alt={realImage.alt}
-              width={realImage.width}
-              height={realImage.height}
+              src={clearImage.url.replace(CLOUDINARY_URL, '')}
+              alt={clearImage.alt}
+              width={clearImage.width}
+              height={clearImage.height}
             />
           ) : null}
         </div>
