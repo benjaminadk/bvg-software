@@ -30,6 +30,21 @@ function HighSchoolClock() {
     }
   }, [size])
 
+  useEffect(() => {
+    function resizeClock() {
+      if (window.innerWidth < 500) {
+        slider.current.value = 300
+      }
+    }
+
+    setTimeout(resizeClock, 100)
+    window.addEventListener('resize', resizeClock)
+
+    return () => {
+      window.removeEventListener('resize', resizeClock)
+    }
+  }, [])
+
   return (
     <div className='mt-5'>
       <div>

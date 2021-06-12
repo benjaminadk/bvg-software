@@ -57,7 +57,9 @@ function Heading({ post }) {
             ))}
           </span>
         </div>
-        <Card.Title className={cn('post-title', { long })}>{post.title}</Card.Title>
+        <Card.Title as='h1' className={cn('post-title', { long })}>
+          {post.title}
+        </Card.Title>
       </Card.Body>
     </Card>
   )

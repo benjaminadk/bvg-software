@@ -1,8 +1,8 @@
 .Navigation {
   .brand-logo {
     overflow: hidden;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: grid;
     place-items: center center;
     background-color: $white;
@@ -10,7 +10,14 @@
     margin-right: $spacer * 0.5;
   }
 
+  .main-menu {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
   .social-media {
+    justify-content: center;
+
     svg {
       width: 20px;
       height: 20px;

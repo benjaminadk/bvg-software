@@ -26,14 +26,18 @@
         margin-bottom: 0;
       }
 
-      a,
-      li {
+      a {
         color: $white;
         margin-bottom: $spacer;
 
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      li {
+        color: $white;
+        margin-bottom: $spacer;
       }
     }
 

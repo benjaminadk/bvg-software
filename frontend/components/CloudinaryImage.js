@@ -19,7 +19,7 @@ function CloudinaryImage({ image }) {
       setTimeout(() => {
         setBlurImageUrl('')
         setClearImage(image)
-      }, 1000)
+      }, 500)
     }, [image])
 
     return (

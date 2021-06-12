@@ -16,8 +16,8 @@ function Navigation() {
               <Image
                 src='/v1620789277/thumbnail_benjamin_brooke_114909d05e.png'
                 alt='Benjamin Brooke Brand Logo'
-                width={40}
-                height={40}
+                width={35}
+                height={35}
                 priority={true}
               />
             </div>
@@ -26,7 +26,7 @@ function Navigation() {
         </Link>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
-          <Nav className='me-auto' activeKey='/' defaultActiveKey='/'>
+          <Nav className='main-menu me-auto' activeKey='/' defaultActiveKey='/'>
             {MAIN_MENU_ITEMS.map((item) => (
               <Link key={item.href} eventKey={item.href} href={item.href} passHref>
                 <Nav.Link className='fw-bold'>{item.text}</Nav.Link>

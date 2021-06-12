@@ -1,13 +1,13 @@
 .BlogPost {
   .post-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
     color: $gray-800;
     margin-top: $spacer;
 
     &.long {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
   }
 }
@@ -25,5 +25,17 @@
 
   .modal-content {
     background-color: transparent;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .BlogPost {
+    .post-title {
+      font-size: 2rem;
+
+      &.long {
+        font-size: 1.8rem;
+      }
+    }
   }
 }

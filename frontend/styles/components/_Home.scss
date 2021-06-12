@@ -26,6 +26,7 @@
 
   .Landing {
     padding-bottom: $spacer * 4;
+    margin-top: $spacer * 3;
 
     form {
       display: flex;
@@ -95,6 +96,10 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: $spacer * 2;
+  }
+
+  .Contact {
+    margin-bottom: $spacer * 3;
   }
 }
 
