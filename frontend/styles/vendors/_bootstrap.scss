@@ -125,3 +125,16 @@ $utilities: map-merge(
 .form-floating > label {
   color: $dark;
 }
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.cloudinary-image {
+  animation: fadein 0.25s ease-in;
+}

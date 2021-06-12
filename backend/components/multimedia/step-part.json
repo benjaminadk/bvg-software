@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_multimedia_step_parts",
+  "info": {
+    "name": "Step Part",
+    "icon": "audio-description"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

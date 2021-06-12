@@ -58,6 +58,9 @@
         "draft",
         "publish"
       ]
+    },
+    "how_to": {
+      "type": "json"
     }
   }
 }

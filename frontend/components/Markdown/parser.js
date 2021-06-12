@@ -21,6 +21,7 @@ import markdown from 'refractor/lang/markdown'
 import json from 'refractor/lang/json'
 import php from 'refractor/lang/php'
 import yaml from 'refractor/lang/yaml'
+import H2 from '@/components/Markdown/elements/H2'
 
 const DynamicBlockquote = dynamic(() => import('@/components/Markdown/elements/Blockquote'))
 const DynamicImg = dynamic(() => import('@/components/Markdown/elements/Img'))
@@ -107,10 +108,11 @@ const parser = unified()
     createElement: React.createElement,
     components: {
       blockquote: DynamicBlockquote,
+      h2: H2,
       img: DynamicImg,
       li: DynamicLi,
-      pre: DynamicPre,
       ol: DynamicOl,
+      pre: DynamicPre,
       span: DynamicSpan,
     },
   })

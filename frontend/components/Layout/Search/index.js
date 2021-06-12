@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Downshift from 'downshift'
 import { useRouter } from 'next/router'
 import Form from 'react-bootstrap/Form'
@@ -8,7 +9,7 @@ import { useAppDispatch } from '@/lib/context'
 import { setSearchTerm } from '@/lib/context/actions'
 import { gtagEvent } from '@/lib/utils'
 
-import DropDown from './DropDown'
+const DynamicDropDown = dynamic(() => import('@/components/Layout/Search/DropDown'))
 
 function Search() {
   const dispatch = useAppDispatch()
@@ -81,7 +82,7 @@ function Search() {
             />
           </Form>
           {isOpen && (
-            <DropDown
+            <DynamicDropDown
               dropDownRight={dropDownRight}
               inputValue={inputValue}
               highlightedIndex={highlightedIndex}

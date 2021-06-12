@@ -14,7 +14,13 @@ function StickyBar() {
   const router = useRouter()
 
   const breadcrumbs = useMemo(() => {
-    return ['/', ...router.asPath.split('/').filter((el) => !!el)]
+    return [
+      '/',
+      ...router.asPath
+        .slice(0, router.asPath.indexOf('#'))
+        .split('/')
+        .filter((el) => !!el),
+    ]
   }, [router.asPath])
 
   return (

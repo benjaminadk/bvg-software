@@ -46,6 +46,7 @@ function CloudinaryImage({ image }) {
               alt={clearImage.alt}
               width={clearImage.width}
               height={clearImage.height}
+              className='cloudinary-image'
             />
           ) : null}
         </div>

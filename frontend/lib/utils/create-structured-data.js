@@ -142,6 +142,8 @@ export default function createStructuredData(type, data = null) {
         }
       }),
     }
+  } else if (type === 'how_to') {
+    structuredData = data
   }
 
   return JSON.stringify(structuredData)

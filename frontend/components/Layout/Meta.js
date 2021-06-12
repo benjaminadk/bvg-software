@@ -37,6 +37,10 @@ function Meta({ pageProps }) {
     return pageProps?.faqPage?.faqs
   }, [pageProps])
 
+  const how_to = useMemo(() => {
+    return page?.how_to || null
+  }, [page])
+
   const route = useMemo(() => {
     return router?.asPath || null
   }, [])
@@ -108,6 +112,7 @@ function Meta({ pageProps }) {
           }}
         />
       ) : null}
+
       {/* Breadcrumb Structured Data */}
       {route !== '/' ? (
         <script
@@ -118,11 +123,22 @@ function Meta({ pageProps }) {
         />
       ) : null}
 
+      {/* FAQ Structured Data */}
       {faqs ? (
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: createStructuredData('faq', faqs),
+          }}
+        />
+      ) : null}
+
+      {/* How To Structured Data */}
+      {how_to ? (
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: createStructuredData('how_to', how_to),
           }}
         />
       ) : null}

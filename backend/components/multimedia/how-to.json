@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_multimedia_how_tos",
+  "info": {
+    "name": "How To",
+    "icon": "info"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "cost": {
+      "type": "integer"
+    },
+    "Supply": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.supply"
+    },
+    "Tool": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.tool"
+    },
+    "Step": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.step"
+    }
+  }
+}

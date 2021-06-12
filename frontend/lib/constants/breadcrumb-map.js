@@ -5,8 +5,7 @@ export default {
   about: 'About',
   privacy: 'Privacy Policy',
   'frequently-asked-questions': 'Frequently Asked Questions',
-  'how-to-analyze-and-optimize-your-nextjs-production-build':
-    'How To Analyze And Optimize A NextJS Build',
+  'how-to-optimize-your-nextjs-production-build': 'How To Optimize Your NextJS Build',
   'how-to-setup-nextjs-strapi-postgres-nginx-on-digital-ocean':
     'How To Setup NextJS & Strapi On Digital Ocean',
   'how-to-build-a-color-picker-with-react': 'Build a Color Picker',

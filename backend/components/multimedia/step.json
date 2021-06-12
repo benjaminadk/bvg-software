@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_multimedia_steps",
+  "info": {
+    "name": "Step",
+    "icon": "sort-numeric-up",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "parts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "multimedia.step-part"
+    }
+  }
+}

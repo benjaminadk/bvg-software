@@ -27,7 +27,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@next/bundle-analyzer": "^10.2.0",
+    "@next/bundle-analyzer": "^10.2.3",
     "@observablehq/runtime": "^4.7.1",
     "axios": "^0.21.1",
     "bootstrap": "5.0.0",

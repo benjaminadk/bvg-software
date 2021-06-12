@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_multimedia_tools",
+  "info": {
+    "name": "Tool",
+    "icon": "tools"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

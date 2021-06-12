@@ -12,7 +12,7 @@ function Video({ defer = false, video, width, height }) {
             <iframe
               width={width}
               height={height}
-              src={`https://www.youtube-nocookie.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=1`}
+              src={`https://www.youtube.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=1`}
               title={video.title}
               frameBorder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
@@ -45,7 +45,7 @@ function Video({ defer = false, video, width, height }) {
           <iframe
             width={width}
             height={height}
-            src={`https://www.youtube-nocookie.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=0`}
+            src={`https://www.youtube.com/embed/${video.shortcode}?modestbranding=1&&rel=0&showinfo=0&autoplay=0`}
             title={video.title}
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'

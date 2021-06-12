@@ -841,6 +841,9 @@
               "draft",
               "publish"
             ]
+          },
+          "how_to": {
+            "type": "object"
           }
         }
       },
@@ -971,6 +974,9 @@
               "draft",
               "publish"
             ]
+          },
+          "how_to": {
+            "type": "object"
           },
           "created_by": {
             "type": "string"

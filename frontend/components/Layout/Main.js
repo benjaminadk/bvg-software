@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
 const Main = forwardRef((props, ref) => (
-  <main ref={ref} className='min-vh-100 py-5'>
+  <main ref={ref} className='Main'>
     {props.children}
   </main>
 ))

@@ -1,7 +1,7 @@
 .Video {
   display: grid;
   place-items: center center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   .placeholder-image {
     position: relative;
@@ -30,5 +30,11 @@
     transition: fill 0.1s cubic-bezier(0.4, 0, 1, 1), fill-opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
     fill: #212121;
     fill-opacity: 0.8;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .Video {
+    margin-bottom: 1rem;
   }
 }

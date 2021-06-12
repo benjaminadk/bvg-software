@@ -1,12 +1,34 @@
-.markdown-container {
+.Markdown {
   margin-top: $spacer * 2;
 
   h2 {
+    display: flex;
+    align-items: center;
     font-size: $h3-font-size;
     font-weight: $font-weight-bold;
     color: $dark;
     margin-top: $spacer * 2;
     margin-bottom: $spacer;
+
+    .anchor {
+      position: relative;
+      top: -($sticky-bar-height-mobile + $progress-height + 32px);
+    }
+
+    a {
+      color: $dark;
+    }
+
+    .icon {
+      display: none;
+      visibility: hidden;
+      color: $pink;
+      margin-left: $spacer * 0.5;
+    }
+
+    &:hover .icon {
+      visibility: visible;
+    }
   }
 
   h3 {
@@ -57,6 +79,10 @@
   ul,
   ol {
     margin: $spacer * 1.5 0;
+  }
+
+  ul {
+    padding-left: 10px;
   }
 
   li {
@@ -111,10 +137,20 @@
   }
 }
 
-@media (max-width: 768px) {
-  .markdown-container {
+@include media-breakpoint-up(md) {
+  .Markdown {
+    h2 {
+      .anchor {
+        top: -($sticky-bar-height-desktop + $progress-height + 32px);
+      }
+
+      .icon {
+        display: block;
+      }
+    }
+
     ul {
-      padding-left: 10px;
+      padding-left: unset;
     }
   }
 }

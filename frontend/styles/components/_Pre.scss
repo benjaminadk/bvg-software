@@ -178,11 +178,3 @@
     color: #a5d14d;
   }
 }
-
-@include media-breakpoint-up(md) {
-  .pre-container {
-    .highlight {
-      height: 1.1rem;
-    }
-  }
-}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_multimedia_supplies",
+  "info": {
+    "name": "Supply",
+    "icon": "toolbox"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
