@@ -4,9 +4,25 @@ My website. Built with NextJS + Strapi
 
 ## Blog Posts
 
-| Date | Name |
-| :--: | :--: |
-|      |      |
+|    Date    | Name                                                                                                                                                  |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 06-05-2021 | [How To Optimize Your Next.js Production Build](https://bvgsoftware.com/blog/how-to-optimize-your-nextjs-production-build/)                           |
+| 06-04-2021 | [Build An eCommerce Color Search Tool With Node.js + React 2](https://bvgsoftware.com/blog/build-an-ecommerce-color-search-tool-with-nodejs-react-2/) |
+| 05-25-2021 | [Build An eCommerce Color Search Tool With Node.js + React 1](https://bvgsoftware.com/blog/build-an-ecommerce-color-search-tool-with-nodejs-react-1/) |
+| 05-11-2021 | [Build A Blog Article Progress Bar With React + Bootstrap](https://bvgsoftware.com/blog/build-a-blog-article-progress-bar-with-react-and-bootstrap/)  |
+| 09-03-2020 | [Read Time Feature For React + Markdown Blog](https://bvgsoftware.com/blog/read-time-feature-for-react-markdown-blog/)                                |
+| 09-03-2020 | [React Contact Form With Formik + Klaviyo](https://bvgsoftware.com/blog/react-contact-form-with-klaviyo-and-formik/)                                  |
+| 08-16-2020 | [WordPress Form To Email + Google Sheet](https://bvgsoftware.com/blog/wordpress-form-to-email-and-google-sheet/)                                      |
+| 01-24-2020 | [How To Build A Command Line Application With Node](https://bvgsoftware.com/blog/how-to-build-a-command-line-application-with-node/)                  |
+| 12-21-2019 | [D3 Visualization \| Simple Binary Search Tree](https://bvgsoftware.com/blog/simple-binary-search-tree/)                                              |
+| 11-17-2019 | [D3 Visualization \| High School Clock](https://bvgsoftware.com/blog/high-school-clock/)                                                              |
+| 10-09-2019 | [React Form Validation With Formik + GraphQl + Yup](https://bvgsoftware.com/blog/react-form-validation-with-formik-graphql-yup/)                      |
+| 08-23-2019 | [How To Encode GIFs With Node](https://bvgsoftware.com/blog/how-to-encode-gifs-with-node/)                                                            |
+| 08-16-2019 | [How To Use Local Storage To Persist Data](https://bvgsoftware.com/blog/how-to-use-local-storage-to-persist-data/)                                    |
+| 08-11-2019 | [How To Build A Color Picker With React](https://bvgsoftware.com/blog/how-to-build-a-color-picker-with-react/)                                        |
+| 08-01-2019 | [Save Development Time With AutoHotKey](https://bvgsoftware.com/blog/save-development-time-with-autohotkey/)                                          |
+| 07-17-2019 | [D3 Visualization \| Minesweeper](https://bvgsoftware.com/blog/minesweeper/)                                                                          |
+| 07-09-2019 | [React SVG Icons With No Artistic Abilities](https://bvgsoftware.com/blog/react-svg-icons-with-no-artistic-abilities/)                                |
 
 ## NPM Scripts
 
@@ -14,29 +30,29 @@ My website. Built with NextJS + Strapi
 
 ### Client
 
-|          Name           |                 Description                 |
-| :---------------------: | :-----------------------------------------: |
-| `KLAVIYO_PRIVATE_TOKEN` | Connects Klaviyo digital marketing platform |
-| `KLAVIYO_PUBLIC_TOKEN`  | Connects Klaviyo digital marketing platform |
+|         Name          |
+| :-------------------: |
+| KLAVIYO_PRIVATE_TOKEN |
+| KLAVIYO_PUBLIC_TOKEN  |
 
 ### Server
 
-|        Name         | Description |
-| :-----------------: | :---------: |
-|    `ADMIN_HOST`     |             |
-|     `ADMIN_JWT`     |             |
-|    `ADMIN_PORT`     |             |
-|     `ADMIN_URL`     |             |
-|  `CLOUDINARY_KEY`   |             |
-| `CLOUDINARY_SECRET` |             |
-|  `CLOUDINARY_NAME`  |             |
-|   `DATEBASE_HOST`   |             |
-|   `DATEBASE_PORT`   |             |
-|   `DATEBASE_NAME`   |             |
-| `DATEBASE_USERNAME` |             |
-| `DATEBASE_PASSWORD` |             |
-|   `DATEBASE_SSL`    |             |
-|  `REDIS_PASSWORD`   |             |
+|       Name        |
+| :---------------: |
+|    ADMIN_HOST     |
+|     ADMIN_JWT     |
+|    ADMIN_PORT     |
+|     ADMIN_URL     |
+|  CLOUDINARY_KEY   |
+| CLOUDINARY_SECRET |
+|  CLOUDINARY_NAME  |
+|   DATEBASE_HOST   |
+|   DATEBASE_PORT   |
+|   DATEBASE_NAME   |
+| DATEBASE_USERNAME |
+| DATEBASE_PASSWORD |
+|   DATEBASE_SSL    |
+|  REDIS_PASSWORD   |
 
 ## Deployment
 

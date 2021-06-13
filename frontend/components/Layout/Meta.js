@@ -44,7 +44,7 @@ function Meta({ pageProps }) {
   const route = useMemo(() => {
     return router?.asPath || null
   }, [])
-  console.log(image)
+
   return (
     <Head>
       <meta charSet='utf-8' />
