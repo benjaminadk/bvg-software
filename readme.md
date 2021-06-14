@@ -26,6 +26,8 @@ My website. Built with NextJS + Strapi
 
 ## NPM Scripts
 
+TODO
+
 ## Environment Variables
 
 Environment variables are needed to configure various features throughout the application
@@ -101,11 +103,34 @@ npm install -g pm2
 
 Initial PM2 processes
 
-The Next application depends on Strapi so always run first
+The client application depends on server so start Strapi first
 
 ```bash
 pm2 start npm --name "strapi" -- start
+```
+
+Then run the Next process
+
+```bash
 pm2 start npm --name "next" -- start
+```
+
+Once both processes are running create an init script for PM2
+
+```bash
+pm2 startup
+```
+
+Freeze the process list so PM2 will restart automatically when server reboots
+
+```bash
+pm2 save
+```
+
+Remove PM2 init script
+
+```bash
+pm2 unstartup systemd
 ```
 
 ### Server Repository
