@@ -11,8 +11,8 @@
     "strapi": "strapi",
     "cleanup": "rm -rf build",
     "migrate": "bash migrate.sh",
-    "redis-start:dev": "docker run --name redis1 -p 6379:6379 redis -d",
-    "redis-cli:dev": "docker exec -it redis1 sh"
+    "redis-start": "docker run --name redis1 -p 6379:6379 redis -d",
+    "redis-cli": "docker exec -it redis1 sh"
   },
   "devDependencies": {},
   "dependencies": {

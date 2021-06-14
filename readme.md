@@ -28,7 +28,11 @@ My website. Built with NextJS + Strapi
 
 ## Environment Variables
 
+Environment variables are needed to configure various features throughout the application
+
 ### Client
+
+Use `.env.local` in root of `frontend` folder
 
 |         Name          |
 | :-------------------: |
@@ -36,6 +40,8 @@ My website. Built with NextJS + Strapi
 | KLAVIYO_PUBLIC_TOKEN  |
 
 ### Server
+
+Use `.env` in root `backend` folder
 
 |       Name        |
 | :---------------: |
@@ -55,6 +61,8 @@ My website. Built with NextJS + Strapi
 |  REDIS_PASSWORD   |
 
 ## Deployment
+
+Set up to deploy to GitHub and to a remote server on `push` of `main` branch
 
 ### Git Setup
 
