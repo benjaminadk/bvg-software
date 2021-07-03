@@ -3,25 +3,37 @@ import Image from 'next/image'
 
 import { CLOUDINARY_URL } from '@/lib/constants'
 
+const hide = false
+
 function CloudinaryImage({ image }) {
+  const [blurImageUrl, setBlurImageUrl] = useState('')
+  const [clearImage, setClearImage] = useState()
+
+  // useEffect(() => {
+  //   setBlurImageUrl(
+  //     `${CLOUDINARY_URL}${image.url.replace(CLOUDINARY_URL, '')}`.replace(
+  //       '/upload/',
+  //       '/upload/e_blur:1000/'
+  //     )
+  //   )
+
+  //   setTimeout(() => {
+  //     setBlurImageUrl('')
+  //     setClearImage(image)
+  //   }, 500)
+  // }, [image])
+
   if (image) {
-    const [blurImageUrl, setBlurImageUrl] = useState('')
-    const [clearImage, setClearImage] = useState()
-
-    useEffect(() => {
-      setBlurImageUrl(
-        `${CLOUDINARY_URL}${image.url.replace(CLOUDINARY_URL, '')}`.replace(
-          '/upload/',
-          '/upload/e_blur:1000/'
-        )
-      )
-
-      setTimeout(() => {
-        setBlurImageUrl('')
-        setClearImage(image)
-      }, 500)
-    }, [image])
-
+    return (
+      <Image
+        src={image.url.replace(CLOUDINARY_URL, '')}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        className='cloudinary-image'
+      />
+    )
+  } else if (hide) {
     return (
       <div
         style={{

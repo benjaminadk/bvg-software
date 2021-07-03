@@ -5,7 +5,9 @@ My website. Built with NextJS + Strapi
 ## Blog Posts
 
 |    Date    | Name                                                                                                                                                  |
-| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 06-25-2021 | [eCommerce Stories                                                                                                                                    | Automating Order Placement & Data Entry](https://bvgsoftware.com/blog/automating-order-placement-and-data-entry/) |
+| 06-15-2021 | [How To Build A Flip Card Component With React](https://bvgsoftware.com/blog/how-to-build-a-flip-card-component-with-react/)                          |
 | 06-05-2021 | [How To Optimize Your Next.js Production Build](https://bvgsoftware.com/blog/how-to-optimize-your-nextjs-production-build/)                           |
 | 06-04-2021 | [Build An eCommerce Color Search Tool With Node.js + React 2](https://bvgsoftware.com/blog/build-an-ecommerce-color-search-tool-with-nodejs-react-2/) |
 | 05-25-2021 | [Build An eCommerce Color Search Tool With Node.js + React 1](https://bvgsoftware.com/blog/build-an-ecommerce-color-search-tool-with-nodejs-react-1/) |
@@ -23,10 +25,6 @@ My website. Built with NextJS + Strapi
 | 08-01-2019 | [Save Development Time With AutoHotKey](https://bvgsoftware.com/blog/save-development-time-with-autohotkey/)                                          |
 | 07-17-2019 | [D3 Visualization \| Minesweeper](https://bvgsoftware.com/blog/minesweeper/)                                                                          |
 | 07-09-2019 | [React SVG Icons With No Artistic Abilities](https://bvgsoftware.com/blog/react-svg-icons-with-no-artistic-abilities/)                                |
-
-## NPM Scripts
-
-TODO
 
 ## Environment Variables
 
