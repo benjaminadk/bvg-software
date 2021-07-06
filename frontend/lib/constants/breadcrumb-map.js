@@ -5,6 +5,7 @@ export default {
   about: 'About',
   privacy: 'Privacy Policy',
   'frequently-asked-questions': 'Frequently Asked Questions',
+  'ladc-sample-sales': 'LADC Sample Sales',
   'automating-order-placement-and-data-entry': 'Automating Order Placement & Data Entry',
   'how-to-build-a-flip-card-component-with-react': 'How To Build A Flip Card With React',
   'how-to-optimize-your-nextjs-production-build': 'How To Optimize Your NextJS Build',

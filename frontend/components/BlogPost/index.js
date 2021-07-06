@@ -10,6 +10,7 @@ const DynamicHighSchoolClock = dynamic(() => import('@/components/visualizations
 const DynamicSimpleBinarySearchTree = dynamic(() =>
   import('@/components/visualizations/SimpleBinarySearchTree')
 )
+const DynamicLadcSampleSales = dynamic(() => import('@/components/visualizations/LadcSampleSales'))
 const DynamicAuthor = dynamic(() => import('@/components/BlogPost/Author'))
 const DynamicMarkdown = dynamic(() => import('@/components/Markdown'))
 
@@ -24,6 +25,7 @@ function BlogPost({ blogPost }) {
               {blogPost.slug === 'minesweeper' && <DynamicMinesweeper />}
               {blogPost.slug === 'high-school-clock' && <DynamicHighSchoolClock />}
               {blogPost.slug === 'simple-binary-search-tree' && <DynamicSimpleBinarySearchTree />}
+              {blogPost.slug === 'ladc-sample-sales' && <DynamicLadcSampleSales />}
               <DynamicMarkdown source={blogPost.content} />
             </div>
             <DynamicAuthor />

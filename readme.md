@@ -6,6 +6,7 @@ My website. Built with NextJS + Strapi
 
 |    Date    | Name                                                                                                                                                  |
 | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 07-05-2021 | [D3 Visualization \| LADC Sample Sales](https://bvgsoftware.com/blog/ladc-sample-sales/)                                                              |
 | 06-25-2021 | [eCommerce Stories \| Automating Order Placement & Data Entry](https://bvgsoftware.com/blog/automating-order-placement-and-data-entry/)               |
 | 06-15-2021 | [How To Build A Flip Card Component With React](https://bvgsoftware.com/blog/how-to-build-a-flip-card-component-with-react/)                          |
 | 06-05-2021 | [How To Optimize Your Next.js Production Build](https://bvgsoftware.com/blog/how-to-optimize-your-nextjs-production-build/)                           |

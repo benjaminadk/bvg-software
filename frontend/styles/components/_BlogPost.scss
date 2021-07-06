@@ -37,5 +37,21 @@
         font-size: 1.8rem;
       }
     }
+
+    .bubble-chart {
+      margin: 150px auto;
+      transform: scale(1.5);
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .BlogPost {
+    overflow-x: hidden;
+
+    .bubble-chart {
+      margin: 250px auto;
+      transform: scale(2.2);
+    }
   }
 }
